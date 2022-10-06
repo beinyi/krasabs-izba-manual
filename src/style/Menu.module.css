@@ -1,0 +1,42 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-image: url("../img/background.png");
+    background-size: cover;
+}
+
+.link {
+    font-family: dindisplay_light, sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+.link:hover {
+    color: #ffbd2e;
+}
+
+.linksBlock {
+    padding-left: 5%;
+    font-size: 1.25em;
+}
+
+h1, h2 {
+    font-weight: normal;
+    padding: 2%;
+}
+
+h1 {
+    font-family: dindisplay_thin, sans-serif;
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+.logo {
+    padding: 15%
+}
