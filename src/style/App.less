@@ -6,14 +6,19 @@
     padding: 0;
 }
 
+html {
+    
+    height: 100vh;
+}
+
 body {
     display: flex;
     justify-content: center;
+    align-content: center;
     background-color: #1e1e1e;
     color: white;
     font-family: dindisplay_regular, sans-serif;
     font-size: 1em;
-    padding-top: 20px;
 }
 
 .screen {
@@ -22,19 +27,26 @@ body {
     overflow: hidden;
 }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 811px) {
+
     body {
         padding-top: 20px;
     }
 
     .screen {
-        height: 800px;
-        width: 450px;
+        height: 100vh;
+        max-height: 800px;
+        width: 20vw;
+        max-width: 450px;
+        min-width: 400px;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 810px) {
     .screen {
         height: 100vh;
+        min-height: 650px;
+        width: 100vw;
+        min-width: 300px;
     }
 }
