@@ -1,5 +1,5 @@
 import s from "../../style/Main.module.css"
-import { actButtons, TButton, meterButtons, navButtons, buttonTypes, infoMenuButtons } from "./buttons";
+import { TButton,  buttonTypes, infoMenuButtons } from "./buttons";
 import { ReactNode, useState } from "react";
 import Home from "./Sliders/Home"
 import Pay from "./Sliders/Pay";

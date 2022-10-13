@@ -1,9 +1,7 @@
-import { NONAME } from "dns";
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { JsxElement } from "typescript";
-import { buttonTypes } from "../components/Main/buttons";
-import Main from "../components/Main/Main";
+import { buttonTypes } from "./Main/buttons";
+import Main from "./Main/Main";
 
 export type TActivation = {         //Информация о том, какую кномпку выделить
     activeType: buttonTypes,

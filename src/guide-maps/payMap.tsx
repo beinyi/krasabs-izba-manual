@@ -1,4 +1,4 @@
-import { TActivation } from "./Guide"
+import { TActivation } from "../components/Guide"
 
 const payMap: Array<TActivation> = [   //Шаги для выделения и активации
     {
