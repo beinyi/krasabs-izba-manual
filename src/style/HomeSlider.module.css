@@ -1,0 +1,59 @@
+.slideMenu {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 0px;
+    background-color: #303030;
+    padding: 5%;
+    border-radius: 10px 10px 0 0;
+    overflow-y: auto;
+    padding-bottom: 20%;
+}
+
+.meterMenu {
+    margin-bottom: 5%;
+}
+
+.slideMenu .button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #3b3b3b;
+    padding: 3%;
+    margin-top: 5%;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.button span {
+    margin-left: 5%;
+}
+
+.icon {
+    height: 30px;
+    max-width: 30px;
+}
+
+
+@keyframes backgroundColor {
+    0% {background-color: rgba(155, 155, 155, 0.0);}
+    50% {background-color: rgba(155, 155, 155, 0.5);}
+    100% {background-color: rgba(155, 155, 155, 0.0);}
+  }
+
+#buttonGoToMe {
+    color: #dbdbdb;
+    animation: backgroundColor 3s infinite;
+}
+
+#buttonGoToMe:before {
+    position: relative;
+    display: block;
+    padding: 2%;
+    border: 1px solid #696b92;
+    background-color: #515369;
+    border-radius: 10px;
+    position: absolute;
+    content: attr(data-description);
+    bottom: 80px;
+    width: 60%;
+}
