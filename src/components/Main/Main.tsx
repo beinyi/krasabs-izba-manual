@@ -3,6 +3,7 @@ import { TButton,  buttonTypes, infoMenuButtons, navButtons } from "./buttons";
 import { ReactNode, useState } from "react";
 import Home from "./Sliders/Home"
 import Pay from "./Sliders/Pay";
+import Services from "./Sliders/Services/Services";
 
 export type props = {               // Тип и номер для активации кнопки, функция для перехода на следующий шаг
     activeType: buttonTypes | null,
@@ -21,7 +22,7 @@ const Main = ({ activeType, activeId, onNextStep }: props) => {
 
     const sliders: Array<ReactNode> = [  // Массив слайд-меню
         <Home activeType={activeType} activeId={activeId} onNextStep={onNextStep} />,
-        <Home activeType={activeType} activeId={activeId} onNextStep={onNextStep} />,   //Услуги
+        <Services activeType={activeType} activeId={activeId} onNextStep={onNextStep} />,   //Услуги
         <Pay activeType={activeType} activeId={activeId} onNextStep={onNextStep} />,
 
     ];

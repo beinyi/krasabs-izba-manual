@@ -1,0 +1,224 @@
+.slideMenu {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #303030;
+    padding: 5%;
+    border-radius: 10px 10px 0 0;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 20%;
+}
+
+.slideMenu::-webkit-scrollbar {
+    display: none;
+}
+
+.search {
+    font-family: 'dindisplay_light';
+    display: flex;
+    width: 100%;
+    padding: 2% 5% 2%;
+    border-radius: 10px;
+    background-color: #3b3b3b;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.1);
+    color: #5a5a5a;
+    margin-bottom: 10%;
+}
+
+.search img {
+    height: 20px;
+    margin-right: 2%;
+}
+
+.buttonPad {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 50%;
+    gap: 1em;
+}
+
+.buttonPad .button {
+    font-family: 'dindisplay_light';
+    font-size: 0.9em;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 30%;
+}
+
+.buttonPad .button img {
+    align-self: center;
+    border-radius: 10px;
+    background-color: #3b3b3b;
+    padding: 10%;
+    height: 70px;
+    width: 70px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.1);
+
+}
+
+.ordersButtons {
+    position: sticky;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    align-content: center;
+    text-align: center;
+    bottom: 0;
+    gap: 1em;
+}
+
+.ordersButtons .button {
+    position: absolute; 
+    display: flex;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #3b3b3b;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.1);
+    height: 50px;
+    width: 70%;
+}
+
+.ordersButtons .buttonBasketOn {
+    position: sticky; 
+    width: 70%;
+}
+
+
+.ordersButtons .basket {
+    visibility: hidden;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    bottom: 0;
+    right: 0;
+    border-radius: 10px;
+    padding: 2%;
+    width: 25%;
+    height: 50px;
+    background-color: #091;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.ordersButtons .basketOn {
+    visibility: visible;
+}
+
+.ordersButtons .basket img {
+    height: 35px;
+}
+
+@keyframes buttonBackgroundColor {
+    0% {
+        background-color: rgba(255, 255, 255, 0.0);
+    }
+
+    50% {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    100% {
+        background-color: rgba(255, 255, 255, 0.0);
+    }
+}
+
+@keyframes inputBackgroundColor {
+    0% {
+        background-color: rgba(255, 255, 255, 0.0);
+    }
+
+    50% {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    100% {
+        background-color: rgba(255, 255, 255, 0.0);
+    }
+}
+
+@keyframes imgSize {
+    0% {
+        height: 15px;
+    }
+
+    50% {
+        height: 20px;
+    }
+
+    100% {
+        height: 15px;
+    }
+}
+
+.GoToMe {
+    position: relative;
+    cursor: pointer;
+}
+
+.GoToMeBefore {
+    position: absolute;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #696b92;
+    background-color: #515369;
+    border-radius: 10px;
+    content: attr(data-description);
+    min-width: auto;
+    width: 200px;
+    cursor: default;
+    z-index: 999;
+
+}
+
+
+#buttonGoToMe {
+    .GoToMe;
+    animation: buttonBackgroundColor 2s infinite;
+}
+
+
+#inputGoToMe {
+    .GoToMe;
+    animation: inputBackgroundColor 2s infinite;
+}
+
+#imgGoToMe {
+    .GoToMe;
+}
+
+#imgGoToMe img {
+    animation: imgSize 2s infinite;
+}
+
+#buttonGoToMe:before {
+    .GoToMeBefore;
+    bottom: 80px;
+}
+
+#imgGoToMe:before {
+    .GoToMeBefore;
+    bottom: 180%;
+}
+
+#inputGoToMe:before {
+    .GoToMeBefore;
+    font-size: 0.5em;
+    bottom: 110%;
+}

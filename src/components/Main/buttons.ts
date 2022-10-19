@@ -1,5 +1,5 @@
 
-export type buttonTypes = 'infoMenu' | 'slideAct' | 'slideMeter' | 'navBar' | 'pay';
+export type buttonTypes = 'infoMenu' | 'slideAct' | 'slideMeter' | 'navBar' | 'pay' | 'servCategory' | 'servItem';
 
 export type TButton = {
     id: number,
@@ -69,7 +69,7 @@ export const navButtons: Array<TButton> = [
         type: 'navBar',
         title: "Услуги",
         icon: "ic_serv.svg",
-        description: ""
+        description: "Чтобы перейти на страницу услуг, нажмите на эту кнопку"
     },
     {
         id: 2,
@@ -115,5 +115,57 @@ export const payButtons: Array<TButton> = [
         title: "Подтвердить",
         icon: "ic_check_on.svg",
         description: "Подтвердите, что согласны с условиями"
+    }
+]
+
+export const servicesButtons: Array<TButton> = [
+    {
+        id: 0,
+        type: 'servCategory',
+        title: "Ремонт электроники",
+        icon: "ic_tv.png",
+        description: ""
+    },
+    {
+        id: 1,
+        type: 'servCategory',
+        title: "Электрика",
+        icon: "ic_electricity.png",
+        description: ""
+    },
+    {
+        id: 2,
+        type: 'servCategory',
+        title: "Сантехника",
+        icon: "ic_plumbing.png",
+        description: ""
+    },
+    {
+        id: 3,
+        type: 'servCategory',
+        title: "Прочие работы",
+        icon: "ic_tools.png",
+        description: ""
+    },
+    {
+        id: 4,
+        type: 'servCategory',
+        title: "Поиск...",
+        icon: "ic_find.svg",
+        description: ""
+    },
+    {
+        id: 5,
+        type: 'servCategory',
+        title: "Мои заказы",
+        icon: "",
+        description: ""
+    },
+    {
+        id: 6,
+        type: 'servCategory',
+        title: "Корзина",
+        icon: "ic_basket.svg",
+        description: ""
     }
 ]
