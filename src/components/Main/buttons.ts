@@ -138,7 +138,7 @@ export const servicesButtons: Array<TButton> = [
         type: 'servCategory',
         title: "Сантехника",
         icon: "ic_plumbing.png",
-        description: ""
+        description: "Выберите нужную категорию или воспользуйтесь поиском"
     },
     {
         id: 3,

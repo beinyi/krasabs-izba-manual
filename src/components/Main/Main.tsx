@@ -1,5 +1,5 @@
 import s from "../../style/Main.module.css"
-import { TButton,  buttonTypes, infoMenuButtons, navButtons } from "./buttons";
+import { TButton, buttonTypes, infoMenuButtons, navButtons } from "./buttons";
 import { ReactNode, useState } from "react";
 import Home from "./Sliders/Home"
 import Pay from "./Sliders/Pay";
@@ -11,7 +11,7 @@ export type props = {               // Тип и номер для актива�
     onNextStep(): void
 }
 
-const date: Date = new Date();
+export const date: Date = new Date();
 export const mouth: string = date.toLocaleString("ru-RU", { month: 'long' });
 export const year: number = date.getFullYear();
 
@@ -34,36 +34,41 @@ const Main = ({ activeType, activeId, onNextStep }: props) => {
     return (
         <div className={s.page}>
 
-            <div className={s.header}>
-                <div className={s.user}>
-                    <img className={s.icon} src={require('../../img/person.svg')} alt="Профиль" />
-                    <div className={s.userInfo}>
-                        <span style={{ fontFamily: "dindisplay_bold", fontSize: "1.25em" }}>ЛС №00000000000</span>
-                        <span>г. Красноярск, ул. Гагарина, д. 27, кв. 6 </span>
+            {activeSlider != 1 &&
+                <div>
+                    <div className={s.header}>
+                        <div className={s.user}>
+                            <img className={s.icon} src={require('../../img/person.svg')} alt="Профиль" />
+                            <div className={s.userInfo}>
+                                <span style={{ fontFamily: "dindisplay_bold", fontSize: "1.25em" }}>ЛС №00000000000</span>
+                                <span>г. Красноярск, ул. Гагарина, д. 27, кв. 6 </span>
+                            </div>
+                            <img style={{ height: "10px" }} src={require('../../img/ic_arrow_d.svg')} />
+                        </div>
+
+                        <img style={{ marginLeft: "auto" }} className={s.icon} src={require('../../img/ic_bell.svg')} alt="Уведомления" />
+
                     </div>
-                    <img style={{ height: "10px" }} src={require('../../img/ic_arrow_d.svg')} />
+
+
+                    <div className={s.infoMenu}>
+                        <span>Всего задолженность</span>
+                        <span style={{ fontFamily: "dindisplay_bold", color: "#ffbd2e", fontSize: "1.5em" }}>-1 918,58 р.</span>
+                        <span>Всего начисленно за {mouth} {year}</span>
+                        <span style={{ fontFamily: "dindisplay_bold", fontSize: "1.5em" }}>1 918,58 р.</span>
+                        <div className={s.infoButtonPad}>
+                            <div id={goToMe(infoMenuButtons[0].type, infoMenuButtons[0].id) ? s["buttonGoToMe"] : ""}
+                                className={s.buttonInfo}>
+                                {infoMenuButtons[0].title}
+                            </div>
+                            <div id={goToMe(infoMenuButtons[1].type, infoMenuButtons[1].id) ? s["buttonGoToMe"] : ""}
+                                className={s.buttonPay}>
+                                {infoMenuButtons[1].title}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <img style={{ marginLeft: "auto" }} className={s.icon} src={require('../../img/ic_bell.svg')} alt="Уведомления" />
-
-            </div>
-
-            <div className={s.infoMenu}>
-                <span>Всего задолженность</span>
-                <span style={{ fontFamily: "dindisplay_bold", color: "#ffbd2e", fontSize: "1.5em" }}>-1 918,58 р.</span>
-                <span>Всего начисленно за {mouth} {year}</span>
-                <span style={{ fontFamily: "dindisplay_bold", fontSize: "1.5em" }}>1 918,58 р.</span>
-                <div className={s.infoButtonPad}>
-                    <div id={goToMe(infoMenuButtons[0].type, infoMenuButtons[0].id) ? s["buttonGoToMe"] : ""}
-                        className={s.buttonInfo}>
-                        {infoMenuButtons[0].title}
-                    </div>
-                    <div id={goToMe(infoMenuButtons[1].type, infoMenuButtons[1].id) ? s["buttonGoToMe"] : ""}
-                        className={s.buttonPay}>
-                        {infoMenuButtons[1].title}
-                    </div>
-                </div>
-            </div>
+            }
 
             {sliders[activeSlider]}
 

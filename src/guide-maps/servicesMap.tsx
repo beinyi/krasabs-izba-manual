@@ -10,8 +10,8 @@ const servicesMap: Array<TActivation> = [   //Шаги для выделения
         activeId: 2
     },
     {
-        activeType: "servItem",
-        activeId: 3
+        activeType: "navBar",
+        activeId: 4
     },
 
 ]

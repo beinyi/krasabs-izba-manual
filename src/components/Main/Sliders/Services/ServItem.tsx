@@ -3,24 +3,24 @@ import { TService } from "./ServicesList"
 
 type serviceItemProps = {
     service: TService,
-    setBasketAmount(i: number): void,
-    basketAmount: number
+    setBasketContents(i: Array<TService>): void,
+    basketContents: Array<TService>
 }
 
 
-const ServItem = ({ service, setBasketAmount, basketAmount }: serviceItemProps) => {
+const ServItem = ({ service, setBasketContents, basketContents }: serviceItemProps) => {
 
     const [isSelected, setSelected] = useState<boolean>(false);
 
-    const onSelected = () => {
+    const onSelected = (service: TService) => {
         !isSelected ?
-        setBasketAmount(basketAmount + 1)
-        : setBasketAmount(basketAmount - 1)
+        setBasketContents([...basketContents, service])
+        : setBasketContents(basketContents.filter((item) => item.id !== service.id))
         setSelected(!isSelected);
     }
 
     return (
-        <div onClick={() => onSelected()}>
+        <div onClick={() => onSelected(service)}>
             <div style={{
                 display: "flex"
             }}>

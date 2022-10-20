@@ -1,8 +1,13 @@
+.mainHeader {
+
+}
+
 .slideMenu {
     position: absolute;
     bottom: 0;
     width: 100%;
-    max-height: 80vh;
+    max-height: 90vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     background-color: #303030;
@@ -12,7 +17,21 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     padding-bottom: 20%;
+    animation-name: slide;
+    animation-duration: 0.5s;
+    -webkit-animation-name: slide;
+    -webkit-animation-duration: 0.5s; 
 }
+
+@keyframes slide {
+    from { max-height: 0; }
+    to { max-height:  90vh; }
+  }
+   
+  @-webkit-keyframes slide {
+    from { max-height: 0; }
+    to { max-height:  90vh; }
+  }
 
 .slideMenu::-webkit-scrollbar {
     display: none;
@@ -138,40 +157,24 @@
     }
 }
 
-@keyframes inputBackgroundColor {
-    0% {
-        background-color: rgba(255, 255, 255, 0.0);
-    }
-
-    50% {
-        background-color: rgba(255, 255, 255, 0.5);
-    }
-
-    100% {
-        background-color: rgba(255, 255, 255, 0.0);
-    }
-}
-
-@keyframes imgSize {
-    0% {
-        height: 15px;
-    }
-
-    50% {
-        height: 20px;
-    }
-
-    100% {
-        height: 15px;
-    }
-}
-
-.GoToMe {
-    position: relative;
+#buttonGoToMe {
     cursor: pointer;
+    animation: buttonBackgroundColor 2s infinite;
 }
 
-.GoToMeBefore {
+@keyframes show {
+    from { opacity: 0.0; }
+    to { opacity: 1.0; }
+  }
+   
+  @-webkit-keyframes show {
+    from { opacity: 0.0; }
+    to { opacity: 1.0; }
+  }
+
+#buttonGoToMe:before {
+    font-family: 'dindisplay_regular';
+    font-size: 1.1em;
     position: absolute;
     display: block;
     padding: 5px;
@@ -184,41 +187,12 @@
     width: 200px;
     cursor: default;
     z-index: 999;
-
-}
-
-
-#buttonGoToMe {
-    .GoToMe;
-    animation: buttonBackgroundColor 2s infinite;
-}
-
-
-#inputGoToMe {
-    .GoToMe;
-    animation: inputBackgroundColor 2s infinite;
-}
-
-#imgGoToMe {
-    .GoToMe;
-}
-
-#imgGoToMe img {
-    animation: imgSize 2s infinite;
-}
-
-#buttonGoToMe:before {
-    .GoToMeBefore;
-    bottom: 80px;
-}
-
-#imgGoToMe:before {
-    .GoToMeBefore;
-    bottom: 180%;
-}
-
-#inputGoToMe:before {
-    .GoToMeBefore;
-    font-size: 0.5em;
-    bottom: 110%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 150px;
+    animation-name: show;
+    animation-duration: 2s;
+    -webkit-animation-name: show;
+    -webkit-animation-duration: 2s; 
 }
