@@ -1,11 +1,14 @@
 
-export type buttonTypes = 'infoMenu' | 'slideAct' | 'slideMeter' | 'navBar' | 'pay' | 'servCategory' | 'servItem';
+export type buttonTypes = 
+'infoMenu' | 'slideAct' | 'slideMeter' | 
+'navBar' | 'pay' | 'servCategory' | 
+'servItem' | 'basket';
 
 export type TButton = {
     id: number,
     type: buttonTypes,
     title: string,
-    icon: string | null,
+    icon?: string | null,
     description?: string
 }
 
@@ -166,6 +169,28 @@ export const servicesButtons: Array<TButton> = [
         type: 'servCategory',
         title: "Корзина",
         icon: "ic_basket.svg",
-        description: ""
+        description: "Для оформления заказа перейдите в корзину."
     }
+]
+
+export const basketButtons: Array<TButton> = [
+    {
+        id: 0,
+        type: 'basket',
+        title: "",
+        description: "Выберите удобные дату и время."
+    },
+    {
+        id: 1,
+        type: 'basket',
+        title: "",
+        description: "Укажите контактную информацию и оставьте комментарий при необходимости."
+    },
+    {
+        id: 2,
+        type: 'basket',
+        title: "",
+        description: "После этого можно оформить заявку."
+    }
+
 ]

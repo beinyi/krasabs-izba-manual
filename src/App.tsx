@@ -4,7 +4,6 @@ import "./fonts/fonts.css"
 import {Route, Routes} from "react-router-dom";
 import Guide from "./components/Guide";
 import payMap, {payCredits} from "./guide-maps/payMap"
-import Main from "./components/Main/Main";
 import servicesMap, {servicesCredits} from "./guide-maps/servicesMap";
 
 

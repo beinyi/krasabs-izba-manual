@@ -1,20 +1,15 @@
-import { actButtons, buttonTypes, meterButtons, TButton } from "../buttons"
+import { actButtons, meterButtons, TButton } from "../buttons"
 import s from "../../../style/HomeSlider.module.css"
-import { props } from "../Main"
+import { goToMe, props } from "../Main"
 
 
 
-const Home = ({ activeType, activeId, onNextStep }: props) => {
+const Home = ({ activation, onNextStep }: props) => {
     
-    const goToMe = (type: buttonTypes, id: number): string => {     // Проверка кнопки на активацию. 
-        return (activeType === type && activeId === id ?
-            `${s["buttonGoToMe"]}`
-            : "")
-    }
 
     const renderButton = (button: TButton) => {
         return (
-            <div id={goToMe(button.type, button.id)} className={s.button} data-description={"dss"} key={`${button.type}-${button.id}`}>
+            <div id={goToMe(button, activation) ? s["buttonGoToMe"] : ""} className={s.button} data-description={"dss"} key={`${button.type}-${button.id}`}>
                 <img className={s.icon} src={require(`../../../img/${button.icon}`)} alt={button.title} />
                 <span>{button.title}</span>
             </div>

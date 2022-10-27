@@ -1,18 +1,14 @@
-import { mouth, props, year } from "../Main";
+import { goToMe, mouth, props, year } from "../Main";
 import s from "../../../style/PaySlider.module.less"
-import { buttonTypes, payButtons, TButton } from "../buttons";
+import { payButtons, TButton } from "../buttons";
 
 
-const Pay = ({ activeType, activeId, onNextStep }: props) => {
-
-    const goToMe = (type: buttonTypes, id: number): boolean => {     // Проверка кнопки на активацию. 
-        return (activeType === type && activeId === id)
-    }
+const Pay = ({ activation, onNextStep }: props) => {
 
     const renderButton = (button: TButton) => {
         return (
-            <div id={goToMe(button.type, button.id) ? s["buttonGoToMe"] : ""}
-                onClick={goToMe(button.type, button.id) ?
+            <div id={goToMe(button, activation) ? s["buttonGoToMe"] : ""}
+                onClick={goToMe(button, activation) ?
                     () => { onNextStep(); }
                     : () => { }}
                 className={s.button} key={`${button.type}-${button.id}`}
@@ -44,9 +40,9 @@ const Pay = ({ activeType, activeId, onNextStep }: props) => {
 
             <div className={s.payment}>
                 <h2>К оплате</h2>
-                <div id={goToMe(payButtons[1].type, payButtons[1].id) ? s["inputGoToMe"] : ""}
+                <div id={goToMe(payButtons[1], activation) ? s["inputGoToMe"] : ""}
                     className={s.paymentInput}
-                    onClick={goToMe(payButtons[1].type, payButtons[1].id) ?
+                    onClick={goToMe(payButtons[1], activation) ?
                         () => { onNextStep(); }
                         : () => { }}
                     data-description={payButtons[1].description}>
@@ -57,8 +53,8 @@ const Pay = ({ activeType, activeId, onNextStep }: props) => {
                     flexDirection: "row"
                 }}>
 
-                    <div id={goToMe(payButtons[2].type, payButtons[2].id) ? s["imgGoToMe"] : ""}
-                        onClick={goToMe(payButtons[2].type, payButtons[2].id) ?
+                    <div id={goToMe(payButtons[2], activation) ? s["imgGoToMe"] : ""}
+                        onClick={goToMe(payButtons[2], activation) ?
                             () => { onNextStep(); }
                             : () => { }}
                         data-description={payButtons[2].description} >

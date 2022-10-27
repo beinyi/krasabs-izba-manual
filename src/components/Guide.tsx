@@ -4,7 +4,7 @@ import { buttonTypes } from "./Main/buttons";
 import Main from "./Main/Main";
 
 export type TActivation = {         //Информация о том, какую кномпку выделить
-    activeType: buttonTypes,
+    activeType: buttonTypes | null,
     activeId: number,
 }
 
@@ -15,20 +15,23 @@ type guideProps = {
 
 const Guide = ({ guideMap, credits }: guideProps) => {  //Передает информацию о том, какие кнопки выделять и делать активными
 
-    const [selectedType, setSelectedType] = useState<buttonTypes | null>(null);  
-    const [selectedId, setSelectedId] = useState<number>(0);  
+    const [activation, setActivation] = useState<TActivation>({
+        activeType: null, 
+        activeId: 0});
     const [isMapOver, setIsMapOver] = useState<boolean>(false);  //Проверка на окончание "карты"
     const [step, setStep] = useState<number>(0);
 
     useEffect(() => {
-        setSelectedType(guideMap[step].activeType);
-        setSelectedId(guideMap[step].activeId);
+        setActivation(guideMap[step]);
     }, [step]);
 
-    const onNextStep = () => {
-        (guideMap.length !== step + 1) ?   //Переход на следующий шаг если он есть
-            setStep(step + 1)
-            : setIsMapOver(!isMapOver);
+    const onNextStep = (forward?: boolean) => {
+        forward = forward ?? true;
+        forward ?
+            (guideMap.length !== step + 1) ?   //Переход на следующий шаг если он есть
+                setStep(step + 1)
+                : setIsMapOver(!isMapOver)
+            : setStep(step - 1)
     }
 
     return (
@@ -46,7 +49,7 @@ const Guide = ({ guideMap, credits }: guideProps) => {  //Передает ин�
                             fontFamily: "dindisplay_regular",
                             margin: "2%"
                         }}
-                        key={i}>{s}</p>
+                            key={i}>{s}</p>
                     )
                 })}
 
@@ -64,7 +67,7 @@ const Guide = ({ guideMap, credits }: guideProps) => {  //Передает ин�
                 }} to={"/"}>Меню</NavLink>
             </div>
 
-            : <Main activeType={selectedType} activeId={selectedId} onNextStep={onNextStep} /> 
+            : <Main activation={activation} onNextStep={onNextStep} />
     )
 
 
