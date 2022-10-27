@@ -1,6 +1,7 @@
 .slideMenu {
     position: absolute;
     bottom: 0;
+    z-index: 106;
     width: 100%;
     height: 100%;
     display: flex;
@@ -122,7 +123,7 @@
 .buttonOrder {
     font-family: 'dindisplay_regular';
 
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     margin: auto;
@@ -154,8 +155,8 @@
     }
 }
 
-#buttonGoToMe, 
-#buttonGoToMe2{
+#buttonGoToMe,
+#buttonGoToMe2 {
     cursor: pointer;
     animation: buttonBackgroundColor 2s infinite;
 }
@@ -204,7 +205,7 @@
     font-family: 'dindisplay_regular';
     font-size: 1em;
     color: #fff;
-    position: fixed;
+    position: absolute;
     display: block;
     padding: 5px;
     text-align: center;
@@ -224,4 +225,8 @@
     animation-duration: 2s;
     -webkit-animation-name: show;
     -webkit-animation-duration: 2s;
+}
+
+#buttonOrderGoToMe::before {
+    bottom: 80px;
 }

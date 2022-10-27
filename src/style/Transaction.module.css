@@ -1,0 +1,103 @@
+.slideMenu {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #303030;
+    padding: 5%;
+    border-radius: 10px 10px 0 0;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 20%;
+    animation-name: slide;
+    animation-duration: 0.5s;
+    -webkit-animation-name: slide;
+    -webkit-animation-duration: 0.5s;
+}
+
+@keyframes slide {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 85vh;
+    }
+}
+
+@-webkit-keyframes slide {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 85vh;
+    }
+}
+
+.slideMenu::-webkit-scrollbar {
+    display: none;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 5%;
+    align-items: center;
+}
+
+.header span {
+    font-family: 'dindisplay_bold';
+    font-size: 1.5em;
+}
+
+.header .button {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-self: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #303030;
+    padding: 3%;
+}
+
+.header .title {
+    grid-column: 1 / 3;
+    display: flex;
+    gap: 5%;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    padding: 2% 3% 2% 3%;
+}
+
+.header .title img {
+    height: 25px;
+    margin-right: 5%;
+}
+
+.transItem {
+    display: flex;
+    gap: 5%;
+}
+
+.transItem .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.transItem .icon {
+    justify-content: center;
+    border-radius: 10px;
+    padding: 3%;
+}
+
+.transItem .icon img{
+    height: 35px;
+}

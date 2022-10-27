@@ -94,7 +94,6 @@
   }
 
 #buttonGoToMe {
-    position: relative;
     color: #dbdbdb;
     animation: backgroundColor 3s infinite;
     cursor: pointer;

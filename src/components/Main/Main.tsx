@@ -2,7 +2,7 @@ import s from "../../style/Main.module.css"
 import { TButton, navButtons } from "./buttons";
 import { ReactNode, useEffect, useState } from "react";
 import Home from "./Sliders/Home"
-import Pay from "./Sliders/Pay";
+import Pay from "./Sliders/Pay/Pay";
 import Services from "./Sliders/Services/Services";
 import MainHeader from "./MainHeader";
 import { TActivation } from "../Guide";
@@ -18,7 +18,7 @@ export const goToMe = (button: TButton, activation: TActivation): boolean => {  
 }
 
 export const date: Date = new Date();
-export const mouth: string = date.toLocaleString("ru-RU", { month: 'long' });
+export const month: string = date.toLocaleString("ru-RU", { month: 'long' });
 export const year: number = date.getFullYear();
 
 const Main = ({ activation, onNextStep }: props) => {
@@ -54,7 +54,7 @@ const Main = ({ activation, onNextStep }: props) => {
         <div className={s.page}>
 
             {isViewHeader &&
-                <MainHeader mouth={mouth} year={year} activation={activation} />
+                <MainHeader mouth={month} year={year} activation={activation} />
             }
 
             <Home activation={activation} onNextStep={onNextStep} />
