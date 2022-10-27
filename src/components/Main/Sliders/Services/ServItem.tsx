@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { TService } from "./ServicesList"
 
 type serviceItemProps = {
@@ -12,10 +12,16 @@ const ServItem = ({ service, setBasketContents, basketContents }: serviceItemPro
 
     const [isSelected, setSelected] = useState<boolean>(false);
 
+    useEffect(() => {
+        setSelected(
+            basketContents.some((item: TService) => item === service)
+        )
+    }, [])
+
     const onSelected = (service: TService) => {
         !isSelected ?
-        setBasketContents([...basketContents, service])
-        : setBasketContents(basketContents.filter((item) => item.id !== service.id))
+            setBasketContents([...basketContents, service])
+            : setBasketContents(basketContents.filter((item) => item.id !== service.id))
         setSelected(!isSelected);
     }
 

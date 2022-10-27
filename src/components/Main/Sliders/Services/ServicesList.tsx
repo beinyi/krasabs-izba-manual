@@ -1,19 +1,20 @@
-import { buttonTypes } from "../../buttons"
+import { TButton } from "../../buttons"
 import s from "../../../../style/ServicesSlider.module.less"
-import { props } from "../../Main"
+import { goToMe, props } from "../../Main"
 import ServItem from "./ServItem"
 
-export type TService = {
-    id: number,
-    type: buttonTypes,
-    title: string,
+export type TService = TButton & {
     price: number,
     rating?: number,
     orders?: number,
     amount: number,
+    description?: string
 }
 
-type servicesListProps = props & { setBasketContents(i: Array<TService>): void, basketContents: Array<TService> }
+
+type servicesListProps = props & { 
+    setBasketContents(i: Array<TService>): void, 
+    basketContents: Array<TService> }
 
 const plumbingServices: Array<TService> = [
     {
@@ -23,7 +24,8 @@ const plumbingServices: Array<TService> = [
         price: 1500,
         rating: 5,
         orders: 16,
-        amount: 1
+        amount: 1,
+        description: "Выберите нужную услугу."
     },
     {
         id: 1,
@@ -32,7 +34,8 @@ const plumbingServices: Array<TService> = [
         price: 2000,
         rating: 3,
         orders: 19,
-        amount: 1
+        amount: 1,
+        description: "При необходимости можно выбрать несколько."
     },
     {
         id: 2,
@@ -89,14 +92,9 @@ const plumbingServices: Array<TService> = [
     },
 ]
 
-const Plumbing = ({ activeType, activeId, onNextStep, setBasketContents, basketContents }: servicesListProps) => {
-
-    const goToMe = (type: buttonTypes, id: number): boolean => {     // Проверка кнопки на активацию. 
-        return (activeType === type && activeId === id)
-    }
+const ServicesList = ({ activation, onNextStep, setBasketContents, basketContents }: servicesListProps) => {
 
     const selectedServ: Array<number> = [];
-
 
     return (
         <div>
@@ -110,10 +108,11 @@ const Plumbing = ({ activeType, activeId, onNextStep, setBasketContents, basketC
                     marginRight: "-5%",
                     padding: "5%",
                 }}
-                    id={goToMe(serv.type, serv.id) ? s["buttonGoToMe"] : ""}
-                    onClick={goToMe(serv.type, serv.id) ?
+                    id={goToMe(serv, activation) ? s["buttonGoToMe"] : ""}
+                    onClick={goToMe(serv, activation) ?
                         () => { onNextStep(); }
                         : () => { }}
+                        data-description={serv.description}
                     key={serv.id}>
 
                     <ServItem service={serv} setBasketContents={setBasketContents} basketContents={basketContents} />
@@ -124,4 +123,4 @@ const Plumbing = ({ activeType, activeId, onNextStep, setBasketContents, basketC
     )
 }
 
-export default Plumbing;
+export default ServicesList;

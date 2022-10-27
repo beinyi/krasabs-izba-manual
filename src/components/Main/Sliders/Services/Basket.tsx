@@ -1,18 +1,15 @@
-import { date } from "../../Main"
+import { date, goToMe, props } from "../../Main"
 import { TService } from "./ServicesList"
 import s from "../../../../style/Basket.module.css"
-import { buttonTypes } from "../../buttons"
-import { useEffect } from "react"
+import { basketButtons, buttonTypes } from "../../buttons"
 
-type basketProps = {
+type basketProps = props & {
     contents: Array<TService>,
     setContents(contents: Array<TService>): void,
     onClose(): void
 }
 
-const Basket = ({ contents, setContents, onClose }: basketProps) => {
-
-
+const Basket = ({ activation, contents, setContents, onClose, onNextStep }: basketProps) => {
 
     const amount = (): number =>
         contents.reduce((sum, item) =>
@@ -48,20 +45,41 @@ const Basket = ({ contents, setContents, onClose }: basketProps) => {
         <div className={s.slideMenu}>
             <div className={s.header}>
                 <span>В корзине {contents.length} услуги на {amount()} руб.</span>
-                <img onClick={() => {onClose()}} src={require('../../../../img/ic_close.svg')} />
+                <img onClick={() => { onClose(); onNextStep(false); }} src={require('../../../../img/ic_close.svg')} />
             </div>
 
             <div className={s.dataPad}>
-                <div className={s.date}>
+                <div className={s.date}
+                id={goToMe(basketButtons[0], activation) ? s["buttonGoToMe"] : ""}
+                data-description="Выберите удобные дату и время."
+                onClick={goToMe(basketButtons[0], activation) ? () => 
+                onNextStep() 
+                : () => {}}>
                     <img src={require('../../../../img/ic_date.svg')} />
                     <span>{tomorrow}</span>
                 </div>
-                <div className={s.date}>
+
+                <div className={s.date}
+                id={goToMe(basketButtons[0], activation) ? s["buttonGoToMe2"] : ""}
+                onClick={goToMe(basketButtons[0], activation) ? () => 
+                onNextStep() 
+                : () => {}}>
                     <img src={require('../../../../img/ic_time.svg')} />
                     <span>13:00 - 17:00</span>
                 </div>
-                <div className={s.input}>Имя...</div>
-                <div className={s.input}>Телефон...</div>
+
+                <div className={s.input}
+                id={goToMe(basketButtons[1], activation) ? s["buttonGoToMe"] : ""}
+                data-description="Укажите контактную информацию и оставьте комментарий при необходимости."
+                onClick={goToMe(basketButtons[1], activation) ? () => 
+                onNextStep() 
+                : () => {}}>Имя...</div>
+
+                <div className={s.input}
+                id={goToMe(basketButtons[1], activation) ? s["buttonGoToMe2"] : ""}
+                onClick={goToMe(basketButtons[1], activation) ? () => 
+                onNextStep() 
+                : () => {}}>Телефон...</div>
                 <span style={{ textDecoration: "underline" }}>Оставить комментарий</span>
             </div>
 
@@ -86,6 +104,16 @@ const Basket = ({ contents, setContents, onClose }: basketProps) => {
                         }}></div>
                     </div>
                 )}
+
+                <div className={s.buttonOrder}
+                id={goToMe(basketButtons[2], activation) ? s["buttonOrderGoToMe"] : ""}
+                data-description="После этого можно оформить заявку."
+                onClick={goToMe(basketButtons[2], activation) ? () => 
+                onNextStep() 
+                : () => {}}
+                >
+                    <span>Оформить заявку</span>
+                </div>
 
             </div>
 

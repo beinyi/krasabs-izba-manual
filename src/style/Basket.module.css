@@ -13,6 +13,34 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     padding-bottom: 20%;
+    animation-name: slide;
+    animation-duration: 0.5s;
+    -webkit-animation-name: slide;
+    -webkit-animation-duration: 0.5s;
+}
+
+@keyframes slide {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 100vh;
+    }
+}
+
+@-webkit-keyframes slide {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 100vh;
+    }
+}
+
+.slideMenu::-webkit-scrollbar {
+    display: none;
 }
 
 .header {
@@ -89,4 +117,111 @@
 
 .service .amount img {
     height: 15px;
+}
+
+.buttonOrder {
+    font-family: 'dindisplay_regular';
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+    padding: 2%;
+    background-color: #091;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes buttonBackgroundColor {
+    0% {
+        background-color: rgba(255, 255, 255, 0.0);
+    }
+
+    50% {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    100% {
+        background-color: rgba(255, 255, 255, 0.0);
+    }
+}
+
+#buttonGoToMe, 
+#buttonGoToMe2{
+    cursor: pointer;
+    animation: buttonBackgroundColor 2s infinite;
+}
+
+@keyframes buttonOrderBackgroundColor {
+    0% {
+        background-color: rgba(0, 153, 17, 1);
+    }
+
+    50% {
+        background-color: rgba(0, 153, 17, 0.5);
+    }
+
+    100% {
+        background-color: rgba(0, 153, 17, 1);
+    }
+}
+
+#buttonOrderGoToMe {
+    cursor: pointer;
+    animation: buttonOrderBackgroundColor 2s infinite;
+}
+
+@keyframes show {
+    from {
+        opacity: 0.0;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes show {
+    from {
+        opacity: 0.0;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
+
+#buttonGoToMe::before,
+#buttonOrderGoToMe::before {
+    font-family: 'dindisplay_regular';
+    font-size: 1em;
+    color: #fff;
+    position: fixed;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #696b92;
+    background-color: #515369;
+    border-radius: 10px;
+    content: attr(data-description);
+    min-width: auto;
+    width: 200px;
+    cursor: default;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 150px;
+    animation-name: show;
+    animation-duration: 2s;
+    -webkit-animation-name: show;
+    -webkit-animation-duration: 2s;
 }

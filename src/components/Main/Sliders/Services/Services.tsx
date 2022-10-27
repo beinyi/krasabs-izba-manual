@@ -1,36 +1,36 @@
-import { buttonTypes, servicesButtons, TButton } from "../../buttons";
-import { props } from "../../Main";
+import {  servicesButtons, TButton } from "../../buttons";
+import { goToMe, props } from "../../Main";
 import s from "../../../../style/ServicesSlider.module.less"
 import { useState } from "react";
 import ServicesList, { TService } from "./ServicesList";
 import Basket from "./Basket";
 
-const Services = ({ activeType, activeId, onNextStep }: props) => {
+const Services = ({ activation, onNextStep }: props) => {
 
-    const [viewPlumbingList, setViewPlumbingList] = useState<boolean>(false);
-    const [viewBasket, setViewBasket] = useState<boolean>(false);
+    const [viewServicesList, setViewServicesList] = useState<{
+        isView: boolean,
+        title: string | null
+    }>({ isView: false, title: null });
+    const [isViewBasket, setIsViewBasket] = useState<boolean>(false);
     const [basketContents, setBasketContents] = useState<Array<TService>>([]);
 
 
     const onBasket = () => {
-        setViewBasket(!viewBasket);
+        setIsViewBasket(!isViewBasket);
     }
 
 
-    const onPlumping = () => {
-        setViewPlumbingList(!viewPlumbingList);
+    const onServices = (title: string | null) => {
+        setViewServicesList({ isView: !viewServicesList.isView, title });
     }
 
-    const goToMe = (type: buttonTypes, id: number): boolean => {     // Проверка кнопки на активацию. 
-        return (activeType === type && activeId === id)
-    }
 
     const renderButton = (button: TButton) => {
         return (
-            <div id={goToMe(button.type, button.id) ? s["buttonGoToMe"] : ""}
+            <div id={goToMe(button, activation) ? s["buttonGoToMe"] : ""}
                 data-description={button.description}
-                onClick={goToMe(button.type, button.id) ?
-                    () => { onNextStep(); onPlumping(); }
+                onClick={goToMe(button, activation) ?
+                    () => { onNextStep(); onServices(button.title); }
                     : () => { }}
                 className={s.button} key={`${button.type}-${button.id}`}>
                 <img
@@ -41,27 +41,41 @@ const Services = ({ activeType, activeId, onNextStep }: props) => {
     }
 
     return (
-        viewBasket ?
-            <Basket contents={basketContents} setContents={setBasketContents} onClose={onBasket} />
+        isViewBasket ?
+            <Basket activation={activation}
+            contents={basketContents} setContents={setBasketContents} 
+            onClose={onBasket} onNextStep={onNextStep} />
             :
             <div>
-                <div className={s.mainHeader}>
-                    <span>Заказать</span>
-                    <div>Сообщить</div>
-                </div>
+                {viewServicesList.isView ?                                              // Заголовок -- либо главный, либо заголовок листа услуг
+                    <div className={s.headerList}>
+                        <div className={s.button}>
+                            <img src={require(`../../../../img/ic_arrow_l.svg`)}
+                                onClick={() => onServices(null)} />
+                            <span>{viewServicesList.title}</span>
+                        </div>
+                    </div>
+                    : <div className={s.header}>
+                        <span>Заказать</span>
+                        <div className={s.button}>
+                            <img src={require(`../../../../img/ic_alarm.svg`)} />
+                            Сообщить
+                        </div>
+                    </div>
+                }
+
                 <div className={s.slideMenu}>
-                    <div id={goToMe(servicesButtons[4].type, servicesButtons[4].id) ? s["buttonGoToMe"] : ""}
+                    <div id={goToMe(servicesButtons[4], activation) ? s["buttonGoToMe"] : ""}
                         className={s.search}
-                        onClick={goToMe(servicesButtons[4].type, servicesButtons[4].id) ?
+                        onClick={goToMe(servicesButtons[4], activation) ?
                             () => { onNextStep(); }
-                            : () => { }}
-                        data-description={servicesButtons[5].description}>
+                            : () => { }}>
                         <img src={require(`../../../../img/${servicesButtons[4].icon}`)} alt={servicesButtons[4].title} />
                         Поиск...
                     </div>
 
-                    {viewPlumbingList ?
-                        <ServicesList activeType={activeType} activeId={activeId} onNextStep={onNextStep}
+                    {viewServicesList.isView ?                                                                // лист услуг, либо категории
+                        <ServicesList activation={activation} onNextStep={onNextStep}
                             setBasketContents={setBasketContents} basketContents={basketContents} />
                         : <div className={s.buttonPad}>
                             {servicesButtons.filter((_v, i) => i < 4).map((button: TButton) => renderButton(button))}
@@ -70,19 +84,22 @@ const Services = ({ activeType, activeId, onNextStep }: props) => {
 
 
                     <div className={s.ordersButtons}>
-                        <div id={goToMe(servicesButtons[5].type, servicesButtons[5].id) ? s["buttonGoToMe"] : ""}
+                        <div id={goToMe(servicesButtons[5], activation) ? s["buttonGoToMe"] : ""}
                             className={`${s.button} ${basketContents.length > 0 && s.buttonBasketOn}`}
-                            onClick={goToMe(servicesButtons[5].type, servicesButtons[5].id) ?
+                            onClick={goToMe(servicesButtons[5], activation) ?
                                 () => { onNextStep(); }
                                 : () => { }}
                             data-description={servicesButtons[5].description}>
                             <span>Мои заказы</span>
                         </div>
-                        <div id={goToMe(servicesButtons[6].type, servicesButtons[6].id) ? s["buttonGoToMe"] : ""}
+                        <div id={goToMe(servicesButtons[6], activation) ? s["basketGoToMe"] : ""}
                             className={`${s.basket} ${basketContents.length > 0 && s.basketOn}`}
-                            onClick={goToMe(servicesButtons[6].type, servicesButtons[6].id) ?
-                                () => { onNextStep(); }
-                                : () => { onBasket() }}
+                            onClick={goToMe(servicesButtons[6], activation) ?
+                                () => {
+                                    onNextStep();
+                                    onBasket();
+                                }
+                                : () => { onBasket(); }}
                             data-description={servicesButtons[6].description}>
                             <img src={require(`../../../../img/${servicesButtons[6].icon}`)} alt={servicesButtons[6].title} />
                             <span>{basketContents.length}</span>

@@ -10,17 +10,36 @@ const servicesMap: Array<TActivation> = [   //Шаги для выделения
         activeId: 2
     },
     {
-        activeType: "navBar",
-        activeId: 4
+        activeType: "servItem",
+        activeId: 0
+    },
+    {
+        activeType: "servItem",
+        activeId: 1
+    },
+    {
+        activeType: "servCategory",
+        activeId: 6
+    },
+    {
+        activeType: "basket",
+        activeId: 0
+    },
+    {
+        activeType: "basket",
+        activeId: 1
+    },
+    {
+        activeType: "basket",
+        activeId: 2
     },
 
 ]
 
 export const servicesCredits: Array<string> = [             //"Титры" для вывода после прохождения маршрута
-    "Оплата через банковскую платежную систему",
-    "Далее Вы попадете на страницу банка.",
-    "Вам необходимо заполнить данные карты и принять Соглашение о защите персональных данных.",
-    "Не волнуйтесь за сохранность данных Вашей карты. Оплата производится через защищенное соединение банка."
+    "Заявка оформлена!",
+    "После оформления проверить статус заявки можно в разделе \"Мои заказы\".",
+    "Сообщение об изменении статуса будет в уведомлениях в главном меню."
 ]
 
 

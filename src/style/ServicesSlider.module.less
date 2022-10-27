@@ -1,13 +1,11 @@
-.mainHeader {
-
-}
+.mainHeader {}
 
 .slideMenu {
     position: absolute;
     bottom: 0;
     width: 100%;
+    height: 90%;
     max-height: 90vh;
-    height: auto;
     display: flex;
     flex-direction: column;
     background-color: #303030;
@@ -20,21 +18,71 @@
     animation-name: slide;
     animation-duration: 0.5s;
     -webkit-animation-name: slide;
-    -webkit-animation-duration: 0.5s; 
+    -webkit-animation-duration: 0.5s;
 }
 
 @keyframes slide {
-    from { max-height: 0; }
-    to { max-height:  90vh; }
-  }
-   
-  @-webkit-keyframes slide {
-    from { max-height: 0; }
-    to { max-height:  90vh; }
-  }
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 90vh;
+    }
+}
+
+@-webkit-keyframes slide {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 90vh;
+    }
+}
 
 .slideMenu::-webkit-scrollbar {
     display: none;
+}
+
+.header,
+.headerList {
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+    align-items: center;
+    height: auto;
+}
+
+
+.header span
+,.headerList span {
+    font-family: 'dindisplay_bold';
+    font-size: 1.5em;
+}
+
+.header .button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #303030;
+    padding: 2% 3% 2% 3%;
+}
+
+.headerList .button {
+    display: flex;
+    gap: 5%;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    padding: 2% 3% 2% 3%;
+}
+
+.header .button img,
+.headerList .button img {
+    height: 25px;
+    margin-right: 5%;
 }
 
 .search {
@@ -72,7 +120,6 @@
     text-align: center;
     padding: 2%;
     width: 30%;
-    height: 30%;
 }
 
 .buttonPad .button img {
@@ -87,21 +134,21 @@
 }
 
 .ordersButtons {
-    position: sticky;
+    position: fixed;
     left: 0;
     right: 0;
+    bottom: 80px;
     margin: auto;
     display: flex;
     width: 80%;
     flex-direction: row;
     align-content: center;
     text-align: center;
-    bottom: 0;
     gap: 1em;
 }
 
 .ordersButtons .button {
-    position: absolute; 
+    position: absolute;
     display: flex;
     left: 0;
     right: 0;
@@ -117,7 +164,7 @@
 }
 
 .ordersButtons .buttonBasketOn {
-    position: sticky; 
+    position: sticky;
     width: 70%;
 }
 
@@ -134,7 +181,7 @@
     padding: 2%;
     width: 25%;
     height: 50px;
-    background-color: #091;
+    background-color: rgb(0, 153, 17);
     box-shadow: 0 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -160,25 +207,55 @@
     }
 }
 
+@keyframes basketBackgroundColor {
+    0% {
+        background-color: rgba(0, 153, 17, 1);
+    }
+
+    50% {
+        background-color: rgba(0, 153, 17, 0.5);
+    }
+
+    100% {
+        background-color: rgba(0, 153, 17, 1);
+    }
+}
+
 #buttonGoToMe {
     cursor: pointer;
     animation: buttonBackgroundColor 2s infinite;
 }
 
-@keyframes show {
-    from { opacity: 0.0; }
-    to { opacity: 1.0; }
-  }
-   
-  @-webkit-keyframes show {
-    from { opacity: 0.0; }
-    to { opacity: 1.0; }
-  }
+#basketGoToMe {
+    cursor: pointer;
+    animation: basketBackgroundColor 2s infinite;
+}
 
-#buttonGoToMe:before {
+@keyframes show {
+    from {
+        opacity: 0.0;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes show {
+    from {
+        opacity: 0.0;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
+
+#buttonGoToMe::before,
+#basketGoToMe::before {
     font-family: 'dindisplay_regular';
-    font-size: 1.1em;
-    position: absolute;
+    font-size: 1em;
+    position: fixed;
     display: block;
     padding: 5px;
     text-align: center;
@@ -195,7 +272,7 @@
     margin: auto;
     bottom: 150px;
     animation-name: show;
-    animation-duration: 2s;
+    animation-duration: 1s;
     -webkit-animation-name: show;
-    -webkit-animation-duration: 2s; 
+    -webkit-animation-duration: 1s;
 }
