@@ -121,7 +121,7 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
                     fontSize: "1.25em"
                 }}>Заказ</span>
                 {contents.map((serv: TService) =>
-                    <div className={s.service}>
+                    <div className={s.service} key={serv.id}>
                         <span>{serv.title}</span>
                         <span>{serv.price} р.</span>
                         <div className={s.amount}>
