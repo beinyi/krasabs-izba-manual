@@ -62,7 +62,7 @@ const Pay = ({ activation, onNextStep }: props) => {
                     data-description={payButtons[0].description}>
                     <img className={s.icon} src={require(`../../../../img/${payButtons[0].icon}`)} alt={payButtons[0].title} />
                     <span>{payButtons[0].title}</span>
-                </div>}
+                </div>
                 <span style={{
                     textDecoration: "underline",
                     textAlign: "center"
