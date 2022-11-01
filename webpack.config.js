@@ -25,7 +25,10 @@ module.exports = {
     },
 
     plugins: [
-        new HTMLWebpackPlugin({ template: "./public/index.html" }),
+        new HTMLWebpackPlugin({ 
+            template: "./public/index.html",
+            favicon: "./public/favicon.ico"
+        }),
         new CleanWebpackPlugin(),
     ],
     resolve: {
