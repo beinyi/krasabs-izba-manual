@@ -39,7 +39,7 @@ const TransactionItem = ({ isPayment, monthId, year }: TransactionItemProps) => 
                     "15"
                     : "01"} {monthsString[monthId]} {year}</span>
             </div>
-            <span style={isPayment ? { color: "#416cc0" } : {marginLeft: "auto"}} >{isPayment ?
+            <span style={isPayment ? { color: "#416cc0", marginLeft: "auto" } : {marginLeft: "auto"}} >{isPayment ?
                 "+"
                 : "-"}1918.58</span>
 
