@@ -9,7 +9,9 @@ import { TActivation } from "../Guide";
 
 export type props = {               // Тип и номер для активации кнопки, функция для перехода на следующий шаг
     activation: TActivation,
-    onNextStep(forward?: boolean): void
+    onNextStep(forward?: boolean, timeout?: boolean): void,
+    onClose?(): void,
+    setIsViewMainHeader?(view: boolean): void
 }
 
 export const goToMe = (button: TButton, activation: TActivation): boolean => {     // Проверка кнопки на активацию. 
@@ -28,25 +30,17 @@ const Main = ({ activation, onNextStep }: props) => {
     const [isActiveSliders, setIsActiveSliders] = useState<boolean>(false);
 
     useEffect(() => {
-        switch (selectedSlider) {
-            case 1 : {
-                setIsViewHeader(false);
-                break;
-            }
-            default : 
-            setIsViewHeader(true);
-        };
-
         selectedSlider != 0 ?    //Home всегда активен
         setIsActiveSliders(true)
         : setIsActiveSliders(false)
 
     },[selectedSlider])
 
+
     const sliders: Array<ReactNode> = [  // Массив слайд-меню
         <Home activation={activation} onNextStep={onNextStep} />, //Home всегда активен
-        <Services activation={activation} onNextStep={onNextStep} />,   //Услуги
-        <Pay activation={activation} onNextStep={onNextStep} />,
+        <Services activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader}/>,   //Услуги
+        <Pay activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader}/>,
 
     ];
 

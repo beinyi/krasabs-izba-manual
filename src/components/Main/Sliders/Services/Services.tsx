@@ -5,7 +5,7 @@ import { useState } from "react";
 import ServicesList, { TService } from "./ServicesList";
 import Basket from "./Basket";
 
-const Services = ({ activation, onNextStep }: props) => {
+const Services = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
 
     const [viewServicesList, setViewServicesList] = useState<{
         isView: boolean,
@@ -16,6 +16,7 @@ const Services = ({ activation, onNextStep }: props) => {
 
 
     const onBasket = () => {
+        setIsViewMainHeader ? setIsViewMainHeader(isViewBasket) : {};
         setIsViewBasket(!isViewBasket);
     }
 

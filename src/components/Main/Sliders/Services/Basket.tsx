@@ -7,7 +7,6 @@ import React, { ReactComponentElement, useEffect, useState } from "react"
 type basketProps = props & {
     contents: Array<TService>,
     setContents(contents: Array<TService>): void,
-    onClose(): void
 }
 
 const Basket = ({ activation, contents, setContents, onClose, onNextStep }: basketProps) => {
@@ -68,7 +67,7 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
         <div className={s.slideMenu}>
             <div className={s.header}>
                 <span>В корзине {contents.length} услуги на {amount()} руб.</span>
-                <img onClick={() => { onClose(); onNextStep(false); }} src={require('../../../../img/ic_close.svg')} />
+                <img onClick={() => {onClose ? onClose() : {}; onNextStep(false); }} src={require('../../../../img/ic_close.svg')} />
             </div>
 
             <div className={s.dataPad}>
