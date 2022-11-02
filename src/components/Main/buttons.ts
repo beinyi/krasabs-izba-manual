@@ -2,7 +2,7 @@
 export type buttonTypes = 
 'infoMenu' | 'slideAct' | 'slideMeter' | 
 'navBar' | 'pay' | 'servCategory' | 
-'servItem' | 'basket';
+'servItem' | 'basket' | 'transaction';
 
 export type TButton = {
     id: number,
@@ -118,7 +118,31 @@ export const payButtons: Array<TButton> = [
         title: "Подтвердить",
         icon: "ic_check_on.svg",
         description: "Подтвердите, что согласны с условиями"
-    }
+    },
+    {
+        id: 3,
+        type: 'pay',
+        title: "История транзакций",
+        icon: "",
+        description: "Здесь можно посмотреть историю транзакций"
+    },
+]
+
+export const transactionButtons: Array<TButton> = [
+    {
+        id: 0,
+        type: 'transaction',
+        title: "Платежи",
+        icon: "",
+        description: "Нажмите, чтобы отобразить только платежи"
+    },
+    {
+        id: 1,
+        type: 'transaction',
+        title: "Начисления",
+        icon: "",
+        description: "Нажмите, чтобы отобразить только начисления"
+    },
 ]
 
 export const servicesButtons: Array<TButton> = [
