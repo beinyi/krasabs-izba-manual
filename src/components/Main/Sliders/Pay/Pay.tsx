@@ -1,11 +1,22 @@
 import { goToMe, month, props, year } from "../../Main";
 import s from "../../../../style/PaySlider.module.less"
 import { payButtons } from "../../buttons";
+import { useState } from "react";
+import Transaction from "./Transaction";
 
 
 const Pay = ({ activation, onNextStep }: props) => {
 
+    const [isViewTransaction, setIsViewTransaction] = useState<boolean>(false);
+
+    const onTransaction = () => {
+        setIsViewTransaction(!isViewTransaction);
+    }
+
     return (
+        isViewTransaction ?
+        <Transaction activation={{activeType: "basket", activeId: 0 }} onNextStep={() => {}} onClose={onTransaction}/>
+        :
         <div className={s.slideMenu}>
             <div className={s.header}>
                 <div style={{ width: "35px" }}></div>  {/*flex костыль для заголовка по центру?*/}
@@ -65,8 +76,11 @@ const Pay = ({ activation, onNextStep }: props) => {
                 </div>
                 <span style={{
                     textDecoration: "underline",
-                    textAlign: "center"
-                }}>Посмотреть историю операций</span>
+                    textAlign: "center",
+                    cursor: "pointer",
+                }}
+                onClick={() => onTransaction()}
+                >Посмотреть историю операций</span>
             </div>
 
         </div >

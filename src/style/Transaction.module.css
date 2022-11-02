@@ -2,7 +2,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    max-height: 85vh;
+    max-height: 85%;
     display: flex;
     flex-direction: column;
     background-color: #303030;
@@ -24,7 +24,7 @@
     }
 
     to {
-        max-height: 85vh;
+        max-height: 85%;
     }
 }
 
@@ -34,7 +34,7 @@
     }
 
     to {
-        max-height: 85vh;
+        max-height: 85%;
     }
 }
 
@@ -64,6 +64,12 @@
     border-radius: 10px;
     background-color: #303030;
     padding: 3%;
+    cursor: pointer;
+}
+
+.header .active {
+    background-color: rgba(64, 106, 191, 0.5);
+
 }
 
 .header .title {
@@ -84,6 +90,7 @@
 .transItem {
     display: flex;
     gap: 5%;
+    padding: 3% 0 3%;
 }
 
 .transItem .info {
@@ -93,9 +100,12 @@
 }
 
 .transItem .icon {
+    display: flex;  
     justify-content: center;
+    align-items: center;
     border-radius: 10px;
-    padding: 3%;
+    width: 70px;
+    height: 50px;
 }
 
 .transItem .icon img{
