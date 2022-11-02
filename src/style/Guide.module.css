@@ -1,0 +1,56 @@
+.credits {
+    display: flex;
+    flex-direction: column;
+}
+
+.credits p {
+    font-family: "dindisplay_regular";
+    margin: 2%;
+}
+
+.button {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    margin: auto;
+    text-Decoration: none;
+    font-Size: 1.5em;
+    color: white;
+    text-Align: center;
+    background-Color: #515369;
+    width: 30%;
+    align-Self: center;
+    border-Radius: 10px;
+    border: 1px solid #696b92;
+    padding: 0 5% 0 5%;
+    z-index: 208;
+    animation-name: show;
+    animation-duration: 2s;
+    -webkit-animation-name: show;
+    -webkit-animation-duration: 2s;
+}
+
+.credits .button {
+    position: static;
+}
+
+@keyframes show {
+    from {
+        opacity: 0.0;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes show {
+    from {
+        opacity: 0.0;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
