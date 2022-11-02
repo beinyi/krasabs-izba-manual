@@ -16,6 +16,7 @@
     animation-duration: 0.5s;
     -webkit-animation-name: slide;
     -webkit-animation-duration: 0.5s;
+    z-index: 207;
 }
 
 @keyframes slide {
@@ -85,6 +86,7 @@
 .header .title img {
     height: 25px;
     margin-right: 5%;
+    cursor: pointer;
 }
 
 .transItem {
@@ -110,4 +112,71 @@
 
 .transItem .icon img{
     height: 35px;
+}
+
+@keyframes buttonBackgroundColor {
+    0% {
+        background-color: rgba(255, 255, 255, 0.0);
+    }
+
+    50% {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    100% {
+        background-color: rgba(255, 255, 255, 0.0);
+    }
+}
+
+#buttonGoToMe {
+    cursor: pointer;
+    animation: buttonBackgroundColor 2s infinite;
+}
+
+
+
+@keyframes show {
+    from {
+        opacity: 0.0;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes show {
+    from {
+        opacity: 0.0;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
+
+#buttonGoToMe::before {
+    font-family: 'dindisplay_regular';
+    font-size: 1em;
+    color: #fff;
+    position: absolute;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #696b92;
+    background-color: #515369;
+    border-radius: 10px;
+    content: attr(data-description);
+    min-width: auto;
+    width: 200px;
+    cursor: default;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 100px;
+    animation-name: show;
+    animation-duration: 2s;
+    -webkit-animation-name: show;
+    -webkit-animation-duration: 2s;
 }
