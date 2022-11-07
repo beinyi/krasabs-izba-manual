@@ -2,6 +2,7 @@ const path = require('path');
 
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
     mode: "development",
@@ -29,11 +30,15 @@ module.exports = {
             template: "./public/index.html",
             favicon: "./public/favicon.ico"
         }),
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin()
     ],
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        plugins: [
+            new TsconfigPathsPlugin(),
+        ]
     },
+
 
 
     module: {
