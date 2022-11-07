@@ -23,6 +23,7 @@ const Guide = ({ guideMap, credits }: guideProps) => {  //Передает ин�
         activeId: 0
     });
     const [isMapOver, setIsMapOver] = useState<boolean>(false);  //Проверка на окончание "карты"
+    const [isViewMain, setIsViewMain] = useState<boolean>(true);
     const [step, setStep] = useState<number>(0);
 
     useEffect(() => {
@@ -46,27 +47,28 @@ const Guide = ({ guideMap, credits }: guideProps) => {  //Передает ин�
 
     return (
         <div className={s.page}>
-            <Main activation={activation} onNextStep={onNextStep} />
+            {isViewMain &&
+                <Main activation={activation} onNextStep={onNextStep} />}
 
             {isMapOver ?
                 credits ?
-                    <div className={s.credits}>
-                        <h1>{credits[0]}</h1>
+                        <div className={s.credits}>
+                            <h1>{credits[0]}</h1>
 
-                        {credits.filter((v, i) => i > 0).map((s, i) => {
-                            return (
-                                <p style={{
+                            {credits.filter((v, i) => i > 0).map((s, i) => {
+                                return (
+                                    <p style={{
 
-                                }}
-                                    key={i}>{s}</p>
-                            )
-                        })}
+                                    }}
+                                        key={i}>{s}</p>
+                                )
+                            })}
 
-                        <NavLink className={s.button} to={"/"}>Меню</NavLink>
-                    </div>
+                            <NavLink className={s.button} to={"/"}>Меню</NavLink>
+                        </div>
                     : <NavLink className={s.button} to={"/"}>Меню</NavLink>
                 : ""}
-                    
+
         </div>
 
 
