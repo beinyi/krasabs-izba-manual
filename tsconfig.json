@@ -22,6 +22,9 @@
     "baseUrl": "src",
     "paths": {
       "@img/*": ["./img/*"],
+      "@styles/*": ["./styles/*"],
+      "@guide-maps/*": ["./guide-maps/*"],
+      "@components/*": ["./components/*"],
     },
   },
   "include": [
