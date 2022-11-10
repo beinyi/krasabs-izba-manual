@@ -1,6 +1,6 @@
 import { date, goToMe, props } from "../../Main"
 import { TService } from "./ServicesList"
-import s from "../../../../style/Basket.module.css"
+import s from "@style/Basket.module.css"
 import { basketButtons, buttonTypes } from "../../buttons"
 import React, { ReactComponentElement, useEffect, useState } from "react"
 
@@ -67,7 +67,7 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
         <div className={s.slideMenu}>
             <div className={s.header}>
                 <span>В корзине {contents.length} услуги на {amount()} руб.</span>
-                <img onClick={() => {onClose ? onClose() : {}; onNextStep(false); }} src={require('../../../../img/ic_close.svg')} />
+                <img onClick={() => {onClose ? onClose() : {}; onNextStep(false); }} src={require('@img/ic_close.svg')} />
             </div>
 
             <div className={s.dataPad}>
@@ -77,7 +77,7 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
                     onClick={goToMe(basketButtons[0], activation) ? () =>
                         onNextStep()
                         : () => { }}>
-                    <img src={require('../../../../img/ic_date.svg')} />
+                    <img src={require('@img/ic_date.svg')} />
                     <span>{`${tomorrow.getDate()}.${tomorrow.getMonth() + 1}.${tomorrow.getFullYear()}`}</span>
                 </div>
 
@@ -86,7 +86,7 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
                     onClick={goToMe(basketButtons[0], activation) ? () =>
                         onNextStep()
                         : () => { }}>
-                    <img src={require('../../../../img/ic_time.svg')} />
+                    <img src={require('@img/ic_time.svg')} />
                     <span>13:00 - 17:00</span>
                 </div>
 
@@ -124,9 +124,9 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
                         <span>{serv.title}</span>
                         <span>{serv.price} р.</span>
                         <div className={s.amount}>
-                            <img onClick={() => onChangeAmount(serv.id, serv.type, false)} src={require('../../../../img/ic_minus.svg')} />
+                            <img onClick={() => onChangeAmount(serv.id, serv.type, false)} src={require('@img/ic_minus.svg')} />
                             <span>{serv.amount}</span>
-                            <img onClick={() => onChangeAmount(serv.id, serv.type, true)} src={require('../../../../img/ic_plus.svg')} />
+                            <img onClick={() => onChangeAmount(serv.id, serv.type, true)} src={require('@img/ic_plus.svg')} />
                         </div>
                         <div style={{
                             gridColumn: "1 / 3",

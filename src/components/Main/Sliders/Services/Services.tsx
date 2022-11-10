@@ -1,6 +1,6 @@
 import {  servicesButtons, TButton } from "../../buttons";
 import { goToMe, props } from "../../Main";
-import s from "../../../../style/ServicesSlider.module.less"
+import s from "@style/ServicesSlider.module.less"
 import { useState } from "react";
 import ServicesList, { TService } from "./ServicesList";
 import Basket from "./Basket";

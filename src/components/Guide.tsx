@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { buttonTypes } from "./Main/buttons";
 import Main from "./Main/Main";
-import s from "../style/Guide.module.css"
+import s from "@style/Guide.module.css"
 
 export type TActivation = {         //Информация о том, какую кномпку выделить
     activeType: buttonTypes | null,

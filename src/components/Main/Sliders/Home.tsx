@@ -1,5 +1,5 @@
 import { actButtons, meterButtons, TButton } from "../buttons"
-import s from "../../../style/HomeSlider.module.css"
+import s from "@style/HomeSlider.module.css"
 import { goToMe, props } from "../Main"
 
 

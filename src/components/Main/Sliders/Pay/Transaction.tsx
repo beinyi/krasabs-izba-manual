@@ -1,5 +1,5 @@
 import { date, goToMe, props } from "../../Main"
-import s from "../../../../style/Transaction.module.css"
+import s from "@style/Transaction.module.css"
 import TransactionItem from "./TransactionItem";
 import { useState } from "react";
 import { transactionButtons } from "../../buttons";
