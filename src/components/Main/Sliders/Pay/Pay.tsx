@@ -1,5 +1,5 @@
 import { goToMe, month, props, year } from "../../Main";
-import s from "../../../../style/PaySlider.module.less"
+import s from "@styles/PaySlider.module.less"
 import { payButtons } from "../../buttons";
 import { useState } from "react";
 import Transaction from "./Transaction";

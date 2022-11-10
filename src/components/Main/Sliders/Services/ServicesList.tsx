@@ -1,5 +1,5 @@
 import { TButton } from "../../buttons"
-import s from "@style/ServicesSlider.module.less"
+import s from "@styles/ServicesSlider.module.less"
 import { goToMe, props } from "../../Main"
 import ServItem from "./ServItem"
 

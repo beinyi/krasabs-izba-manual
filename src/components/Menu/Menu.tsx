@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { menuGroup, menuGroups, menuItem, menuItems } from "./menuItems";
-import s from "../../style/Menu.module.css"
+import s from "@styles/Menu.module.css"
 import ic_logo from "../../img/ic_logo.svg"
 
 

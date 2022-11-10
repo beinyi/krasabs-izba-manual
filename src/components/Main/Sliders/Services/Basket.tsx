@@ -1,6 +1,6 @@
 import { date, goToMe, props } from "../../Main"
 import { TService } from "./ServicesList"
-import s from "@style/Basket.module.css"
+import s from "@styles/Basket.module.css"
 import { basketButtons, buttonTypes } from "../../buttons"
 import React, { ReactComponentElement, useEffect, useState } from "react"
 

@@ -1,4 +1,4 @@
-import s from "@style/Main.module.css"
+import s from "@styles/Main.module.css"
 import { TButton, navButtons } from "./buttons";
 import { ReactNode, useEffect, useState } from "react";
 import Home from "./Sliders/Home"
