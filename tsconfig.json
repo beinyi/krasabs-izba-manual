@@ -22,7 +22,7 @@
     "baseUrl": "src",
     "paths": {
       "@img/*": ["./img/*"],
-      "@styles/*": ["./styles/*"],
+      "@styles/*": ["./style/*"],
       "@guide-maps/*": ["./guide-maps/*"],
       "@components/*": ["./components/*"],
     },
