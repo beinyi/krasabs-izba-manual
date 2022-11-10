@@ -1,9 +1,12 @@
+import { transactionButtons } from "@components/Main/buttons";
+import { goToMe, props } from "@components/Main/Main";
 import s from "../../../../style/Transaction.module.css"
 
 type TransactionItemProps = {
     isPayment: boolean,
     monthId: number,
-    year: string
+    year: string,
+    setCarousel?(): void,
 }
 
 enum monthsString {
@@ -21,10 +24,12 @@ enum monthsString {
     "декабря"
 }
 
-const TransactionItem = ({ isPayment, monthId, year }: TransactionItemProps) => {
+const TransactionItem = ({isPayment, monthId, year, setCarousel }: TransactionItemProps) => {
 
     return (
-        <div className={s.transItem}>
+        <div className={s.transItem}
+        onClick={() => !isPayment && setCarousel ? setCarousel() : {}}
+        >
             <div className={s.icon}
                 style={isPayment ? { backgroundColor: "#1a2e47" } : { backgroundColor: "#2e4028" }}>
                 <img src={require(isPayment ?

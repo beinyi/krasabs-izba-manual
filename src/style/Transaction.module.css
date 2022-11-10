@@ -159,7 +159,7 @@
     font-family: 'dindisplay_regular';
     font-size: 1em;
     color: #fff;
-    position: absolute;
+    position: fixed;
     display: block;
     padding: 5px;
     text-align: center;

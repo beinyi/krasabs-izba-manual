@@ -8,6 +8,8 @@ import servicesMap, {servicesCredits} from "./guide-maps/servicesMap";
 import Transaction from "./components/Main/Sliders/Pay/Transaction";
 import Pay from "./components/Main/Sliders/Pay/Pay";
 import transactionMap, { transactionCredits } from "./guide-maps/transactionMap";
+import Accrual from "./components/Main/Sliders/Pay/Accrual";
+import accrualsMap from "@guide-maps/accrualsMap";
 
 
 
@@ -19,7 +21,8 @@ function App() {
                 <Route path="/make_order" element={<Guide guideMap={servicesMap} credits={servicesCredits} />} />
                 <Route path="/pay_guide" element={<Guide guideMap={payMap} credits={payCredits} />} />
                 <Route path="/transaction_guide" element={<Guide guideMap={transactionMap}/>} />
-                <Route path="/dev" element={<Pay activation={{activeType: "basket", activeId: 0 }} onNextStep={() => {}}/>} />
+                <Route path="/accruals_guide" element={<Guide guideMap={accrualsMap}/>} />
+                <Route path="/dev" element={<Accrual monthId={0}/>} />
                 
             </Routes>
     </div>

@@ -1,0 +1,245 @@
+.slideMenu {
+    position: absolute;
+    bottom: 0;
+    z-index: 106;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    background-color: #303030;
+    padding: 2%;
+    border-radius: 10px 10px 0 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    animation-name: slide;
+    animation-duration: 0.5s;
+    -webkit-animation-name: slide;
+    -webkit-animation-duration: 0.5s;
+}
+
+@keyframes slide {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 100vh;
+    }
+}
+
+@-webkit-keyframes slide {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 100vh;
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.header h2 {
+    font-family: 'dindisplay_bold';
+    font-size: 1.5em;
+}
+
+.header img {
+    height: 25px;
+}
+
+.carouselAccrual  {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 100%);
+    height: 100%;
+    right: 100%;
+}
+
+.accrual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.accrual .header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-self: stretch;
+    border-Bottom: 1px solid #416cc0;
+}
+
+.accrual .header div {
+    flex: 1 0 auto;
+    display: flex;
+    padding: 0 6% 0 6%;
+}
+
+.nextMonth {
+    justify-content: end;
+}
+
+.activeMonth {
+    font-family: 'dindisplay_bold';
+    justify-content: center;
+    
+}
+
+.body {
+    font-family: 'dindisplay_regular';
+    font-size: 0.9em;
+    flex: 1 0 auto;
+    align-content: start;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    width: 95%;
+}
+
+.body div {
+    display: flex;
+    border-top: 1px solid #416cc0;
+    width: 100%;
+    padding: 1% 0 1% 0;
+}
+
+.body .column1 {
+    justify-content: start;
+}
+
+.body .column2 {
+    text-align: center;
+    justify-content: center;
+}
+
+.body .column3 {
+    font-family: 'dindisplay_bold';
+    justify-content: end;
+}
+
+.footer {
+    font-family:  'dindisplay_bold';
+    flex: 0 0 auto;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 -2% 0 -2%;
+    border-top: 1px solid #416cc0;
+}
+
+.footer span {
+    margin: 2%;
+}
+
+.button {
+    display: flex;
+    padding: 2%;
+    border-radius: 10px;
+    width: 80%;
+    height: 50px;
+    background-color: #091;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+}
+
+@keyframes buttonBackgroundColor {
+    0% {
+        background-color: rgba(255, 255, 255, 0.0);
+    }
+
+    50% {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    100% {
+        background-color: rgba(255, 255, 255, 0.0);
+    }
+}
+
+#buttonGoToMe {
+    cursor: pointer;
+    animation: buttonBackgroundColor 2s infinite;
+}
+
+
+
+@keyframes show {
+    from {
+        opacity: 0.0;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
+
+@keyframes jump {
+    50% {transform: translateX(25px);}
+    100% {transform: translateX(0px);}
+    
+}
+
+@keyframes touch {
+    0% {background-color: rgba(65, 107, 192, 0.199);}
+    100% {background-color: rgba(65, 107, 192, 0.808);}
+}
+
+@-webkit-keyframes show {
+    from {
+        opacity: 0.0;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
+
+#buttonGoToMe::before {
+    font-family: 'dindisplay_regular';
+    font-size: 1em;
+    color: #fff;
+    position: fixed;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #696b92;
+    background-color: #515369;
+    border-radius: 10px;
+    content: attr(data-description);
+    min-width: auto;
+    width: 200px;
+    cursor: default;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 100px;
+    animation-name: show;
+    animation-duration: 2s;
+    -webkit-animation-name: show;
+    -webkit-animation-duration: 2s;
+}
+
+#swipeMe::after {
+    position: fixed;
+    display: block;
+    left: 35%;
+    bottom: 25%;
+    content: ' ';
+    width: 150px;
+    height: 150px;
+    background-image: url('../img/swipe.svg');
+    background-size: 100%;
+    animation: jump 2s infinite;
+
+}

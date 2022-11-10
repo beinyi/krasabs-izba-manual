@@ -143,6 +143,27 @@ export const transactionButtons: Array<TButton> = [
         icon: "",
         description: "Нажмите, чтобы отобразить только начисления"
     },
+    {
+        id: 2,
+        type: 'transaction',
+        title: "Начисление",
+        icon: "",
+        description: "Нажмите, чтобы посмотреть начисления за месяц"
+    },
+    {
+        id: 3,
+        type: 'transaction',
+        title: "Платёжный документ",
+        icon: "",
+        description: "Чтобы открыть платёжный документ, нажмите эту кнопку"
+    },
+    {
+        id: 4,
+        type: 'transaction',
+        title: "Swipe",
+        icon: "",
+        description: ""
+    }
 ]
 
 export const servicesButtons: Array<TButton> = [
