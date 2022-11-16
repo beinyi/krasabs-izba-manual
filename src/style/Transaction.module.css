@@ -5,7 +5,7 @@
     max-height: 85%;
     display: flex;
     flex-direction: column;
-    background-color: #303030;
+    background-color: var(--black-color);
     padding: 5%;
     border-radius: 10px 10px 0 0;
     overflow-y: auto;
@@ -62,8 +62,8 @@
     flex-direction: row;
     justify-self: center;
     justify-content: center;
-    border-radius: 10px;
-    background-color: #303030;
+    border-radius: var(--border-radius);
+    background-color: var(--black-color);
     padding: 3%;
     cursor: pointer;
 }
@@ -79,7 +79,7 @@
     gap: 5%;
     flex-direction: row;
     align-items: center;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     padding: 2% 3% 2% 3%;
 }
 
@@ -105,7 +105,7 @@
     display: flex;  
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     width: 70px;
     height: 50px;
 }
@@ -164,8 +164,8 @@
     padding: 5px;
     text-align: center;
     border: 1px solid #696b92;
-    background-color: #515369;
-    border-radius: 10px;
+    background-color: var(--guide-gray-color);
+    border-radius: var(--border-radius);
     content: attr(data-description);
     min-width: auto;
     width: 200px;

@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     gap: 2em;
-    background-color: #303030;
+    background-color: var(--black-color);
     padding: 5%;
     border-radius: 10px 10px 0 0;
     overflow-y: auto;
@@ -65,7 +65,7 @@
 
 .date,
 .input {
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     padding: 2%;
 }
 
@@ -85,7 +85,7 @@
 .input {
     color: #666;
     grid-column: 1 / 3;
-    background-color: #3b3b3b;
+    background-color: var(--gray-color);
 }
 
 .input input {
@@ -144,9 +144,9 @@
 
     width: 80%;
     height: 50px;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     padding: 2%;
-    background-color: #091;
+    background-color: var(--green-color);
     box-shadow: 0 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -219,8 +219,8 @@
     padding: 5px;
     text-align: center;
     border: 1px solid #696b92;
-    background-color: #515369;
-    border-radius: 10px;
+    background-color: var(--guide-gray-color);
+    border-radius: var(--border-radius);
     content: attr(data-description);
     min-width: auto;
     width: 200px;

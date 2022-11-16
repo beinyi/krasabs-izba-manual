@@ -15,7 +15,7 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
-    background-color: #515369;
+    background-color: var(--guide-gray-color);
     z-index: 208;
 }
 
@@ -34,10 +34,10 @@
     font-Size: 1.5em;
     color: white;
     text-Align: center;
-    background-Color: #515369;
+    background-color: var(--guide-gray-color);
     width: 30%;
     align-Self: center;
-    border-Radius: 10px;
+    border-radius: var(--border-radius);
     border: 1px solid #696b92;
     padding: 0 5% 0 5%;
     z-index: 208;

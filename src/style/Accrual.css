@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     gap: 2em;
-    background-color: #303030;
+    background-color: var(--black-color);
     padding: 2%;
     border-radius: 10px 10px 0 0;
     overflow-y: auto;
@@ -56,7 +56,7 @@
     height: 25px;
 }
 
-.carouselAccrual  {
+.carouselAccrual {
     position: relative;
     display: grid;
     grid-template-columns: repeat(3, 100%);
@@ -91,7 +91,7 @@
 .activeMonth {
     font-family: 'dindisplay_bold';
     justify-content: center;
-    
+
 }
 
 .body {
@@ -126,7 +126,7 @@
 }
 
 .footer {
-    font-family:  'dindisplay_bold';
+    font-family: 'dindisplay_bold';
     flex: 0 0 auto;
     align-self: stretch;
     display: flex;
@@ -143,10 +143,10 @@
 .button {
     display: flex;
     padding: 2%;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     width: 80%;
     height: 50px;
-    background-color: #091;
+    background-color: var(--green-color);
     justify-content: center;
     align-items: center;
     cursor: default;
@@ -184,14 +184,24 @@
 }
 
 @keyframes jump {
-    50% {transform: translateX(25px);}
-    100% {transform: translateX(0px);}
-    
+    50% {
+        transform: translateX(25px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+
 }
 
 @keyframes touch {
-    0% {background-color: rgba(65, 107, 192, 0.199);}
-    100% {background-color: rgba(65, 107, 192, 0.808);}
+    0% {
+        background-color: rgba(65, 107, 192, 0.199);
+    }
+
+    100% {
+        background-color: rgba(65, 107, 192, 0.808);
+    }
 }
 
 @-webkit-keyframes show {
@@ -213,8 +223,8 @@
     padding: 5px;
     text-align: center;
     border: 1px solid #696b92;
-    background-color: #515369;
-    border-radius: 10px;
+    background-color: var(--guide-gray-color);
+    border-radius: var(--border-radius);
     content: attr(data-description);
     min-width: auto;
     width: 200px;
@@ -223,23 +233,42 @@
     left: 0;
     right: 0;
     margin: auto;
-    bottom: 100px;
+    bottom: 25%;
     animation-name: show;
     animation-duration: 2s;
     -webkit-animation-name: show;
     -webkit-animation-duration: 2s;
 }
 
+
+
 #swipeMe::after {
     position: fixed;
     display: block;
-    left: 35%;
-    bottom: 25%;
-    content: ' ';
+    content: '';
     width: 150px;
     height: 150px;
     background-image: url('../img/swipe.svg');
     background-size: 100%;
     animation: jump 2s infinite;
+}
+
+@media only screen and (min-width: 811px) {
+    #swipeMe::after {
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: 25%;
+    }
+}
+
+@media only screen and (max-width: 810px) {
+
+    #swipeMe::after {
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: 25%;
+    }
 
 }

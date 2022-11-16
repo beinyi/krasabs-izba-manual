@@ -37,7 +37,7 @@
     font-family: dindisplay_bold;
     padding: 2%;
     margin: 0 2% 0 2%;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     width: 50%;
     min-width: 100px;
     cursor: default;
@@ -48,7 +48,7 @@
 }
 
 .buttonPay {
-    background-color: #091;
+    background-color: var(--green-color);
 }
 
 .navBar {
@@ -57,7 +57,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    background-color: #3b3b3b;
+    background-color: var(--gray-color);
     border-radius: 10px 10px 0 0;
     z-index: 105;
 }
@@ -73,7 +73,7 @@
     flex-direction: column;
     padding: 2%;
     align-items: center;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     cursor: default;
 }
 
@@ -113,8 +113,8 @@
     display: block;
     padding: 5px;
     border: 1px solid #696b92;
-    background-color: #515369;
-    border-radius: 10px;
+    background-color: var(--guide-gray-color);
+    border-radius: var(--border-radius);
     content: attr(data-description);
     bottom: 80px;
     width: 200px;
