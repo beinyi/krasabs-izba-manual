@@ -1,7 +1,7 @@
 import { transactionButtons } from '@components/Main/buttons';
 import { goToMe, props } from '@components/Main/Main';
 import '@styles/Accrual.css'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import AccrualItem from './AccrualItem';
 import { getMonthsAndYears } from './Transaction';
 
@@ -58,13 +58,26 @@ const Accrual = ({ activation, onNextStep, monthId, onClose }: AccrualProps) => 
         }
     }
 
+    const ClickSwipe = (e: React.MouseEvent<HTMLDivElement>) => {
+        const delta: number = touchStartX - e.clientX;
+        let endX: string = Math.abs(delta).toString();
+        nextMonth = 1;
+
+        e.currentTarget.animate([{ transform: `translateX(${endX}px)` }, { transform: `translateX(${80 * nextMonth}%)` }], 200)
+        e.currentTarget.style.transform = `translateX(0)`
+        setTimeout(() => setSelectedMonth(selectedMonth + nextMonth), 200);
+    }
+
+
+
+
     return (
         <div className='slideMenu'>
             <div className="header">
-                <div style={{padding: "1%", borderRadius: "10px"}}
-                id={goToMe(transactionButtons[3], activation) ? "buttonGoToMe" : ""}
+                <div style={{ padding: "1%", borderRadius: "10px" }}
+                    id={goToMe(transactionButtons[3], activation) ? "buttonGoToMe" : ""}
                     data-description={goToMe(transactionButtons[3], activation) ? transactionButtons[3].description : {}}
-                    onClick={() => onNextStep()}>
+                    onClick={() => goToMe(transactionButtons[3], activation) ? onNextStep() : {}}>
                     <img src={require('@img/ic_share.svg')} />
                 </div>
                 <h2>Начисления</h2>
@@ -73,11 +86,14 @@ const Accrual = ({ activation, onNextStep, monthId, onClose }: AccrualProps) => 
             </div>
 
             <div className="carouselAccrual"
-                onTouchStart={(e: React.TouchEvent<HTMLDivElement>) => { setTouchStartX(e.changedTouches[0].clientX) }}
+                onTouchStart={(e: React.TouchEvent<HTMLDivElement>) => {
+                    setTouchStartX(e.changedTouches[0].clientX);
+                    goToMe(transactionButtons[4], activation) && onNextStep()
+                }}
                 onTouchEnd={(e: React.TouchEvent<HTMLDivElement>) => { SwipeEnd(e) }}
                 onTouchMove={(e: React.TouchEvent<HTMLDivElement>) => { SwipeMove(e) }}
                 id={goToMe(transactionButtons[4], activation) ? "swipeMe" : ""}
-                onClick={() => onNextStep()}>
+                onClick={(e) => goToMe(transactionButtons[4], activation) && (ClickSwipe(e), onNextStep())}>
 
                 {selectedMonth != 11 && <div className='prevAccrual'>
                     <AccrualItem selectedMonth={selectedMonth + 1} setSelectedMonth={setSelectedMonth} monthsAndYears={monthsAndYears} />
