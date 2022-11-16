@@ -116,7 +116,7 @@ export const payButtons: Array<TButton> = [
         id: 2,
         type: 'pay',
         title: "Подтвердить",
-        icon: "ic_check_on.svg",
+        icon: 'ic_check_on.svg',
         description: "Подтвердите, что согласны с условиями"
     },
     {
