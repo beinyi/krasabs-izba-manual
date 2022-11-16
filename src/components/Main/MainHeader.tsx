@@ -1,5 +1,5 @@
-import s from "../../style/Main.module.css"
-import { TActivation } from "../Guide";
+import s from "@styles/Main.module.css"
+import { TActivation } from "@components/Guide";
 import { infoMenuButtons } from './buttons';
 import { goToMe } from "./Main";
 
@@ -14,15 +14,15 @@ const MainHeader = ({mouth, year, activation}: Props) => {
     <div>
         <div className={s.header}>
                         <div className={s.user}>
-                            <img className={s.icon} src={require('../../img/person.svg')} alt="Профиль" />
+                            <img className={s.icon} src={require('@img/person.svg')} alt="Профиль" />
                             <div className={s.userInfo}>
                                 <span style={{ fontFamily: "dindisplay_bold", fontSize: "1.25em" }}>ЛС №00000000000</span>
                                 <span>г. Красноярск, ул. Гагарина, д. 27, кв. 6 </span>
                             </div>
-                            <img style={{ height: "10px" }} src={require('../../img/ic_arrow_d.svg')} />
+                            <img style={{ height: "10px" }} src={require('@img/ic_arrow_d.svg')} />
                         </div>
 
-                        <img style={{ marginLeft: "auto" }} className={s.icon} src={require('../../img/ic_bell.svg')} alt="Уведомления" />
+                        <img style={{ marginLeft: "auto" }} className={s.icon} src={require('@img/ic_bell.svg')} alt="Уведомления" />
 
                     </div>
 
