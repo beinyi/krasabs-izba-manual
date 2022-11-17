@@ -1,0 +1,140 @@
+.slide-menu {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-height: 85%;
+    height: 85%;
+    display: flex;
+    gap: 5%;
+    flex-direction: column;
+    background-color: var(--black-color);
+    padding: 5%;
+    border-radius: 10px 10px 0 0;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 20%;
+    animation-name: slide;
+    animation-duration: 0.5s;
+    -webkit-animation-name: slide;
+    -webkit-animation-duration: 0.5s;
+    z-index: 207;
+}
+
+@keyframes slide {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 85%;
+    }
+}
+
+@-webkit-keyframes slide {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 85%;
+    }
+}
+
+.slide-menu::-webkit-scrollbar {
+    display: none;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 5%;
+    align-items: center;
+}
+
+.header span {
+    font-family: 'dindisplay_bold';
+    font-size: 1.5em;
+}
+
+.header_title {
+    grid-column: 1 / 3;
+    display: flex;
+    gap: 5%;
+    flex-direction: row;
+    align-items: center;
+    border-radius: var(--border-radius);
+    padding: 2% 3% 2% 3%;
+}
+
+.header_title img {
+    height: 25px;
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+.header_button-pad {
+    grid-column: 1 / 3;
+    justify-self: center;
+    align-items: center;
+    width: 70%;
+    display: flex;
+    border-radius: var(--border-radius);
+    background-color: var(--gray-color);
+    color: #727983;
+
+}
+
+.header_button-pad_button {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.header_button-pad_button_active {
+    background-color: var(--black-color);
+}
+
+.order-item {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    border-radius: var(--border-radius);
+}
+
+.order-item_status {
+    font-family: 'dindisplay_bold';
+    display: flex;
+    align-items: center;
+    gap: 2%
+}
+
+.order-item_status img{
+    height: 30px;
+}
+
+.order-item_info {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
+}
+
+
+
+.order-item_done {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-item_done_rating {
+    display: flex;
+    justify-content: center;
+}
+
+.order-item_done_rating img {
+ height: 20px;
+}

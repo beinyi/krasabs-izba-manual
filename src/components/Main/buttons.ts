@@ -2,7 +2,8 @@
 export type buttonTypes = 
 'infoMenu' | 'slideAct' | 'slideMeter' | 
 'navBar' | 'pay' | 'servCategory' | 
-'servItem' | 'basket' | 'transaction';
+'servItem' | 'basket' | 'transaction' |
+'orders';
 
 export type TButton = {
     id: number,
@@ -38,9 +39,10 @@ export const actButtons: Array<TButton> = [
     {
         id: 1,
         type: 'slideAct',
-
         title: "Позвонить в УО",
-        icon: "ic_phone.svg"
+        icon: "ic_phone.svg",
+        description: "Чтобы позвонить в УК, достаточно нажать эту кнопку"
+
     }
 ]
 
@@ -239,3 +241,21 @@ export const basketButtons: Array<TButton> = [
     }
 
 ]
+
+export const ordersButton: Array<TButton> = [
+    {
+        id: 0,
+        type: 'orders',
+        title: "Заказанные",
+        description: ""
+    },
+    {
+        id: 1,
+        type: 'orders',
+        title: "Архив",
+        description: ""
+    },
+
+
+]
+

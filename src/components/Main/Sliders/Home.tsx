@@ -9,7 +9,11 @@ const Home = ({ activation, onNextStep }: props) => {
 
     const renderButton = (button: TButton) => {
         return (
-            <div id={goToMe(button, activation) ? s["buttonGoToMe"] : ""} className={s.button} data-description={"dss"} key={`${button.type}-${button.id}`}>
+            <div id={goToMe(button, activation) ? s["buttonGoToMe"] : ""} 
+            className={s.button} 
+            data-description={button.description ? button.description : ""} 
+            onClick={() => {onNextStep();}}
+            key={`${button.type}-${button.id}`}>
                 <img className={s.icon} src={require(`../../../img/${button.icon}`)} alt={button.title} />
                 <span>{button.title}</span>
             </div>

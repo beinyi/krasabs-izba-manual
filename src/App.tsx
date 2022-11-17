@@ -5,11 +5,11 @@ import {Route, Routes} from "react-router-dom";
 import Guide from "./components/Guide";
 import payMap, {payCredits} from "./guide-maps/payMap"
 import servicesMap, {servicesCredits} from "./guide-maps/servicesMap";
-import Transaction from "./components/Main/Sliders/Pay/Transaction";
-import Pay from "./components/Main/Sliders/Pay/Pay";
-import transactionMap, { transactionCredits } from "./guide-maps/transactionMap";
-import Accrual from "./components/Main/Sliders/Pay/Accrual";
+import transactionMap from "@guide-maps//transactionMap";
 import accrualsMap from "@guide-maps/accrualsMap";
+import callMap, { callCredits } from "@guide-maps/callMap";
+import checkOrderMap, { checkOrderCredits } from "@guide-maps/checkOrderMap";
+import Orders from "@components/Main/Sliders/Services/Orders";
 
 
 
@@ -22,7 +22,10 @@ function App() {
                 <Route path="/pay_guide" element={<Guide guideMap={payMap} credits={payCredits} />} />
                 <Route path="/transaction_guide" element={<Guide guideMap={transactionMap}/>} />
                 <Route path="/accruals_guide" element={<Guide guideMap={accrualsMap}/>} />
-                <Route path="/dev" element={<Accrual monthId={0}/>} />
+                <Route path="/call_to_mc" element={<Guide guideMap={callMap} credits={callCredits} />} />
+                <Route path="/check_order" element={<Guide guideMap={checkOrderMap} credits={checkOrderCredits} />} />
+
+                <Route path="/dev" element={<Orders activation={{activeType: "pay", activeId: 1}} onNextStep={() => {}}/>}  />
                 
             </Routes>
     </div>

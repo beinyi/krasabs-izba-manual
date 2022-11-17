@@ -16,7 +16,7 @@ type servicesListProps = props & {
     setBasketContents(i: Array<TService>): void, 
     basketContents: Array<TService> }
 
-const plumbingServices: Array<TService> = [
+export const plumbingServices: Array<TService> = [
     {
         id: 0,
         type: 'servItem',
