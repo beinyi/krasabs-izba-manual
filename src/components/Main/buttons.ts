@@ -3,7 +3,7 @@ export type buttonTypes =
 'infoMenu' | 'slideAct' | 'slideMeter' | 
 'navBar' | 'pay' | 'servCategory' | 
 'servItem' | 'basket' | 'transaction' |
-'orders';
+'orders' | 'request';
 
 export type TButton = {
     id: number,
@@ -285,3 +285,16 @@ export const ordersButton: Array<TButton> = [
 
 ]
 
+
+export const requestButton: Array<TButton> = [
+    {
+        id: 0,
+        type: 'request',
+        title: "Имя",
+        description: ""
+    },
+    
+
+
+
+]
