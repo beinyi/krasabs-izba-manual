@@ -97,7 +97,7 @@ const Services = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
 
 
                         <div className={s.ordersButtons}>
-                            <div id={goToMe(servicesButtons[5], activation) ? s["buttonGoToMe"] : ""}
+                            <div id={goToMe(servicesButtons[5], activation) ? s["ordersGoToMe"] : ""}
                                 className={`${s.button} ${basketContents.length > 0 && s.buttonBasketOn}`}
                                 onClick={() => {
                                     goToMe(servicesButtons[5], activation) ?

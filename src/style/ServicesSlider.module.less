@@ -219,7 +219,8 @@
     }
 }
 
-#buttonGoToMe {
+#buttonGoToMe,
+#ordersGoToMe {
     cursor: pointer;
     animation: buttonBackgroundColor 2s infinite;
 }
@@ -250,6 +251,7 @@
 }
 
 #buttonGoToMe::before,
+#ordersGoToMe::before,
 #basketGoToMe::before {
     font-family: 'dindisplay_regular';
     font-size: 1em;
@@ -275,6 +277,7 @@
     -webkit-animation-duration: 1s;
 }
 
+#ordersGoToMe::before,
 #basketGoToMe::before {
     bottom: 70px;
 

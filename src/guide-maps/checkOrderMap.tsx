@@ -13,13 +13,27 @@ const checkOrderMap: Array<TActivation> = [   //Шаги для выделени
         activeType: "orders",
         activeId: 1
     },
+    {
+        activeType: "orders",
+        activeId: 2
+    },
+    {
+        activeType: "orders",
+        activeId: 3
+    },
+    {
+        activeType: "orders",
+        activeId: 4
+    },
+    {
+        activeType: "orders",
+        activeId: 5
+    }
 ]
 
 
 export const checkOrderCredits: Array<string> = [             //"Титры" для вывода после прохождения маршрута
-    "Звонок в УК",
-    "На экране появится запрос на разрешение осуществления телефонных звонков из приложения.",
-    "Наше приложение не осуществляет звонки без вашего ведома. Так что, можете смело разрешать производить звонки.",
+
 ]
 
 

@@ -209,7 +209,7 @@ export const servicesButtons: Array<TButton> = [
         type: 'servCategory',
         title: "Мои заказы",
         icon: "",
-        description: ""
+        description: "Перейдите в \"Мои заказы\", чтобы посмотреть ранее заказанные услуги"
     },
     {
         id: 6,
@@ -253,8 +253,34 @@ export const ordersButton: Array<TButton> = [
         id: 1,
         type: 'orders',
         title: "Архив",
-        description: ""
+        description: "В разделе \"Заказанные\" отображаются активные заказы (новые, либо находящиеся в работе)." +
+        " Перейдите в \"Архив\" для просмотра выполненных заказов"
     },
+    {
+        id: 2,
+        type: 'orders',
+        title: "Рейтинг",
+        description: "После выполнения можно оценить предоставленную услугу"
+    },
+    {
+        id: 3,
+        type: 'orders',
+        title: "Оценка",
+        description: "Оцените качество предоставленной услуги"
+    },
+    {
+        id: 4,
+        type: 'orders',
+        title: "Комментарий",
+        description: "При необходимости добавьте комментарий"
+    },
+    {
+        id: 5,
+        type: 'orders',
+        title: "Оценить",
+        description: "Не забудьте отправить отзыв"
+    },
+
 
 
 ]

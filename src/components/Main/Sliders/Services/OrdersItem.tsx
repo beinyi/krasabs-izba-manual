@@ -1,11 +1,17 @@
-import { date, props } from "@components/Main/Main";
+import { TActivation } from "@components/Guide";
+import { ordersButton } from "@components/Main/buttons";
+import { date, goToMe, props } from "@components/Main/Main";
 import "@styles/Orders.css"
+import React, { useState } from "react";
 import { TService } from "./ServicesList";
 
-type ordersItemProps = props & {
+type ordersItemProps = {
+    activation?: TActivation,
+    onNextStep?(): void,
     status: keyof typeof statusText,
     number: number,
     service: TService,
+    rating?: number,
 }
 
 enum statusText {
@@ -21,7 +27,10 @@ enum statusColor {
 }
 
 
-const OrdersItem = ({ activation, onNextStep, status, number, service }: ordersItemProps) => {
+const OrdersItem = ({ activation, onNextStep, status, number, service, rating }: ordersItemProps) => {
+    const [ratingSlide, setRatingSlede] = useState<boolean>(false);
+    const [newRating, setNewRating] = useState<number>(0);
+    const [comment, setComment] = useState<string>("Коментарий...")
 
     const today: Date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
     const yesterday: Date = new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1);
@@ -34,6 +43,11 @@ const OrdersItem = ({ activation, onNextStep, status, number, service }: ordersI
             array[i] = i < rating
         }
         return array;
+    }
+
+    const onCommentClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        setComment("Всё отлично! Спасибо!");
+        e.currentTarget.style.color = "white";
     }
 
     return (<div className="order-item">
@@ -56,12 +70,16 @@ const OrdersItem = ({ activation, onNextStep, status, number, service }: ordersI
 
         {status == "done" &&
             <div className="order-item_done">
-                <div className="order-item_done_rating">
-                    {ratingArray(4).map((rating: boolean) =>
-                        <img src={rating ? require("@img/ic_star_rating.svg") : require("@img/ic_star.svg")} />
+                <div className="order-item_done_rating"
+                    id={activation && goToMe(ordersButton[2], activation) ? "buttonGoToMe" : ""}
+                    data-description={ordersButton[2].description}
+                    onClick={() => rating ?? (setRatingSlede(true),
+                        activation && goToMe(ordersButton[2], activation) && onNextStep && onNextStep())}>
+                    {ratingArray(rating ?? newRating).map((rating: boolean, i: number) =>
+                        <img src={rating ? require("@img/ic_star_rating.svg") : require("@img/ic_star.svg")}
+                        key={i} />
                     )}
                 </div>
-                <span>Ответ УК:</span>
             </div>
         }
 
@@ -70,6 +88,51 @@ const OrdersItem = ({ activation, onNextStep, status, number, service }: ordersI
             borderBottom: "1px solid #d2d7da",
             marginTop: "5%"
         }}></div>
+
+        {ratingSlide &&
+            <div className="shading">
+                <div className="order-item_rating-slide">
+                    <div className="order-item_rating-slide_header"
+                        onClick={() => { setRatingSlede(false) }}>
+                        <img src={require("@img/ic_arrow_d.svg")} />
+                    </div>
+                    <span>Оцените качество выполнения</span>
+
+                    <div className="order-item_rating-slide_rating"
+                        id={activation && goToMe(ordersButton[3], activation) ? "buttonGoToMe" : ""}
+                        data-description={ordersButton[3].description}
+                        onClick={() => { activation && goToMe(ordersButton[3], activation) && onNextStep && onNextStep() }}>
+                        {ratingArray(newRating).map((rating: boolean, i: number) =>
+                            <img src={rating ? require("@img/ic_star_rating.svg") : require("@img/ic_star.svg")}
+                            key={i}
+                                onMouseOver={() => setNewRating(i + 1)}
+                                onClick={() => setNewRating(i + 1)}/>
+                        )}
+                    </div>
+
+                    <div className="order-item_rating-slide_comment"
+                        id={activation && goToMe(ordersButton[4], activation) ? "buttonGoToMe" : ""}
+                        style={{ color: "#999" }}
+                        data-description={ordersButton[4].description}
+
+                        onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+                            activation && goToMe(ordersButton[4], activation) && onNextStep &&
+                                (onNextStep(), onCommentClick(e))
+                        }}>
+                        {comment}
+                    </div>
+
+                    <div className="order-item_rating-slide_button"
+                        id={activation && goToMe(ordersButton[5], activation) ? "buttonGoToMe" : ""}
+                        data-description={ordersButton[5].description}
+                        onClick={() => { activation && goToMe(ordersButton[5], activation) && onNextStep && (setRatingSlede(false), onNextStep()) }}>
+                        Оценить
+                    </div>
+
+                </div>
+
+            </div>
+        }
     </div>);
 }
 

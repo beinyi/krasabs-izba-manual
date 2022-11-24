@@ -26,17 +26,26 @@ const Orders = ({ activation, onClose, onNextStep }: props) => {
                     </div>
                     <div id={goToMe(ordersButton[1], activation) ? "buttonGoToMe" : ""}
                         className={`header_button-pad_button ${selectedButton == 'archive' && "header_button-pad_button_active"}`}
-                        data-description={activation.altDescription ? "Нажмите ещё раз, чтобы отобразить все транзакции" : ordersButton[1].description}
-                        onClick={() => { setSelectedButton('archive') }}>
+                        data-description={ordersButton[1].description}
+                        onClick={() => { setSelectedButton('archive'); goToMe(ordersButton[1], activation) && onNextStep(); }}>
                         Архив
                     </div>
                 </div>
             </div>
 
             <div className="slide-menu">
-                <OrdersItem status={"work"} number={12} service={plumbingServices[1]}/>
-                <OrdersItem status={"new"} number={13} service={plumbingServices[2]}/>
-                <OrdersItem status={"done"} number={14} service={plumbingServices[4]}/>
+                {selectedButton == "ordered" ?
+                    <div>
+                        <OrdersItem status={"new"} number={4} service={plumbingServices[1]} />
+                        <OrdersItem status={"work"} number={3} service={plumbingServices[2]} />
+                    </div>
+                    : <div>
+                        <OrdersItem activation={activation} onNextStep={onNextStep} status={"done"} number={2} service={plumbingServices[3]} />
+                        <OrdersItem status={"done"} number={1} service={plumbingServices[4]} rating={5} />
+
+
+                    </div>}
+
 
             </div>
         </div>

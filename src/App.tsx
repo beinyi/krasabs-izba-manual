@@ -23,7 +23,7 @@ function App() {
                 <Route path="/transaction_guide" element={<Guide guideMap={transactionMap}/>} />
                 <Route path="/accruals_guide" element={<Guide guideMap={accrualsMap}/>} />
                 <Route path="/call_to_mc" element={<Guide guideMap={callMap} credits={callCredits} />} />
-                <Route path="/check_order" element={<Guide guideMap={checkOrderMap} credits={checkOrderCredits} />} />
+                <Route path="/check_order" element={<Guide guideMap={checkOrderMap} />} />
 
                 <Route path="/dev" element={<Orders activation={{activeType: "pay", activeId: 1}} onNextStep={() => {}}/>}  />
                 
