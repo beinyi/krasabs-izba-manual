@@ -1,4 +1,4 @@
-.slideMenu {
+.transaction_slide {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -39,11 +39,11 @@
     }
 }
 
-.slideMenu::-webkit-scrollbar {
+.transaction_slide::-webkit-scrollbar {
     display: none;
 }
 
-.header {
+.transaction_header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -51,12 +51,13 @@
     align-items: center;
 }
 
-.header span {
+.transaction_header span {
     font-family: 'dindisplay_bold';
     font-size: 1.5em;
 }
 
-.header .button {
+.transaction_header_button,
+.transaction_header_button-active {
     display: flex;
     width: 80%;
     flex-direction: row;
@@ -68,12 +69,12 @@
     cursor: pointer;
 }
 
-.header .active {
+.transaction_header_button-active {
     background-color: rgba(64, 106, 191, 0.5);
 
 }
 
-.header .title {
+.transaction_header_title {
     grid-column: 1 / 3;
     display: flex;
     gap: 5%;
@@ -83,25 +84,25 @@
     padding: 2% 3% 2% 3%;
 }
 
-.header .title img {
+.transaction_header_title img {
     height: 25px;
     margin-right: 5%;
     cursor: pointer;
 }
 
-.transItem {
+.transaction_item {
     display: flex;
     gap: 5%;
     padding: 3% 0 3%;
 }
 
-.transItem .info {
+.transaction_item_info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.transItem .icon {
+.transaction_item_icon {
     display: flex;  
     justify-content: center;
     align-items: center;
@@ -110,30 +111,9 @@
     height: 50px;
 }
 
-.transItem .icon img{
+.transaction_item_icon img{
     height: 35px;
 }
-
-@keyframes buttonBackgroundColor {
-    0% {
-        background-color: rgba(255, 255, 255, 0.0);
-    }
-
-    50% {
-        background-color: rgba(255, 255, 255, 0.5);
-    }
-
-    100% {
-        background-color: rgba(255, 255, 255, 0.0);
-    }
-}
-
-#buttonGoToMe {
-    cursor: pointer;
-    animation: buttonBackgroundColor 2s infinite;
-}
-
-
 
 @keyframes show {
     from {
@@ -155,28 +135,3 @@
     }
 }
 
-#buttonGoToMe::before {
-    font-family: 'dindisplay_regular';
-    font-size: 1em;
-    color: #fff;
-    position: fixed;
-    display: block;
-    padding: 5px;
-    text-align: center;
-    border: 1px solid #696b92;
-    background-color: var(--guide-gray-color);
-    border-radius: var(--border-radius);
-    content: attr(data-description);
-    min-width: auto;
-    width: 200px;
-    cursor: default;
-    z-index: 999;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 100px;
-    animation-name: show;
-    animation-duration: 2s;
-    -webkit-animation-name: show;
-    -webkit-animation-duration: 2s;
-}

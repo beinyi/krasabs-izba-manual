@@ -11,29 +11,29 @@ const Orders = ({ activation, onClose, onNextStep }: props) => {
 
     return (
         <div>
-            <div className="header">
-                <div className="header_title">
+            <div className="orders_header">
+                <div className="orders_header_title">
                     <img src={require(`../../../../img/ic_arrow_l.svg`)}
                         onClick={() => onClose ? onClose() : {}} />
                     <span>Мои заказы</span>
                 </div>
-                <div className="header_button-pad">
+                <div className="orders_header_button-wrapper">
                     <div id={goToMe(ordersButton[0], activation) ? "buttonGoToMe" : ""}
-                        className={`header_button-pad_button ${selectedButton == 'ordered' && "header_button-pad_button_active"}`}
-                        data-description={ordersButton[0].description}
+                        className={`orders_header_button ${selectedButton == 'ordered' && "orders_header_button-active"}`}
+
                         onClick={() => { setSelectedButton('ordered') }}>
                         Заказанные
                     </div>
                     <div id={goToMe(ordersButton[1], activation) ? "buttonGoToMe" : ""}
-                        className={`header_button-pad_button ${selectedButton == 'archive' && "header_button-pad_button_active"}`}
-                        data-description={ordersButton[1].description}
+                        className={`orders_header_button ${selectedButton == 'archive' && "orders_header_button-active"}`}
+
                         onClick={() => { setSelectedButton('archive'); goToMe(ordersButton[1], activation) && onNextStep(); }}>
                         Архив
                     </div>
                 </div>
             </div>
 
-            <div className="slide-menu">
+            <div className="orders-slide">
                 {selectedButton == "ordered" ?
                     <div>
                         <OrdersItem status={"new"} number={4} service={plumbingServices[1]} />

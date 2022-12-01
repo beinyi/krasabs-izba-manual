@@ -1,34 +1,13 @@
-import { TActivation } from "../components/Guide"
+import { navButtons, ordersButton, servicesButtons, TButton } from "@components/Main/buttons";
 
-const checkOrderMap: Array<TActivation> = [   //Шаги для выделения и активации
-    {
-        activeType: "navBar",
-        activeId: 1
-    },
-    {
-        activeType: "servCategory",
-        activeId: 5
-    },
-    {
-        activeType: "orders",
-        activeId: 1
-    },
-    {
-        activeType: "orders",
-        activeId: 2
-    },
-    {
-        activeType: "orders",
-        activeId: 3
-    },
-    {
-        activeType: "orders",
-        activeId: 4
-    },
-    {
-        activeType: "orders",
-        activeId: 5
-    }
+const checkOrderMap: Array<TButton> = [   //Шаги для выделения и активации
+    navButtons[1],
+    servicesButtons[5],
+    ordersButton[1],
+    ordersButton[2],
+    ordersButton[3],
+    ordersButton[4],
+    ordersButton[5],
 ]
 
 

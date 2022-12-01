@@ -1,5 +1,5 @@
 import { actButtons, meterButtons, TButton } from "../buttons"
-import s from "@styles/HomeSlider.module.css"
+import "@styles/HomeSlider.css"
 import { goToMe, props } from "../Main"
 
 
@@ -9,25 +9,24 @@ const Home = ({ activation, onNextStep }: props) => {
 
     const renderButton = (button: TButton) => {
         return (
-            <div id={goToMe(button, activation) ? s["buttonGoToMe"] : ""} 
-            className={s.button} 
-            data-description={button.description ? button.description : ""} 
+            <div id={goToMe(button, activation) ? "buttonGoToMe" : ""} 
+            className="home-slide_button" 
             onClick={() => {onNextStep();}}
             key={`${button.type}-${button.id}`}>
-                <img className={s.icon} src={require(`../../../img/${button.icon}`)} alt={button.title} />
+                <img className="home-slide_button_icon" src={require(`../../../img/${button.icon}`)} alt={button.title} />
                 <span>{button.title}</span>
             </div>
         )
     }
 
     return (
-        <div className={s.slideMenu}>
-            <div className={s.meterMenu}>
+        <div className="home-slide">
+            <div className="home-slide_meter-menu">
                 <span style={{ fontFamily: "dindisplay_bold" }}>Счётчики</span>
                 {meterButtons.map((button: TButton) => renderButton(button))}
             </div>
 
-            <div className={s.actionMenu}>
+            <div className="home-slide_action-menu">
                 <span style={{ fontFamily: "dindisplay_bold" }}>Действия</span>
                 {actButtons.map((button: TButton) => renderButton(button))}
             </div>

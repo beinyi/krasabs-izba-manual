@@ -9,7 +9,48 @@
     cursor:default;
 }
 
-.credits {
+.guide_description,
+.guide_description-pay,
+.guide_description-service,
+.guide_description-rating {
+    font-family: 'dindisplay_regular';
+    font-size: 18px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #696b92;
+    background-color: var(--guide-gray-color);
+    border-radius: var(--border-radius);
+    width: 300px;
+    cursor: default;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 10%;
+    animation-name: show;
+    animation-duration: 2s;
+    -webkit-animation-name: show;
+    -webkit-animation-duration: 2s;
+}
+
+.guide_description-pay {
+    bottom: 5%;
+}
+
+.guide_description-service {
+    bottom: 20%;
+}
+
+.guide_description-rating {
+    bottom: 40%;
+}
+
+
+.guide_credits {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -19,12 +60,13 @@
     z-index: 208;
 }
 
-.credits p {
+.guide_credits p {
     font-family: "dindisplay_regular";
     margin: 2%;
 }
 
-.button {
+.guide_button,
+.guide_credits_button {
     position: absolute;
     left: 0;
     right: 0;
@@ -47,7 +89,7 @@
     -webkit-animation-duration: 2s;
 }
 
-.credits .button {
+.guide_credits_button {
     position: absolute;
     left: 0;
     right: 0;

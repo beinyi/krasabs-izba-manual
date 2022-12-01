@@ -1,5 +1,5 @@
 import { TButton } from "../../buttons"
-import s from "@styles/ServicesSlider.module.less"
+import "@styles/ServicesSlider.css"
 import { goToMe, props } from "../../Main"
 import ServItem from "./ServItem"
 
@@ -25,7 +25,8 @@ export const plumbingServices: Array<TService> = [
         rating: 5,
         orders: 16,
         amount: 1,
-        description: "Выберите нужную услугу."
+        description: "Выберите нужную услугу.",
+        descriptionPosition: 'service',
     },
     {
         id: 1,
@@ -35,7 +36,8 @@ export const plumbingServices: Array<TService> = [
         rating: 3,
         orders: 19,
         amount: 1,
-        description: "При необходимости можно выбрать несколько."
+        description: "При необходимости можно выбрать несколько.",
+        descriptionPosition: 'service',
     },
     {
         id: 2,
@@ -108,11 +110,10 @@ const ServicesList = ({ activation, onNextStep, setBasketContents, basketContent
                     marginRight: "-5%",
                     padding: "5%",
                 }}
-                    id={goToMe(serv, activation) ? s["buttonGoToMe"] : ""}
+                    id={goToMe(serv, activation) ? "buttonGoToMe" : ""}
                     onClick={goToMe(serv, activation) ?
                         () => { onNextStep(); }
                         : () => { }}
-                        data-description={serv.description}
                     key={serv.id}>
 
                     <ServItem service={serv} setBasketContents={setBasketContents} basketContents={basketContents} />

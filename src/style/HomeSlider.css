@@ -1,4 +1,4 @@
-.slideMenu {
+.home-slide {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -10,14 +10,20 @@
     padding: 5%;
     border-radius: 10px 10px 0 0;
     overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     padding-bottom: 30%;
 }
 
-.meterMenu {
+.home-slide::-webkit-scrollbar {
+    display: none;
+}
+
+.home-slide_meter-menu {
     margin-bottom: 5%;
 }
 
-.slideMenu .button{
+.home-slide_button {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -28,11 +34,11 @@
     box-shadow: 0 3px rgba(0, 0, 0, 0.1);
 }
 
-.button span {
+.home-slide_button span {
     margin-left: 5%;
 }
 
-.icon {
+.home-slide_button_icon {
     height: 30px;
     max-width: 30px;
 }
@@ -44,10 +50,6 @@
     100% {background-color: rgba(155, 155, 155, 0.0);}
   }
 
-#buttonGoToMe {
-    color: #dbdbdb;
-    animation: backgroundColor 3s infinite;
-}
 
 @keyframes show {
     from { opacity: 0.0; }
@@ -59,29 +61,3 @@
     to { opacity: 1.0; }
   }
 
-#buttonGoToMe:before {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    margin: auto;
-    animation-name: show;
-    animation-duration: 2s;
-    -webkit-animation-name: show;
-    -webkit-animation-duration: 2s; 
-    display: block;
-    padding: 5px;
-    border: 1px solid #696b92;
-    background-color: var(--guide-gray-color);
-    border-radius: var(--border-radius);
-    content: attr(data-description);
-    bottom: 20px;
-    width:  200px;
-    cursor: default;
-    z-index: 208;
-}
-
-@media only screen and (max-height: 750px) {
-    #buttonGoToMe:before {
-        position: fixed;
-    }
-}

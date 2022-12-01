@@ -1,4 +1,4 @@
-.slideMenu {
+.service-slide {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -39,12 +39,12 @@
     }
 }
 
-.slideMenu::-webkit-scrollbar {
+.service-slide::-webkit-scrollbar {
     display: none;
 }
 
-.header,
-.headerList {
+.service_header,
+.service_list-header {
     display: flex;
     justify-content: space-between;
     padding: 5%;
@@ -53,13 +53,13 @@
 }
 
 
-.header span
-,.headerList span {
+.service_header span,
+.service_list-header span {
     font-family: 'dindisplay_bold';
     font-size: 1.5em;
 }
 
-.header .button {
+.service_header_button {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -68,7 +68,7 @@
     padding: 2% 3% 2% 3%;
 }
 
-.headerList .button {
+.service_list-header_button {
     display: flex;
     gap: 5%;
     flex-direction: row;
@@ -77,13 +77,13 @@
     padding: 2% 3% 2% 3%;
 }
 
-.header .button img,
-.headerList .button img {
+.service_header_button img,
+.service_list-header_button img {
     height: 25px;
     margin-right: 5%;
 }
 
-.search {
+.service-slide_search {
     font-family: 'dindisplay_light';
     display: flex;
     width: 100%;
@@ -95,12 +95,12 @@
     margin-bottom: 10%;
 }
 
-.search img {
+.service-slide_search img {
     height: 20px;
     margin-right: 2%;
 }
 
-.buttonPad {
+.service-slide_button-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -108,7 +108,7 @@
     gap: 0.5em;
 }
 
-.buttonPad .button {
+.service-slide_button {
     font-family: 'dindisplay_light';
     font-size: 0.9em;
     border-radius: var(--border-radius);
@@ -120,7 +120,7 @@
     width: 30%;
 }
 
-.buttonPad .button img {
+.service-slide_button img {
     align-self: center;
     border-radius: var(--border-radius);
     background-color: var(--gray-color);
@@ -131,8 +131,8 @@
 
 }
 
-.ordersButtons {
-    position: absolute;
+.service-slide_orders-buttons-wrapper {
+    position: fixed;
     left: 0;
     right: 0;
     bottom: 80px;
@@ -145,7 +145,7 @@
     gap: 1em;
 }
 
-.ordersButtons .button {
+.service-slide_orders-button {
     position: absolute;
     display: flex;
     left: 0;
@@ -161,13 +161,13 @@
     width: 70%;
 }
 
-.ordersButtons .buttonBasketOn {
+.service-slide_basket-active-button {
     position: sticky;
     width: 70%;
 }
 
 
-.ordersButtons .basket {
+.service-slide_basket-button {
     visibility: hidden;
     position: static;
     display: flex;
@@ -183,102 +183,10 @@
     box-shadow: 0 3px rgba(0, 0, 0, 0.1);
 }
 
-.ordersButtons .basketOn {
+.service-slide_basket-active {
     visibility: visible;
 }
 
-.ordersButtons .basket img {
+.service-slide_basket-button img {
     height: 35px;
-}
-
-@keyframes buttonBackgroundColor {
-    0% {
-        background-color: rgba(255, 255, 255, 0.0);
-    }
-
-    50% {
-        background-color: rgba(255, 255, 255, 0.5);
-    }
-
-    100% {
-        background-color: rgba(255, 255, 255, 0.0);
-    }
-}
-
-@keyframes basketBackgroundColor {
-    0% {
-        background-color: rgba(0, 153, 17, 1);
-    }
-
-    50% {
-        background-color: rgba(0, 153, 17, 0.5);
-    }
-
-    100% {
-        background-color: rgba(0, 153, 17, 1);
-    }
-}
-
-#buttonGoToMe,
-#ordersGoToMe {
-    cursor: pointer;
-    animation: buttonBackgroundColor 2s infinite;
-}
-
-#basketGoToMe {
-    cursor: pointer;
-    animation: basketBackgroundColor 2s infinite;
-}
-
-@keyframes show {
-    from {
-        opacity: 0.0;
-    }
-
-    to {
-        opacity: 1.0;
-    }
-}
-
-@-webkit-keyframes show {
-    from {
-        opacity: 0.0;
-    }
-
-    to {
-        opacity: 1.0;
-    }
-}
-
-#buttonGoToMe::before,
-#ordersGoToMe::before,
-#basketGoToMe::before {
-    font-family: 'dindisplay_regular';
-    font-size: 1em;
-    position: absolute;
-    display: block;
-    padding: 5px;
-    text-align: center;
-    border: 1px solid #696b92;
-    background-color: var(--guide-gray-color);
-    border-radius: var(--border-radius);
-    content: attr(data-description);
-    min-width: auto;
-    width: 200px;
-    cursor: default;
-    z-index: 999;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 150px;
-    animation-name: show;
-    animation-duration: 1s;
-    -webkit-animation-name: show;
-    -webkit-animation-duration: 1s;
-}
-
-#ordersGoToMe::before,
-#basketGoToMe::before {
-    bottom: 70px;
-
 }

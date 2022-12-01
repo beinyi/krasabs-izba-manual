@@ -1,6 +1,6 @@
 import { date, goToMe, props } from "../../Main"
 import { TService } from "./ServicesList"
-import s from "@styles/Basket.module.css"
+import "@styles/Basket.css"
 import { basketButtons, buttonTypes } from "../../buttons"
 import React, { ReactComponentElement, useEffect, useState } from "react"
 
@@ -64,16 +64,16 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
     }
 
     return (
-        <div className={s.slideMenu}>
-            <div className={s.header}>
+        <div className="basket-slide">
+            <div className="basket-slide_header">
                 <span>В корзине {contents.length} услуги на {amount()} руб.</span>
                 <img onClick={() => {onClose ? onClose() : {}; onNextStep(false); }} src={require('@img/ic_close.svg')} />
             </div>
 
-            <div className={s.dataPad}>
-                <div className={s.date}
-                    id={goToMe(basketButtons[0], activation) ? s["buttonGoToMe"] : ""}
-                    data-description="Выберите удобные дату и время."
+            <div className="basket-slide_data-wrapper">
+                <div className="basket-slide_data-wrapper_date"
+                    id={goToMe(basketButtons[0], activation) ? "buttonGoToMe" : ""}
+                    
                     onClick={goToMe(basketButtons[0], activation) ? () =>
                         onNextStep()
                         : () => { }}>
@@ -81,8 +81,8 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
                     <span>{`${tomorrow.getDate()}.${tomorrow.getMonth() + 1}.${tomorrow.getFullYear()}`}</span>
                 </div>
 
-                <div className={s.date}
-                    id={goToMe(basketButtons[0], activation) ? s["buttonGoToMe2"] : ""}
+                <div className="basket-slide_data-wrapper_date"
+                    id={goToMe(basketButtons[0], activation) ? "buttonGoToMe2" : ""}
                     onClick={goToMe(basketButtons[0], activation) ? () =>
                         onNextStep()
                         : () => { }}>
@@ -90,9 +90,9 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
                     <span>13:00 - 17:00</span>
                 </div>
 
-                <div className={s.input}
-                    id={goToMe(basketButtons[1], activation) ? s["buttonGoToMe"] : ""}
-                    data-description="Укажите контактную информацию и оставьте комментарий при необходимости."
+                <div className="basket-slide_data-wrapper_input"
+                    id={goToMe(basketButtons[1], activation) ? "buttonGoToMe" : ""}
+                    
                     onClick={goToMe(basketButtons[1], activation) && isInputsDone ? 
                         () => onNextStep()
                         : () => isEdit && setNameInput("")}>
@@ -101,8 +101,8 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => onInputChange(e, "name")} />
                     </div>
 
-                <div className={s.input}
-                    id={goToMe(basketButtons[1], activation) ? s["buttonGoToMe2"] : ""}
+                <div className="basket-slide_data-wrapper_input"
+                    id={goToMe(basketButtons[1], activation) ? "buttonGoToMe2" : ""}
                     onClick={goToMe(basketButtons[1], activation) && isInputsDone ? 
                         () => onNextStep()
                         : () => isEdit && setNumberInput("+7")}>
@@ -114,16 +114,16 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
                 <span style={{ textDecoration: "underline" }}>Оставить комментарий</span>
             </div>
 
-            <div className={s.order}>
+            <div className="basket-slide_order">
                 <span style={{
                     fontFamily: 'dindisplay_bold',
                     fontSize: "1.25em"
                 }}>Заказ</span>
                 {contents.map((serv: TService) =>
-                    <div className={s.service} key={serv.id}>
+                    <div className="basket-slide_order_service" key={serv.id}>
                         <span>{serv.title}</span>
                         <span>{serv.price} р.</span>
-                        <div className={s.amount}>
+                        <div className="basket-slide_order_service_amount">
                             <img onClick={() => onChangeAmount(serv.id, serv.type, false)} src={require('@img/ic_minus.svg')} />
                             <span>{serv.amount}</span>
                             <img onClick={() => onChangeAmount(serv.id, serv.type, true)} src={require('@img/ic_plus.svg')} />
@@ -136,9 +136,9 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
                     </div>
                 )}
 
-                <div className={s.buttonOrder}
-                    id={goToMe(basketButtons[2], activation) ? s["buttonOrderGoToMe"] : ""}
-                    data-description="После этого можно оформить заявку."
+                <div className="basket-slide_button"
+                    id={goToMe(basketButtons[2], activation) ? "greenButtonGoToMe" : ""}
+                    
                     onClick={goToMe(basketButtons[2], activation) ? () =>
                         onNextStep()
                         : () => { }}

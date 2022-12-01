@@ -10,10 +10,8 @@ module.exports = {
     devtool: 'source-map',
     devServer: {
         static: {
-            directory: path.join(__dirname, './'),
+            directory: path.resolve(__dirname, 'dist'),
         },
-        compress: true,
-        open: true,
         port: 3000,
         hot: true,
         historyApiFallback: true
@@ -23,6 +21,7 @@ module.exports = {
     output: {
         filename: "[name].js",
         path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
     },
 
     plugins: [

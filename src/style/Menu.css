@@ -1,4 +1,4 @@
-.page {
+.menu {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -8,17 +8,17 @@
     background-size: cover;
 }
 
-.link {
+.menu_links_link {
     font-family: dindisplay_light, sans-serif;
     text-decoration: none;
     color: white;
 }
 
-.link:hover {
+.menu_links_link:hover {
     color: #ffbd2e;
 }
 
-.linksBlock {
+.menu_links {
     display: flex;
     flex-direction: column;
     padding: 0 5% 0 5%;
@@ -39,6 +39,6 @@ h2 {
     font-size: 1.75em;
 }
 
-.logo {
+.menu_logo {
     height: 50%;
 }

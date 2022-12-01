@@ -1,22 +1,11 @@
-import { TActivation } from "../components/Guide"
+import { navButtons, payButtons, TButton } from "@components/Main/buttons";
+import { TActivation } from "../components/Guide/Guide"
 
-const payMap: Array<TActivation> = [   //Шаги для выделения и активации
-    {
-        activeType: "navBar",
-        activeId: 2
-    },
-    {
-        activeType: "pay",
-        activeId: 1
-    },
-    {
-        activeType: "pay",
-        activeId: 2
-    },
-    {
-        activeType: "pay",
-        activeId: 0
-    },
+const payMap: Array<TButton> = [   //Шаги для выделения и активации
+    navButtons[2],
+    payButtons[1],
+    payButtons[2],
+    payButtons[0],
 ]
 
 export const payCredits: Array<string> = [             //"Титры" для вывода после прохождения маршрута

@@ -1,28 +1,12 @@
-import { TActivation } from "../components/Guide"
+import { navButtons, payButtons, TButton, transactionButtons } from "@components/Main/buttons";
+import { TActivation } from "../components/Guide/Guide"
 
-const transactionMap: Array<TActivation> = [   //Шаги для выделения и активации
-    {
-        activeType: "navBar",
-        activeId: 2
-    },
-    {
-        activeType: "pay",
-        activeId: 3
-    },
-    {
-        activeType: "transaction",
-        activeId: 0
-    },
-    {
-        activeType: "transaction",
-        activeId: 1
-    },
-    {
-        activeType: "transaction",
-        activeId: 1,
-        altDescription: true,
-        timeout: true
-    },
+const transactionMap: Array<TButton> = [   //Шаги для выделения и активации
+    navButtons[2],
+    payButtons[3],
+    transactionButtons[0],
+    transactionButtons[1],
+    transactionButtons[1],
 
 ]
 

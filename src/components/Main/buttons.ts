@@ -1,9 +1,10 @@
+import { descriptionPositions } from "@components/Guide/Description";
 
 export type buttonTypes = 
 'infoMenu' | 'slideAct' | 'slideMeter' | 
 'navBar' | 'pay' | 'servCategory' | 
 'servItem' | 'basket' | 'transaction' |
-'orders' | 'request';
+'orders' | 'request' | 'noType';
 
 export type TButton = {
     id: number,
@@ -11,6 +12,8 @@ export type TButton = {
     title: string,
     icon?: string | null,
     description?: string
+    altDescription?: string,
+    descriptionPosition?: keyof typeof descriptionPositions;
 }
 
 
@@ -41,7 +44,8 @@ export const actButtons: Array<TButton> = [
         type: 'slideAct',
         title: "Позвонить в УО",
         icon: "ic_phone.svg",
-        description: "Чтобы позвонить в УК, достаточно нажать эту кнопку"
+        description: "Чтобы позвонить в УК, достаточно нажать эту кнопку",
+        descriptionPosition: 'service'
 
     }
 ]
@@ -81,7 +85,7 @@ export const navButtons: Array<TButton> = [
         type: 'navBar',
         title: "Оплатить",
         icon: "ic_pay.svg",
-        description: "Чтобы перейти на страницу оплаты, нажмите на эту кнопку"
+        description: "Перейти на страницу оплаты можно с помощью этих кнопок"
     },
     {
         id: 3,
@@ -105,28 +109,32 @@ export const payButtons: Array<TButton> = [
         type: 'pay',
         title: "Картой",
         icon: "ic_card.svg",
-        description: "Нажмите, чтобы перейти на страницу оплаты банка"
+        description: "Нажмите, чтобы перейти на страницу оплаты банка",
+        descriptionPosition: 'pay',
     },
     {
         id: 1,
         type: 'pay',
         title: "Сумма к оплате",
         icon: null,
-        description: "Укажите сумму платежа"
+        description: "Укажите сумму платежа",
+        descriptionPosition: 'pay',
     },
     {
         id: 2,
         type: 'pay',
         title: "Подтвердить",
         icon: 'ic_check_on.svg',
-        description: "Подтвердите, что согласны с условиями"
+        description: "Подтвердите, что согласны с условиями",
+        descriptionPosition: 'pay',
     },
     {
         id: 3,
         type: 'pay',
         title: "История транзакций",
         icon: "",
-        description: "Здесь можно посмотреть историю транзакций"
+        description: "Здесь можно посмотреть историю транзакций",
+        descriptionPosition: 'service',
     },
 ]
 
@@ -143,7 +151,8 @@ export const transactionButtons: Array<TButton> = [
         type: 'transaction',
         title: "Начисления",
         icon: "",
-        description: "Нажмите, чтобы отобразить только начисления"
+        description: "Нажмите, чтобы отобразить только начисления",
+        altDescription: "Нажмите ещё раз, чтобы отобразить все транзакции"
     },
     {
         id: 2,
@@ -157,14 +166,16 @@ export const transactionButtons: Array<TButton> = [
         type: 'transaction',
         title: "Платёжный документ",
         icon: "",
-        description: "Чтобы открыть платёжный документ, нажмите эту кнопку"
+        description: "Чтобы открыть платёжный документ, нажмите эту кнопку",
+        descriptionPosition: 'service',
     },
     {
         id: 4,
         type: 'transaction',
         title: "Swipe",
         icon: "",
-        description: ""
+        description: "Свайпом можно изменить месяц",
+        descriptionPosition: 'service',
     }
 ]
 
@@ -188,7 +199,8 @@ export const servicesButtons: Array<TButton> = [
         type: 'servCategory',
         title: "Сантехника",
         icon: "ic_plumbing.png",
-        description: "Выберите нужную категорию или воспользуйтесь поиском"
+        description: "Выберите нужную категорию или воспользуйтесь поиском",
+        descriptionPosition: 'service',
     },
     {
         id: 3,
@@ -209,14 +221,16 @@ export const servicesButtons: Array<TButton> = [
         type: 'servCategory',
         title: "Мои заказы",
         icon: "",
-        description: "Перейдите в \"Мои заказы\", чтобы посмотреть ранее заказанные услуги"
+        description: "Перейдите в \"Мои заказы\", чтобы посмотреть ранее заказанные услуги",
+        descriptionPosition: 'service',
     },
     {
         id: 6,
         type: 'servCategory',
         title: "Корзина",
         icon: "ic_basket.svg",
-        description: "Для оформления заказа перейдите в корзину."
+        description: "Для оформления заказа перейдите в корзину.",
+        descriptionPosition: 'service',
     }
 ]
 
@@ -225,19 +239,22 @@ export const basketButtons: Array<TButton> = [
         id: 0,
         type: 'basket',
         title: "",
-        description: "Выберите удобные дату и время."
+        description: "Выберите удобные дату и время.",
+        descriptionPosition: 'service',
     },
     {
         id: 1,
         type: 'basket',
         title: "",
-        description: "Укажите контактную информацию и оставьте комментарий при необходимости."
+        description: "Укажите контактную информацию и оставьте комментарий при необходимости.",
+        descriptionPosition: 'service',
     },
     {
         id: 2,
         type: 'basket',
         title: "",
-        description: "После этого можно оформить заявку."
+        description: "После этого можно оформить заявку.",
+        descriptionPosition: 'service',
     }
 
 ]
@@ -266,19 +283,22 @@ export const ordersButton: Array<TButton> = [
         id: 3,
         type: 'orders',
         title: "Оценка",
-        description: "Оцените качество предоставленной услуги"
+        description: "Оцените качество предоставленной услуги",
+        descriptionPosition: 'rating'
     },
     {
         id: 4,
         type: 'orders',
         title: "Комментарий",
-        description: "При необходимости добавьте комментарий"
+        description: "При необходимости добавьте комментарий",
+        descriptionPosition: 'rating'
     },
     {
         id: 5,
         type: 'orders',
         title: "Оценить",
-        description: "Не забудьте отправить отзыв"
+        description: "Не забудьте отправить отзыв",
+        descriptionPosition: 'rating'
     },
 
 

@@ -1,10 +1,7 @@
-import { TActivation } from "../components/Guide"
+import { actButtons, TButton } from "@components/Main/buttons";
 
-const callMap: Array<TActivation> = [   //Шаги для выделения и активации
-    {
-        activeType: "slideAct",
-        activeId: 1
-    },
+const callMap: Array<TButton> = [   //Шаги для выделения и активации
+    actButtons[1]
 ]
 
 export const callCredits: Array<string> = [             //"Титры" для вывода после прохождения маршрута

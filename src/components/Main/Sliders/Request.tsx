@@ -49,7 +49,7 @@ const Request = ({ activation, onNextStep }: RequestProps) => {
         <div className="slide-menu">
             <div className="slide-menu_input_name"
                 id={goToMe(requestButton[0], activation) ? "buttonGoToMe" : ""}
-                data-description="Укажите контактную информацию и оставьте комментарий при необходимости."
+                
                 onClick={goToMe(requestButton[0], activation) && isInputsDone ?
                     () => onNextStep()
                     : () => isEdit && setNameInput("")}>

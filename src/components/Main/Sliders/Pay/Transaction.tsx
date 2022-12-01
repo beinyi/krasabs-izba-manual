@@ -1,5 +1,5 @@
 import { date, goToMe, props } from "../../Main"
-import s from "@styles/Transaction.module.css"
+import "@styles/Transaction.css"
 import TransactionItem from "./TransactionItem";
 import { useState } from "react";
 import { transactionButtons } from "../../buttons";
@@ -54,31 +54,29 @@ const Transaction = ({ activation, onNextStep, onClose }: props) => {
             :
 
             <div>
-                <div className={s.header}>
-                    <div className={s.title}>
+                <div className="transaction_header">
+                    <div className="transaction_header_title">
                         <img src={require(`../../../../img/ic_arrow_l.svg`)}
                             onClick={() => onClose ? onClose() : {}} />
                         <span>История операций</span>
                     </div>
-                    <div id={goToMe(transactionButtons[0], activation) ? s["buttonGoToMe"] : ""}
-                        className={`${s.button} ${!isViewAccrual && s.active}`}
-                        data-description={transactionButtons[0].description}
+                    <div id={goToMe(transactionButtons[0], activation) ? "buttonGoToMe" : ""}
+                        className={isViewAccrual ? "transaction_header_button" : "transaction_header_button-active"}
                         onClick={goToMe(transactionButtons[0], activation) ?
                             () => { onChangeView('payment'); onNextStep() }
                             : () => { onChangeView('payment') }}>
                         Платежи
                     </div>
-                    <div id={goToMe(transactionButtons[1], activation) ? s["buttonGoToMe"] : ""}
-                        className={`${s.button} ${!isViewPayment && s.active}`}
-                        data-description={activation.altDescription ? "Нажмите ещё раз, чтобы отобразить все транзакции" : transactionButtons[1].description}
+                    <div id={goToMe(transactionButtons[1], activation) ? "buttonGoToMe" : ""}
+                        className={isViewPayment ? "transaction_header_button" : "transaction_header_button-active"}   
                         onClick={goToMe(transactionButtons[1], activation) ?
-                            () => { onChangeView('accrual'); onNextStep(true, activation.timeout ? activation.timeout : false) }
+                            () => { onChangeView('accrual'); onNextStep(); }
                             : () => { onChangeView('accrual') }}>
                         Начисления
                     </div>
                 </div>
 
-                <div className={s.slideMenu}>
+                <div className="transaction_slide">
                     {monthsAndYears.map((monthAndYear: string, i: number) => {
                         const monthId = new Date(date.getFullYear(), date.getMonth() - i).getMonth();
                         return (
@@ -95,7 +93,6 @@ const Transaction = ({ activation, onNextStep, onClose }: props) => {
                                         margin: '0 -3%'
                                     }}
                                         id={goToMe(transactionButtons[2], activation) ? "buttonGoToMe" : ""}
-                                        data-description={goToMe(transactionButtons[2], activation) ? transactionButtons[2].description : {}} 
                                         onClick={() => onNextStep()}>
                                         {isViewAccrual && <TransactionItem isPayment={false} setCarousel={() => setAccrualCarousel({ isView: true, monthId: i })}
                                             monthId={monthId} year={monthAndYear.slice(-4)} />}

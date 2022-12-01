@@ -1,0 +1,100 @@
+.pay-slide {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 0px;
+    background-color: var(--black-color);
+    padding: 5%;
+    border-radius: 10px 10px 0 0;
+    overflow-y: auto;
+    padding-bottom: 20%;
+}
+
+.pay-slide_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+
+}
+
+.pay-slide_header h3 {
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+    flex: 1;
+
+}
+
+.pay-slide_header img {
+    height: 35px;
+
+}
+
+.pay-slide_info {
+    font-family: dindisplay_regular;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
+}
+
+.pay-slide_info div {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5%;
+}
+
+.pay-slide_payment {
+    font-family: dindisplay_regular;
+    display: flex;
+    flex-direction: column;
+}
+
+.pay-slide_payment h2 {
+    font-family: dindisplay_bold;
+}
+
+.pay-slide_payment_input {
+    font-family: dindisplay_regular;
+    background-color: rgba(255, 255, 255, 0.0);
+    color: white;
+    border: none;
+    border-bottom: 2px solid #666;
+    width: 30%;
+    font-size: 2em;
+    margin: 5% 0 5%;
+    cursor: default;
+
+}
+
+.pay-slide_payment img {
+    height: 15px;
+    margin-right: 2%;
+}
+
+.pay-slide_payment a {
+    color: rgba(64, 106, 191);
+}
+
+.pay-slide_button {
+    display: flex;
+    font-family: dindisplay_regular;
+    padding: 2%;
+    margin: 5% 0 5%;
+    border-radius: var(--border-radius);
+    width: 100%;
+    min-width: 100px;
+    background-color: var(--green-color);
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+}
+
+
+.pay-slide_button img {
+    height: 35px;
+    margin-right: 2%;
+}

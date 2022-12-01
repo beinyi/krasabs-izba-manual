@@ -27,16 +27,16 @@ enum monthsString {
 const TransactionItem = ({isPayment, monthId, year, setCarousel }: TransactionItemProps) => {
 
     return (
-        <div className={s.transItem}
+        <div className="transaction_item"
         onClick={() => !isPayment && setCarousel ? setCarousel() : {}}
         >
-            <div className={s.icon}
+            <div className="transaction_item_icon"
                 style={isPayment ? { backgroundColor: "#1a2e47" } : { backgroundColor: "#2e4028" }}>
                 <img src={require(isPayment ?
                     '../../../../img/ic_trans_pay.svg'
                     : '../../../../img/ic_trans_charge.svg')} />
             </div>
-            <div className={s.info}>
+            <div className="transaction_item_info">
                 <span>{isPayment ?
                     "Выполнен платеж"
                     : "Начислено"} за ЖКУ</span>

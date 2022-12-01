@@ -1,4 +1,4 @@
-.slideMenu {
+.basket-slide {
     position: absolute;
     bottom: 0;
     z-index: 106;
@@ -40,36 +40,36 @@
     }
 }
 
-.slideMenu::-webkit-scrollbar {
+.basket-slide::-webkit-scrollbar {
     display: none;
 }
 
-.header {
+.basket-slide_header {
     display: flex;
     font-family: 'dindisplay_bold';
     font-size: 1.25em;
     align-items: center;
 }
 
-.header img {
+.basket-slide_header img {
     margin-left: auto;
     height: 30px;
 }
 
-.dataPad {
+.basket-slide_data-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
     gap: 1em;
 }
 
-.date,
-.input {
+.basket-slide_data-wrapper_date,
+.basket-slide_data-wrapper_input {
     border-radius: var(--border-radius);
     padding: 2%;
 }
 
-.date {
+.basket-slide_data-wrapper_date {
     display: flex;
     align-items: center;
     gap: 0.5em;
@@ -77,18 +77,18 @@
     background-color: #1c4c6b;
 }
 
-.date img {
+.basket-slide_data-wrapper_date img {
     height: 18px;
     margin-left: 2%;
 }
 
-.input {
+.basket-slide_data-wrapper_input {
     color: #666;
     grid-column: 1 / 3;
     background-color: var(--gray-color);
 }
 
-.input input {
+.basket-slide_data-wrapper_input input {
     background-color: rgba(255, 255, 255, 0);
     color: #FFF;
     height: 100%;
@@ -97,39 +97,35 @@
     outline: none;
 }
 
-.orders {
-    display: flex;
-}
-
-.service {
+.basket-slide_order_service {
     display: grid;
     grid-template-columns: 6fr 1fr;
     grid-template-rows: repeat(2, 1fr);
     margin: 5% 0 5%;
 }
 
-.service span {
+.basket-slide_order_service span {
     font-family: 'dindisplay_bold';
     grid-column: 1 / 2;
     padding: 0 5% 0;
 }
 
-.service .amount {
+.basket-slide_order_service_amount {
     display: flex;
     justify-content: center;
     align-items: center;
     grid-column: 2 / 3;
 }
 
-.service .amount span {
+.basket-slide_order_service_amount span {
     min-width: 15px;
 }
 
-.service .amount img {
+.basket-slide_order_service_amount img {
     height: 15px;
 }
 
-.buttonOrder {
+.basket-slide_button {
     font-family: 'dindisplay_regular';
 
     position: absolute;
@@ -150,92 +146,3 @@
     box-shadow: 0 3px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes buttonBackgroundColor {
-    0% {
-        background-color: rgba(255, 255, 255, 0.0);
-    }
-
-    50% {
-        background-color: rgba(255, 255, 255, 0.5);
-    }
-
-    100% {
-        background-color: rgba(255, 255, 255, 0.0);
-    }
-}
-
-#buttonGoToMe,
-#buttonGoToMe2 {
-    cursor: pointer;
-    animation: buttonBackgroundColor 2s infinite;
-}
-
-@keyframes buttonOrderBackgroundColor {
-    0% {
-        background-color: rgba(0, 153, 17, 1);
-    }
-
-    50% {
-        background-color: rgba(0, 153, 17, 0.5);
-    }
-
-    100% {
-        background-color: rgba(0, 153, 17, 1);
-    }
-}
-
-#buttonOrderGoToMe {
-    cursor: pointer;
-    animation: buttonOrderBackgroundColor 2s infinite;
-}
-
-@keyframes show {
-    from {
-        opacity: 0.0;
-    }
-
-    to {
-        opacity: 1.0;
-    }
-}
-
-@-webkit-keyframes show {
-    from {
-        opacity: 0.0;
-    }
-
-    to {
-        opacity: 1.0;
-    }
-}
-
-#buttonGoToMe::before,
-#buttonOrderGoToMe::before {
-    font-family: 'dindisplay_regular';
-    font-size: 1em;
-    color: #fff;
-    position: absolute;
-    display: block;
-    padding: 5px;
-    text-align: center;
-    border: 1px solid #696b92;
-    background-color: var(--guide-gray-color);
-    border-radius: var(--border-radius);
-    content: attr(data-description);
-    min-width: auto;
-    width: 200px;
-    cursor: default;
-    z-index: 999;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 150px;
-    animation-name: show;
-    animation-duration: 2s;
-    -webkit-animation-name: show;
-    -webkit-animation-duration: 2s;
-}
-
-#buttonOrderGoToMe::before {
-    bottom: 80px;
-}

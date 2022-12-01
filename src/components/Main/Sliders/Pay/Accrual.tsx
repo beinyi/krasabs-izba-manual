@@ -72,11 +72,10 @@ const Accrual = ({ activation, onNextStep, monthId, onClose }: AccrualProps) => 
 
 
     return (
-        <div className='slideMenu'>
-            <div className="header">
+        <div className='accrual-slide'>
+            <div className="accrual-slide_header">
                 <div style={{ padding: "1%", borderRadius: "10px" }}
                     id={goToMe(transactionButtons[3], activation) ? "buttonGoToMe" : ""}
-                    data-description={goToMe(transactionButtons[3], activation) ? transactionButtons[3].description : {}}
                     onClick={() => goToMe(transactionButtons[3], activation) ? onNextStep() : {}}>
                     <img src={require('@img/ic_share.svg')} />
                 </div>
@@ -85,7 +84,7 @@ const Accrual = ({ activation, onNextStep, monthId, onClose }: AccrualProps) => 
                     onClick={() => onClose()} />
             </div>
 
-            <div className="carouselAccrual"
+            <div className="accrual-slide_carousel"
                 onTouchStart={(e: React.TouchEvent<HTMLDivElement>) => {
                     setTouchStartX(e.changedTouches[0].clientX);
                     goToMe(transactionButtons[4], activation) && onNextStep()
@@ -95,14 +94,14 @@ const Accrual = ({ activation, onNextStep, monthId, onClose }: AccrualProps) => 
                 id={goToMe(transactionButtons[4], activation) ? "swipeMe" : ""}
                 onClick={(e) => goToMe(transactionButtons[4], activation) && (ClickSwipe(e), onNextStep())}>
 
-                {selectedMonth != 11 && <div className='prevAccrual'>
+                {selectedMonth != 11 && <div className='accrual-slide_carousel_prev-accrual'>
                     <AccrualItem selectedMonth={selectedMonth + 1} setSelectedMonth={setSelectedMonth} monthsAndYears={monthsAndYears} />
                 </div>}
 
 
                 <AccrualItem selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth} monthsAndYears={monthsAndYears} />
 
-                {selectedMonth != 0 && <div className='nextAccrual'>
+                {selectedMonth != 0 && <div className='accrual-slide_carousel_next-accrual'>
                     <AccrualItem selectedMonth={selectedMonth - 1} setSelectedMonth={setSelectedMonth} monthsAndYears={monthsAndYears} />
                 </div>}
 

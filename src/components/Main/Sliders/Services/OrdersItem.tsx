@@ -1,12 +1,12 @@
-import { TActivation } from "@components/Guide";
-import { ordersButton } from "@components/Main/buttons";
+import { TActivation } from "@components/Guide/Guide";
+import { ordersButton, TButton } from "@components/Main/buttons";
 import { date, goToMe, props } from "@components/Main/Main";
 import "@styles/Orders.css"
 import React, { useState } from "react";
 import { TService } from "./ServicesList";
 
 type ordersItemProps = {
-    activation?: TActivation,
+    activation?: TButton,
     onNextStep?(): void,
     status: keyof typeof statusText,
     number: number,
@@ -72,7 +72,7 @@ const OrdersItem = ({ activation, onNextStep, status, number, service, rating }:
             <div className="order-item_done">
                 <div className="order-item_done_rating"
                     id={activation && goToMe(ordersButton[2], activation) ? "buttonGoToMe" : ""}
-                    data-description={ordersButton[2].description}
+                    
                     onClick={() => rating ?? (setRatingSlede(true),
                         activation && goToMe(ordersButton[2], activation) && onNextStep && onNextStep())}>
                     {ratingArray(rating ?? newRating).map((rating: boolean, i: number) =>
@@ -100,7 +100,7 @@ const OrdersItem = ({ activation, onNextStep, status, number, service, rating }:
 
                     <div className="order-item_rating-slide_rating"
                         id={activation && goToMe(ordersButton[3], activation) ? "buttonGoToMe" : ""}
-                        data-description={ordersButton[3].description}
+                        
                         onClick={() => { activation && goToMe(ordersButton[3], activation) && onNextStep && onNextStep() }}>
                         {ratingArray(newRating).map((rating: boolean, i: number) =>
                             <img src={rating ? require("@img/ic_star_rating.svg") : require("@img/ic_star.svg")}
@@ -113,7 +113,7 @@ const OrdersItem = ({ activation, onNextStep, status, number, service, rating }:
                     <div className="order-item_rating-slide_comment"
                         id={activation && goToMe(ordersButton[4], activation) ? "buttonGoToMe" : ""}
                         style={{ color: "#999" }}
-                        data-description={ordersButton[4].description}
+                        
 
                         onClick={(e: React.MouseEvent<HTMLDivElement>) => {
                             activation && goToMe(ordersButton[4], activation) && onNextStep &&
@@ -124,7 +124,7 @@ const OrdersItem = ({ activation, onNextStep, status, number, service, rating }:
 
                     <div className="order-item_rating-slide_button"
                         id={activation && goToMe(ordersButton[5], activation) ? "buttonGoToMe" : ""}
-                        data-description={ordersButton[5].description}
+                        
                         onClick={() => { activation && goToMe(ordersButton[5], activation) && onNextStep && (setRatingSlede(false), onNextStep()) }}>
                         Оценить
                     </div>

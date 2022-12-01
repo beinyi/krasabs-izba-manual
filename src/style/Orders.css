@@ -1,4 +1,4 @@
-.slide-menu,
+.orders-slide,
 .order-item_rating-slide {
     position: absolute;
     bottom: 0;
@@ -41,11 +41,11 @@
     }
 }
 
-.slide-menu::-webkit-scrollbar {
+.orders-slide::-webkit-scrollbar {
     display: none;
 }
 
-.header {
+.orders_header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -53,12 +53,12 @@
     align-items: center;
 }
 
-.header span {
+.orders_header span {
     font-family: 'dindisplay_bold';
     font-size: 1.5em;
 }
 
-.header_title {
+.orders_header_title {
     grid-column: 1 / 3;
     display: flex;
     gap: 5%;
@@ -68,13 +68,13 @@
     padding: 2% 3% 2% 3%;
 }
 
-.header_title img {
+.orders_header_title img {
     height: 25px;
     margin-right: 5%;
     cursor: pointer;
 }
 
-.header_button-pad {
+.orders_header_button-wrapper {
     grid-column: 1 / 3;
     justify-self: center;
     align-items: center;
@@ -86,7 +86,7 @@
 
 }
 
-.header_button-pad_button {
+.orders_header_button {
     display: flex;
     width: 50%;
     justify-content: center;
@@ -94,7 +94,7 @@
     cursor: pointer;
 }
 
-.header_button-pad_button_active {
+.orders_header_button-active {
     background-color: var(--black-color);
 }
 
@@ -208,34 +208,4 @@
     border-radius: var(--border-radius);
     background-color: var(--green-color);
     box-shadow: 0 3px rgba(0, 0, 0, 0.1);
-}
-
-#buttonGoToMe::before {
-    font-family: 'dindisplay_regular';
-    font-size: 1em;
-    color: #fff;
-    position: fixed;
-    display: block;
-    padding: 5px;
-    text-align: center;
-    border: 1px solid #696b92;
-    background-color: var(--guide-gray-color);
-    border-radius: var(--border-radius);
-    content: attr(data-description);
-    min-width: auto;
-    width: 200px;
-    cursor: default;
-    z-index: 999;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 25%;
-    animation-name: show;
-    animation-duration: 2s;
-    -webkit-animation-name: show;
-    -webkit-animation-duration: 2s;
-}
-
-.order-item_rating-slide #buttonGoToMe::before {
-    bottom: 50%;
 }
