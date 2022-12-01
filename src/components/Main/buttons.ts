@@ -1,4 +1,4 @@
-import { descriptionPositions } from "@components/Guide/Description";
+import { descriptionPositions } from "@components/Guide";
 
 export type buttonTypes = 
 'infoMenu' | 'slideAct' | 'slideMeter' | 

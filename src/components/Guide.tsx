@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { buttonTypes, payButtons, TButton } from "../Main/buttons";
-import Main from "../Main/Main";
+import { TButton } from "./Main/buttons";
+import Main from "./Main/Main";
 import "@styles/Guide.css"
-import Description, { descriptionPositions } from "./Description";
 
-export type TActivation = {         //Информация о том, какую кномпку выделить
-    activeType: buttonTypes | null,
-    activeId: number,
-    altDescription?: boolean,
-    timeout?: boolean,
+export enum descriptionPositions {
+    'default' = "guide_description",
+    'pay' = "guide_description-pay",
+    'service' = "guide_description-service",
+    'rating' = "guide_description-rating"
 }
 
 type guideProps = {
@@ -69,7 +68,10 @@ const Guide = ({ guideMap, credits }: guideProps) => {  //Передает ин�
                         <NavLink className="guide_credits_button" to={"/"}>Меню</NavLink>
                     </div>
                     : <NavLink className="guide_button" to={"/"}>Меню</NavLink>)
-                : <Description description={description} position={guideMap[step].descriptionPosition ?? 'default'} />
+                : description !== "" &&
+                <div className={descriptionPositions[guideMap[step].descriptionPosition ?? 'default']}>
+                    {description}
+                </div>
             }
 
         </div>

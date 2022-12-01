@@ -2,7 +2,7 @@ import Menu from "./components/Menu/Menu";
 import "./style/App.less"
 import "./fonts/fonts.css"
 import { Route, Routes } from "react-router-dom";
-import Guide from "./components/Guide/Guide";
+import Guide from "./components/Guide";
 import payMap, { payCredits } from "./guide-maps/payMap"
 import servicesMap, { servicesCredits } from "./guide-maps/servicesMap";
 import transactionMap from "@guide-maps//transactionMap";
