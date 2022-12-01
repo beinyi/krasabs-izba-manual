@@ -1,5 +1,5 @@
 import Menu from "./components/Menu/Menu";
-import "./style/App.less"
+import "./style/App.css"
 import "./fonts/fonts.css"
 import { Route, Routes } from "react-router-dom";
 import Guide from "./components/Guide";
