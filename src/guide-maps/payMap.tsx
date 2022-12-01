@@ -1,5 +1,4 @@
 import { navButtons, payButtons, TButton } from "@components/Main/buttons";
-import { TActivation } from "../components/Guide/Guide"
 
 const payMap: Array<TButton> = [   //Шаги для выделения и активации
     navButtons[2],

@@ -1,6 +1,5 @@
 import { basketButtons, navButtons, servicesButtons, TButton } from "@components/Main/buttons";
 import { plumbingServices } from "@components/Main/Sliders/Services/ServicesList";
-import { TActivation } from "../components/Guide/Guide"
 
 const servicesMap: Array<TButton> = [   //Шаги для выделения и активации
     navButtons[1],

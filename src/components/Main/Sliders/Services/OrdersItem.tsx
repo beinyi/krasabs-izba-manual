@@ -1,6 +1,5 @@
-import { TActivation } from "@components/Guide/Guide";
 import { ordersButton, TButton } from "@components/Main/buttons";
-import { date, goToMe, props } from "@components/Main/Main";
+import { date, goToMe } from "@components/Main/Main";
 import "@styles/Orders.css"
 import React, { useState } from "react";
 import { TService } from "./ServicesList";
