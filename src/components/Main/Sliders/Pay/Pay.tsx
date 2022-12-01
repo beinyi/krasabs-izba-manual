@@ -63,7 +63,7 @@ const Pay = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
                                 <img src={require(`../../../../img/${payButtons[2].icon}`)} />
                             </div>
                         </div>
-                        <span>Я прочитал <a href="https://izba.kras-abs.ru/agrees/izba.html">условия сервиса</a> и согласен с ними.</span>
+                        <span>Я прочитал <a href="https://izba.kras-abs.ru/agrees/izba.html" target="_blank">условия сервиса</a> и согласен с ними.</span>
                     </div>
 
                     <div id={goToMe(payButtons[0], activation) ? "greenButtonGoToMe" : ""}

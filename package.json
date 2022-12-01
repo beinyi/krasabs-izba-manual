@@ -23,7 +23,7 @@
     "build": "webpack",
     "build-prod": "webpack --mode=production",
     "clean": "rd /s /q dist",
-    "test": "react-scripts test",
+    "test": "webpack serve --mode=development",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

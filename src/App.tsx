@@ -8,9 +8,9 @@ import servicesMap, { servicesCredits } from "./guide-maps/servicesMap";
 import transactionMap from "@guide-maps//transactionMap";
 import accrualsMap from "@guide-maps/accrualsMap";
 import callMap, { callCredits } from "@guide-maps/callMap";
-import checkOrderMap, { checkOrderCredits } from "@guide-maps/checkOrderMap";
-import Orders from "@components/Main/Sliders/Services/Orders";
+import checkOrderMap from "@guide-maps/checkOrderMap";
 import Request from "@components/Main/Sliders/Request";
+import { navButtons } from "@components/Main/buttons";
 
 // export let nameurl = "/infohelpmobile"; //для боя
 export let nameurl = ""; //для тестирования у себя
@@ -27,10 +27,7 @@ function App() {
         <Route path={nameurl+"/call_to_mc"} element={<Guide guideMap={callMap} credits={callCredits} />} />
         <Route path={nameurl+"/check_order"} element={<Guide guideMap={checkOrderMap} />} />
 
-        <Route path="/dev" element={<Request activation={{
-          activeType: "navBar",
-          activeId: 1
-        }} onNextStep={() => {}} />} />
+        <Route path="/dev" element={<Request activation={navButtons[0]} onNextStep={() => {}} />} />
 
       </Routes>
     </div>

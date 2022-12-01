@@ -20,8 +20,7 @@ module.exports = {
     entry: './src/index.tsx',
     output: {
         filename: "[name].js",
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: '/'
+        path: path.join(__dirname, 'dist'),
     },
 
     plugins: [

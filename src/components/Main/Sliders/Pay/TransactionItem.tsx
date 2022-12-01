@@ -1,6 +1,4 @@
-import { transactionButtons } from "@components/Main/buttons";
-import { goToMe, props } from "@components/Main/Main";
-import s from "@styles/Transaction.module.css"
+import "@styles/Transaction.css"
 
 type TransactionItemProps = {
     isPayment: boolean,
