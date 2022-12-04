@@ -17,20 +17,19 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
     const [isInputsDone, setIsInputsDone] = useState<boolean>(false);
 
     useEffect(() => {
-        if (nameInput != "Имя..." && numberInput.length == 12)
-        {
+        if (nameInput != "Имя..." && numberInput.length == 12) {
             onNextStep();
             setIsInputsDone(true);
             setIsEdit(false);
-        } 
-        
+        }
+
     }, [nameInput, numberInput])
 
-    const onInputChange = (e: React.ChangeEvent<HTMLInputElement>, 
+    const onInputChange = (e: React.ChangeEvent<HTMLInputElement>,
         inputType: "name" | "number") => {
-            inputType === "name" ?
-        setNameInput(e.target.value)
-        : setNumberInput(e.target.value)
+        inputType === "name" ?
+            setNameInput(e.target.value)
+            : setNumberInput(e.target.value)
     }
 
     const amount = (): number =>
@@ -67,48 +66,50 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
         <div className="basket-slide">
             <div className="basket-slide_header">
                 <span>В корзине {contents.length} услуги на {amount()} руб.</span>
-                <img onClick={() => {onClose ? onClose() : {}; onNextStep(false); }} src={require('@img/ic_close.svg')} />
+                <img onClick={() => { onClose ? onClose() : {}; onNextStep(false); }} src={require('@img/ic_close.svg')} />
             </div>
 
             <div className="basket-slide_data-wrapper">
                 <div className="basket-slide_data-wrapper_date"
                     id={goToMe(basketButtons[0], activation) ? "buttonGoToMe" : ""}
-                    
-                    onClick={goToMe(basketButtons[0], activation) ? () =>
-                        onNextStep()
-                        : () => { }}>
+
+                    onClick={() => {
+                        goToMe(basketButtons[0], activation) &&
+                            onNextStep()
+                    }}>
                     <img src={require('@img/ic_date.svg')} />
                     <span>{`${tomorrow.getDate()}.${tomorrow.getMonth() + 1}.${tomorrow.getFullYear()}`}</span>
                 </div>
 
                 <div className="basket-slide_data-wrapper_date"
                     id={goToMe(basketButtons[0], activation) ? "buttonGoToMe2" : ""}
-                    onClick={goToMe(basketButtons[0], activation) ? () =>
-                        onNextStep()
-                        : () => { }}>
+                    onClick={() => {
+                        goToMe(basketButtons[0], activation) &&
+                            onNextStep()
+                    }}>
                     <img src={require('@img/ic_time.svg')} />
                     <span>13:00 - 17:00</span>
                 </div>
 
                 <div className="basket-slide_data-wrapper_input"
                     id={goToMe(basketButtons[1], activation) ? "buttonGoToMe" : ""}
-                    
-                    onClick={goToMe(basketButtons[1], activation) && isInputsDone ? 
+
+                    onClick={goToMe(basketButtons[1], activation) && isInputsDone ?
                         () => onNextStep()
                         : () => isEdit && setNameInput("")}>
-                    <input value={nameInput} 
-                    readOnly={!isEdit}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => onInputChange(e, "name")} />
-                    </div>
+                    <input value={nameInput}
+                        readOnly={!isEdit}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onInputChange(e, "name")} />
+                </div>
 
                 <div className="basket-slide_data-wrapper_input"
                     id={goToMe(basketButtons[1], activation) ? "buttonGoToMe2" : ""}
-                    onClick={goToMe(basketButtons[1], activation) && isInputsDone ? 
+                    onClick={goToMe(basketButtons[1], activation) && isInputsDone ?
                         () => onNextStep()
                         : () => isEdit && setNumberInput("+7")}>
-                    <input value={numberInput} 
-                    readOnly={!isEdit}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => onInputChange(e, "number")} />
+                    <input value={numberInput}
+                        readOnly={!isEdit}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onInputChange(e, "number")} />
                 </div>
 
                 <span style={{ textDecoration: "underline" }}>Оставить комментарий</span>
@@ -138,11 +139,11 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
 
                 <div className="basket-slide_button"
                     id={goToMe(basketButtons[2], activation) ? "greenButtonGoToMe" : ""}
-                    
-                    onClick={goToMe(basketButtons[2], activation) ? () =>
-                        onNextStep()
-                        : () => { }}
-                >
+
+                    onClick={() => {
+                        goToMe(basketButtons[2], activation) &&
+                            onNextStep()
+                    }}>
                     <span>Оформить заявку</span>
                 </div>
 

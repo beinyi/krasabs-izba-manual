@@ -11,7 +11,7 @@ const Home = ({ activation, onNextStep }: props) => {
         return (
             <div id={goToMe(button, activation) ? "buttonGoToMe" : ""} 
             className="home-slide_button" 
-            onClick={() => {onNextStep();}}
+            onClick={() => {goToMe(button, activation) && onNextStep();}}
             key={`${button.type}-${button.id}`}>
                 <img className="home-slide_button_icon" src={require(`../../../img/${button.icon}`)} alt={button.title} />
                 <span>{button.title}</span>

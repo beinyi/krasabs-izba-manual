@@ -18,7 +18,7 @@ const Services = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
     const [basketContents, setBasketContents] = useState<Array<TService>>([]);
 
     useEffect(() => {
-       setIsViewMainHeader && setIsViewMainHeader(false);
+        setIsViewMainHeader && setIsViewMainHeader(false);
     }, [])
 
     const onBasket = () => {
@@ -38,9 +38,7 @@ const Services = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
     const renderButton = (button: TButton) => {
         return (
             <div id={goToMe(button, activation) ? "buttonGoToMe" : ""}
-                onClick={goToMe(button, activation) ?
-                    () => { onNextStep(); onServices(button.title); }
-                    : () => { }}
+                onClick={() => { goToMe(button, activation) && (onNextStep(), onServices(button.title)) }}
                 className="service-slide_button" key={`${button.type}-${button.id}`}>
                 <img
                     src={require(`../../../../img/${button.icon}`)} alt={button.title} />
@@ -80,9 +78,7 @@ const Services = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
                     <div className="service-slide">
                         <div id={goToMe(servicesButtons[4], activation) ? "buttonGoToMe" : ""}
                             className="service-slide_search"
-                            onClick={goToMe(servicesButtons[4], activation) ?
-                                () => { onNextStep(); }
-                                : () => { }}>
+                            onClick={() => { goToMe(servicesButtons[4], activation) && onNextStep() }}>
                             <img src={require(`../../../../img/${servicesButtons[4].icon}`)} alt={servicesButtons[4].title} />
                             Поиск...
                         </div>
@@ -100,9 +96,8 @@ const Services = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
                             <div id={goToMe(servicesButtons[5], activation) ? "buttonGoToMe" : ""}
                                 className={`${"service-slide_orders-button"} ${basketContents.length > 0 && "service-slide_basket-active-button"}`}
                                 onClick={() => {
-                                    goToMe(servicesButtons[5], activation) ?
-                                    (onOrders(), onNextStep())
-                                    : {}
+                                    goToMe(servicesButtons[5], activation) &&
+                                        (onOrders(), onNextStep())
                                 }}>
                                 <span>Мои заказы</span>
                             </div>

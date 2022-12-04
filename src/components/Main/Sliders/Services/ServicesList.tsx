@@ -12,9 +12,10 @@ export type TService = TButton & {
 }
 
 
-type servicesListProps = props & { 
-    setBasketContents(i: Array<TService>): void, 
-    basketContents: Array<TService> }
+type servicesListProps = props & {
+    setBasketContents(i: Array<TService>): void,
+    basketContents: Array<TService>
+}
 
 export const plumbingServices: Array<TService> = [
     {
@@ -111,9 +112,7 @@ const ServicesList = ({ activation, onNextStep, setBasketContents, basketContent
                     padding: "5%",
                 }}
                     id={goToMe(serv, activation) ? "buttonGoToMe" : ""}
-                    onClick={goToMe(serv, activation) ?
-                        () => { onNextStep(); }
-                        : () => { }}
+                    onClick={() => { goToMe(serv, activation) && onNextStep(); }}
                     key={serv.id}>
 
                     <ServItem service={serv} setBasketContents={setBasketContents} basketContents={basketContents} />

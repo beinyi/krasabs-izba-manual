@@ -76,7 +76,7 @@ const Accrual = ({ activation, onNextStep, monthId, onClose }: AccrualProps) => 
             <div className="accrual-slide_header">
                 <div style={{ padding: "1%", borderRadius: "10px" }}
                     id={goToMe(transactionButtons[3], activation) ? "buttonGoToMe" : ""}
-                    onClick={() => goToMe(transactionButtons[3], activation) ? onNextStep() : {}}>
+                    onClick={() => goToMe(transactionButtons[3], activation) && onNextStep()}>
                     <img src={require('@img/ic_share.svg')} />
                 </div>
                 <h2>Начисления</h2>

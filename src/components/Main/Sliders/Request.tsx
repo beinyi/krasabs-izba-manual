@@ -40,14 +40,14 @@ const Request = ({ activation, onNextStep }: RequestProps) => {
     }
 
     return (<div>
-        <div className="header_title">
+        <div className="request_header_title">
             <img src={require('@img/ic_arrow_l.svg')}
                 onClick={() => { }} />
             <span>Новая заявка</span>
         </div>
 
-        <div className="slide-menu">
-            <div className="slide-menu_input_name"
+        <div className="request-slide">
+            <div className="request-slide_input-name"
                 id={goToMe(requestButton[0], activation) ? "buttonGoToMe" : ""}
                 
                 onClick={goToMe(requestButton[0], activation) && isInputsDone ?
@@ -58,7 +58,7 @@ const Request = ({ activation, onNextStep }: RequestProps) => {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => onInputChange(e, "name")} />
             </div>
 
-            <div className="slide-menu_input_number"
+            <div className="request-slide_input-number"
                 id={goToMe(requestButton[0], activation) ? "buttonGoToMe2" : ""}
                 onClick={goToMe(requestButton[0], activation) && isInputsDone ?
                     () => onNextStep()
@@ -70,7 +70,7 @@ const Request = ({ activation, onNextStep }: RequestProps) => {
 
             <div>
                 <h4 style={{ fontFamily: "dindisplay_bold" }}>Тема заявки</h4>
-                <div className="slide-menu_selector">
+                <div className="request-slide_selector">
                     <span>Выберите тему</span>
                     <img src={require("@img/ic_arrow_d_blue.svg")} />
                 </div>
@@ -78,7 +78,7 @@ const Request = ({ activation, onNextStep }: RequestProps) => {
 
             <div>
                 <h4 style={{ fontFamily: "dindisplay_bold" }}>Текст заявки</h4>
-                <div className="slide-menu_input_comment"
+                <div className="request-slide_input-comment"
                     id={goToMe(requestButton[0], activation) ? "buttonGoToMe2" : ""} >
                     <textarea value={textInput}
                         readOnly={!isEdit}

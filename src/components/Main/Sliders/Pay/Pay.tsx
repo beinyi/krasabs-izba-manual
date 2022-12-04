@@ -40,10 +40,8 @@ const Pay = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
                     <h2>К оплате</h2>
                     <div id={goToMe(payButtons[1], activation) ? "inputGoToMe" : ""}
                         className="pay-slide_payment_input"
-                        onClick={goToMe(payButtons[1], activation) ?
-                            () => { onNextStep(); }
-                            : () => { }}
-                        >
+                        onClick={() => { goToMe(payButtons[1], activation) && onNextStep(); }}
+                    >
                         1918.58
                     </div>
                     <div style={{
@@ -52,10 +50,8 @@ const Pay = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
                     }}>
 
                         <div id={goToMe(payButtons[2], activation) ? "imgGoToMe" : ""}
-                            onClick={goToMe(payButtons[2], activation) ?
-                                () => { onNextStep(); }
-                                : () => { }}
-                             >
+                            onClick={() => { goToMe(payButtons[2], activation) && onNextStep(); }}
+                        >
                             <div style={{
                                 height: "30px",
                                 width: "30px"
@@ -67,11 +63,9 @@ const Pay = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
                     </div>
 
                     <div id={goToMe(payButtons[0], activation) ? "greenButtonGoToMe" : ""}
-                        onClick={goToMe(payButtons[0], activation) ?
-                            () => { onNextStep(); }
-                            : () => { }}
+                        onClick={() => { goToMe(payButtons[0], activation) && onNextStep(); }}
                         className="pay-slide_button" key={`${payButtons[0].type}-${payButtons[0].id}`}
-                        >
+                    >
                         <img className="pay-slide_button_icon" src={require(`../../../../img/${payButtons[0].icon}`)} alt={payButtons[0].title} />
                         <span>{payButtons[0].title}</span>
                     </div>
@@ -83,8 +77,9 @@ const Pay = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
                             cursor: "pointer",
                         }}
                         id={goToMe(payButtons[3], activation) ? "textGoToMe" : ""}
-                        
-                        onClick={() => {onTransaction(); onNextStep()}}>Посмотреть историю операций</span>
+                        onClick={() => { goToMe(payButtons[3], activation) && (onNextStep(), onTransaction()) }}>
+                        Посмотреть историю операций
+                    </span>
                 </div >
 
             </div >
