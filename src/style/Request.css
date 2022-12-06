@@ -96,3 +96,48 @@ textarea {
 .request-slide_selector img {
     height: 10px;
 }
+
+.request-slide_buttons-wrapper {
+    display: flex;
+    gap: 5%;
+    width: 100%;
+    justify-content: center;
+}
+
+.request-slide_buttons-wrapper img {
+    height: 25px;
+}
+
+.request-slide_buttons-wrapper_photo,
+.request-slide_buttons-wrapper_file {
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f4a7e;
+    border-radius: var(--border-radius);
+    padding: 2%;
+    width: 100%;
+
+}
+
+.request-slide_send-button {
+font-family: 'dindisplay_regular';
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 80%;
+    height: 50px;
+    border-radius: var(--border-radius);
+    padding: 2%;
+    background-color: var(--green-color);
+    box-shadow: 0 3px rgba(0, 0, 0, 0.1);
+}

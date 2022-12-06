@@ -310,7 +310,31 @@ export const requestButton: Array<TButton> = [
     {
         id: 0,
         type: 'request',
-        title: "Имя",
+        title: "Имя и телефон",
+        description: ""
+    },
+    {
+        id: 1,
+        type: 'request',
+        title: "Выберите тему",
+        description: ""
+    },
+    {
+        id: 2,
+        type: 'request',
+        title: "Текст заявки",
+        description: ""
+    },
+    {
+        id: 3,
+        type: 'request',
+        title: "фото и файл",
+        description: ""
+    },
+    {
+        id: 4,
+        type: 'request',
+        title: "Отправить",
         description: ""
     },
     

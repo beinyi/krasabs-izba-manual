@@ -139,7 +139,6 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
 
                 <div className="basket-slide_button"
                     id={goToMe(basketButtons[2], activation) ? "greenButtonGoToMe" : ""}
-
                     onClick={() => {
                         goToMe(basketButtons[2], activation) &&
                             onNextStep()

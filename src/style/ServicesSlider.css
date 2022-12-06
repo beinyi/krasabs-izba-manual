@@ -147,9 +147,11 @@
 
 @media only screen and (min-width: 811px) {
     .service-slide_orders-buttons-wrapper {
-        position: absolute;
+        bottom: 25%;
+        max-width: 350px;
+
     }
-    
+
 }
 
 @media only screen and (max-width: 810px) {

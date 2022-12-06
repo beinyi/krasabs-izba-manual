@@ -22,7 +22,7 @@ const Request = ({ activation, onNextStep }: RequestProps) => {
 
     }, [nameInput, numberInput])
 
-    const onInputChange = (e: React.ChangeEvent<HTMLInputElement> | 
+    const onInputChange = (e: React.ChangeEvent<HTMLInputElement> |
         React.ChangeEvent<HTMLTextAreaElement>,
         inputType: "name" | "number" | "text") => {
         switch (inputType) {
@@ -49,7 +49,7 @@ const Request = ({ activation, onNextStep }: RequestProps) => {
         <div className="request-slide">
             <div className="request-slide_input-name"
                 id={goToMe(requestButton[0], activation) ? "buttonGoToMe" : ""}
-                
+
                 onClick={goToMe(requestButton[0], activation) && isInputsDone ?
                     () => onNextStep()
                     : () => isEdit && setNameInput("")}>
@@ -85,6 +85,27 @@ const Request = ({ activation, onNextStep }: RequestProps) => {
                         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => onInputChange(e, "text")} />
                 </div>
             </div>
+
+            <div className="request-slide_buttons-wrapper">
+                <div className="request-slide_buttons-wrapper_photo">
+                    <img src={require("@img/ic_photo_blue.svg")} />
+                    Фото
+                </div>
+                <div className="request-slide_buttons-wrapper_file">
+                    <img src={require("@img/ic_file.svg")} />
+                    Файл
+                </div>
+            </div>
+
+            <div className="request-slide_send-button"
+                    id={goToMe(requestButton[4], activation) ? "greenButtonGoToMe" : ""}
+                    onClick={() => {
+                        goToMe(requestButton[4], activation) &&
+                            onNextStep()
+                    }}>
+                    <span>Отправить</span>
+                </div>
+
 
 
         </div>
