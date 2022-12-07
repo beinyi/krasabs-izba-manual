@@ -13,19 +13,22 @@ module.exports = {
             directory: path.join(__dirname, 'dist'),
         },
         port: 3000,
+        open: ['http://localhost:3000/infohelpmobile'],
         hot: true,
-        historyApiFallback: true
+        historyApiFallback: {
+                index: '/infohelpmobile/index.html',
+        }
     },
 
     entry: './src/index.tsx',
     output: {
         filename: "[name].js",
         path: path.join(__dirname, 'dist'),
-        publicPath: "/infohelpmobile/",                             // "/infohelpmobile/" для билда, "auto" для devServer
+        publicPath: "/infohelpmobile/",                             
     },
 
     plugins: [
-        new HTMLWebpackPlugin({ 
+        new HTMLWebpackPlugin({
             template: "./public/index.html",
             favicon: "./public/favicon.ico"
         }),
@@ -70,7 +73,7 @@ module.exports = {
                     "css-loader",
                     "less-loader",
                 ]
-              },
+            },
             {
                 test: /\.(jpg|jpeg|png|svg|ico)$/,
                 type: 'asset/resource',
