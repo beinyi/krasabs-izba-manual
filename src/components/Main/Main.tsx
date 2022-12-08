@@ -4,6 +4,7 @@ import { ReactNode, useEffect, useState } from "react";
 import Home from "./Sliders/Home"
 import Pay from "./Sliders/Pay/Pay";
 import Services from "./Sliders/Services/Services";
+import NewRequest from "./Sliders/NewRequest";
 
 export type props = {               // Тип и номер для активации кнопки, функция для перехода на следующий шаг
     activation: TButton,
@@ -35,9 +36,14 @@ const Main = ({ activation, onNextStep }: props) => {
 
 
     const sliders: Array<ReactNode> = [  // Массив слайд-меню
-        <Home activation={activation} onNextStep={onNextStep} />, //Home всегда активен
-        <Services activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader} />,   //Услуги
-        <Pay activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader} />,
+        <Home activation={activation} onNextStep={onNextStep} setSlider={setSelectedSlider} />, //Home всегда активен 0
+        <Services activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader} />,   //Услуги 1
+        <Pay activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader} />,        // Оплата 2
+        <div></div>,                                                                                          // Новости 3
+        <div></div>,                                                                                          // Меню 4
+        <div></div>,                                                                                          // Счетчики водоснабжения 5
+        <div></div>,                                                                                          // Счетчики электроснабжения 6
+        <NewRequest activation={activation} onNextStep={onNextStep} />,                                        // Новая заявка 7
 
     ];
 
@@ -82,7 +88,7 @@ const Main = ({ activation, onNextStep }: props) => {
                 </div>
             }
 
-            <Home activation={activation} onNextStep={onNextStep} />
+            <Home activation={activation} onNextStep={onNextStep} setSlider={setSelectedSlider} />
 
 
             {isActiveSliders && sliders[selectedSlider]}

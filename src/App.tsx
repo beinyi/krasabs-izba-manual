@@ -9,8 +9,9 @@ import transactionMap from "@guide-maps//transactionMap";
 import accrualsMap from "@guide-maps/accrualsMap";
 import callMap, { callCredits } from "@guide-maps/callMap";
 import checkOrderMap from "@guide-maps/checkOrderMap";
-import Request from "@components/Main/Sliders/Request";
+import NewRequest from "@components/Main/Sliders/NewRequest";
 import { navButtons } from "@components/Main/buttons";
+import requestMap from "@guide-maps/requestMap";
 
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
         <Route path={"/accruals_guide"} element={<Guide guideMap={accrualsMap} />} />
         <Route path={"/call_to_mc"} element={<Guide guideMap={callMap} credits={callCredits} />} />
         <Route path={"/check_order"} element={<Guide guideMap={checkOrderMap} />} />
+        <Route path={"/make_request"} element={<Guide guideMap={requestMap} />} />
 
-        <Route path="/dev" element={<Request activation={navButtons[0]} onNextStep={() => {}} />} />
+        <Route path="/dev" element={<NewRequest activation={navButtons[0]} onNextStep={() => {}} />} />
 
       </Routes>
     </div>

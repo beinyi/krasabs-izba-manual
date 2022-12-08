@@ -2,17 +2,23 @@ import { actButtons, meterButtons, TButton } from "../buttons"
 import "@styles/HomeSlider.css"
 import { goToMe, props } from "../Main"
 
+type HomeProps = props & {
+    setSlider(slider: number): void;
+}
 
+const Home = ({ activation, onNextStep, setSlider }: HomeProps) => {
 
-const Home = ({ activation, onNextStep }: props) => {
-    
 
     const renderButton = (button: TButton) => {
         return (
-            <div id={goToMe(button, activation) ? "buttonGoToMe" : ""} 
-            className="home-slide_button" 
-            onClick={() => {goToMe(button, activation) && onNextStep();}}
-            key={`${button.type}-${button.id}`}>
+            <div id={goToMe(button, activation) ? "buttonGoToMe" : ""}
+                className="home-slide_button"
+                onClick={() => {
+                    goToMe(button, activation) &&
+                    (button.type == "slideMeter" ? setSlider(5 + button.id) : setSlider(7 + button.id),
+                        onNextStep())
+                }}
+                key={`${button.type}-${button.id}`}>
                 <img className="home-slide_button_icon" src={require(`../../../img/${button.icon}`)} alt={button.title} />
                 <span>{button.title}</span>
             </div>

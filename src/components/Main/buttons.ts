@@ -1,10 +1,11 @@
 import { descriptionPositions } from "@components/Guide";
+import React, { ComponentElement } from "react";
 
-export type buttonTypes = 
-'infoMenu' | 'slideAct' | 'slideMeter' | 
-'navBar' | 'pay' | 'servCategory' | 
-'servItem' | 'basket' | 'transaction' |
-'orders' | 'request' | 'noType';
+export type buttonTypes =
+    'infoMenu' | 'slideAct' | 'slideMeter' |
+    'navBar' | 'pay' | 'servCategory' |
+    'servItem' | 'basket' | 'transaction' |
+    'orders' | 'request' | 'noType';
 
 export type TButton = {
     id: number,
@@ -13,7 +14,7 @@ export type TButton = {
     icon?: string | null,
     description?: string
     altDescription?: string,
-    descriptionPosition?: keyof typeof descriptionPositions;
+    descriptionPosition?: keyof typeof descriptionPositions,
 }
 
 
@@ -37,7 +38,8 @@ export const actButtons: Array<TButton> = [
         id: 0,
         type: 'slideAct',
         title: "Создать заявку на устранение неисправностей",
-        icon: "ic_photo.svg"
+        icon: "ic_photo.svg",
+        description: "Выберите данный пункт. После этого откроется форма для заполнения новой заявки"
     },
     {
         id: 1,
@@ -271,7 +273,7 @@ export const ordersButton: Array<TButton> = [
         type: 'orders',
         title: "Архив",
         description: "В разделе \"Заказанные\" отображаются активные заказы (новые, либо находящиеся в работе)." +
-        " Перейдите в \"Архив\" для просмотра выполненных заказов"
+            " Перейдите в \"Архив\" для просмотра выполненных заказов"
     },
     {
         id: 2,
@@ -311,33 +313,38 @@ export const requestButton: Array<TButton> = [
         id: 0,
         type: 'request',
         title: "Имя и телефон",
-        description: ""
+        description: "Укажите контактные данные",
+        descriptionPosition: 'service'
     },
     {
         id: 1,
         type: 'request',
         title: "Выберите тему",
-        description: ""
+        description: "Выберите соответствующую категорию",
+        descriptionPosition: 'service'
     },
     {
         id: 2,
         type: 'request',
         title: "Текст заявки",
-        description: ""
+        description: "Опишите проблему, укажите необходимые данные",
+        descriptionPosition: 'service'
     },
     {
         id: 3,
         type: 'request',
         title: "фото и файл",
-        description: ""
+        description: "При необходимости добавьте фотографии. При выборе \"Фото\" будет запущена камера, при выборе \"Файл\" будет открыта галерея, для выбора ранее сделанных фото",
+        descriptionPosition: 'service'
     },
     {
         id: 4,
         type: 'request',
         title: "Отправить",
-        description: ""
+        description: "Проверьте заявку, после чего отправьте",
+        descriptionPosition: 'service'
     },
-    
+
 
 
 

@@ -73,15 +73,17 @@
     padding: 2%;
 }
 
-input,
-textarea {
+.request-slide_input-comment {
+    height: 60px;
+}
+
+input {
     background-color: rgba(255, 255, 255, 0);
     color: #FFF;
     height: 100%;
     width: 100%;
     border: none;
     outline: none;
-    resize: none;
 }
 
 .request-slide_selector {
@@ -140,4 +142,33 @@ font-family: 'dindisplay_regular';
     padding: 2%;
     background-color: var(--green-color);
     box-shadow: 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.shading {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(30, 30, 30, 0.5);
+    z-index: 208;
+}
+
+.request-slide_themes {
+    background-color: #666;
+    width: 90%;
+    border-radius: 3px;
+}
+
+.request-slide_themes_body_thema {
+    padding-left: 2%;
+}
+
+.request-slide_themes_body_thema:hover {
+    background-color: #999;
+    
 }
