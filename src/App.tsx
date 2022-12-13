@@ -12,6 +12,7 @@ import checkOrderMap from "@guide-maps/checkOrderMap";
 import NewRequest from "@components/Main/Sliders/NewRequest";
 import { navButtons } from "@components/Main/buttons";
 import requestMap from "@guide-maps/requestMap";
+import WaterMeter from "@components/Main/Sliders/WaterMeter";
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
         <Route path={"/check_order"} element={<Guide guideMap={checkOrderMap} />} />
         <Route path={"/make_request"} element={<Guide guideMap={requestMap} />} />
 
-        <Route path="/dev" element={<NewRequest activation={navButtons[0]} onNextStep={() => {}} />} />
+        <Route path="/dev" element={<WaterMeter activation={navButtons[0]} onNextStep={() => {}} />} />
 
       </Routes>
     </div>

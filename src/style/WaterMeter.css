@@ -1,0 +1,142 @@
+.water-meter-slide {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-height: 90%;
+    height: 90%;
+    display: flex;
+    gap: 2%;
+    flex-direction: column;
+    background-color: var(--black-color);
+    padding: 5%;
+    border-radius: 10px 10px 0 0;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    animation-name: slide;
+    animation-duration: 0.5s;
+    -webkit-animation-name: slide;
+    -webkit-animation-duration: 0.5s;
+    z-index: 207;
+}
+
+@keyframes slide {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 85%;
+    }
+}
+
+@-webkit-keyframes slide {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 85%;
+    }
+}
+
+.request-slide::-webkit-scrollbar {
+    display: none;
+}
+
+.water-meter_header span {
+    font-family: 'dindisplay_bold';
+    font-size: 1.5em;
+}
+
+.water-meter_header {
+    display: flex;
+    gap: 5%;
+    flex-direction: row;
+    align-items: center;
+    border-radius: var(--border-radius);
+    padding: 2% 3% 2% 3%;
+}
+
+.water-meter_header img {
+    height: 25px;
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+.water-meter-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.water-meter_item_header {
+    display: grid;
+    grid-template-columns: 20% 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.water-meter_item_header span {
+    color: var(--gray-color)
+}
+
+.water-meter_item_header_icon {
+    grid-row: 1/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.water-meter_item_header_icon img {
+    height: 25px;
+}
+
+.water-meter_item_header_title {
+    grid-column: 2 / 4;
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    color: #1f4a7e;
+}
+
+.water-meter_item_header_title img {
+    height: 15px;
+}
+
+.water-meter_item_body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 2fr) 1fr;
+    margin-left: 20%;
+}
+
+.water-meter_item_value {
+    font-family: 'dindisplay_bold';
+    margin-left: auto;
+}
+
+.water-meter_item_input {
+    background-color: rgba(255, 255, 255, 0.0);
+    color: white;
+    border: none;
+    border-bottom: 2px solid #666;
+    width: 60%;
+    height: 50%;
+    margin-left: auto;
+    cursor: default;
+}
+
+.water-meter_item_history {
+    color: #1f4a7e;
+}
+
+.water-meter_item_send-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    height: 150%;
+    border-radius: var(--border-radius);
+    padding: 2%;
+    background-color: var(--green-color);
+    box-shadow: 0 3px rgba(0, 0, 0, 0.1);
+}

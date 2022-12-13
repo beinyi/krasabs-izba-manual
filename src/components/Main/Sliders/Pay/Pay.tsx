@@ -40,8 +40,7 @@ const Pay = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
                     <h2>К оплате</h2>
                     <div id={goToMe(payButtons[1], activation) ? "inputGoToMe" : ""}
                         className="pay-slide_payment_input"
-                        onClick={() => { goToMe(payButtons[1], activation) && onNextStep(); }}
-                    >
+                        onClick={() => { goToMe(payButtons[1], activation) && onNextStep(); }}>
                         1918.58
                     </div>
                     <div style={{
@@ -50,8 +49,7 @@ const Pay = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
                     }}>
 
                         <div id={goToMe(payButtons[2], activation) ? "imgGoToMe" : ""}
-                            onClick={() => { goToMe(payButtons[2], activation) && onNextStep(); }}
-                        >
+                            onClick={() => { goToMe(payButtons[2], activation) && onNextStep(); }}>
                             <div style={{
                                 height: "30px",
                                 width: "30px"
