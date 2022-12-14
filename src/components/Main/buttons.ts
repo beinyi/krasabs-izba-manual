@@ -5,7 +5,7 @@ export type buttonTypes =
     'infoMenu' | 'slideAct' | 'slideMeter' |
     'navBar' | 'pay' | 'servCategory' |
     'servItem' | 'basket' | 'transaction' |
-    'orders' | 'request' | 'noType';
+    'orders' | 'request' | 'weterMeter' | 'noType';
 
 export type TButton = {
     id: number,
@@ -64,7 +64,9 @@ export const meterButtons: Array<TButton> = [
         type: 'slideMeter',
         title: "Электроснабжение",
         icon: "ic_electro.svg"
-    }
+    },
+
+
 ]
 
 export const navButtons: Array<TButton> = [
@@ -344,8 +346,26 @@ export const requestButton: Array<TButton> = [
         description: "Проверьте заявку, после чего отправьте",
         descriptionPosition: 'service'
     },
-
-
-
-
 ]
+
+export const waterMeterВuttons: Array<TButton> =
+    [
+        {
+            id: 0,
+            type: 'weterMeter',
+            title: "Текущие показания",
+            description: "Для передачи показаний счетчика укажите текущее значение"
+        },
+        {
+            id: 1,
+            type: 'weterMeter',
+            title: "Отправить",
+            description: "Нажмите кнопку"
+        },
+        {
+            id: 2,
+            type: 'weterMeter',
+            title: "Проверте данные",
+            description: "Проверте введённые данные и оптравте показания"
+        },
+    ]

@@ -1,4 +1,5 @@
-.water-meter-slide {
+.water-meter-slide,
+.meter-history_slide {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -49,7 +50,7 @@
     font-size: 1.5em;
 }
 
-.water-meter_header {
+.water-meter_header{
     display: flex;
     gap: 5%;
     flex-direction: row;
@@ -58,7 +59,8 @@
     padding: 2% 3% 2% 3%;
 }
 
-.water-meter_header img {
+.water-meter_header img,
+.meter-history_header img {
     height: 25px;
     margin-right: 5%;
     cursor: pointer;
@@ -139,4 +141,33 @@
     padding: 2%;
     background-color: var(--green-color);
     box-shadow: 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.meter-history_header {
+    display: grid;
+    grid-template-columns: 5% auto;
+    grid-template-rows: auto auto;
+    gap: 5%;
+    align-items: center;
+    border-radius: var(--border-radius);
+    padding: 2% 3% 2% 3%;
+}
+
+.meter-history_header img {
+    grid-row: 1 / 3;
+}
+
+.meter-history_header_title {
+    font-family: 'dindisplay_bold';
+    font-size: 1.5em;
+}
+
+.meter-history_history-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid #d2d7da
+}
+
+.meter-history_history-item_value {
+    font-family: 'dindisplay_bold';
 }

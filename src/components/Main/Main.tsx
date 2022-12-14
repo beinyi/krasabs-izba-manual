@@ -5,6 +5,7 @@ import Home from "./Sliders/Home"
 import Pay from "./Sliders/Pay/Pay";
 import Services from "./Sliders/Services/Services";
 import NewRequest from "./Sliders/NewRequest";
+import WaterMeter from "./Sliders/Meter/WaterMeter";
 
 export type props = {               // Тип и номер для активации кнопки, функция для перехода на следующий шаг
     activation: TButton,
@@ -41,9 +42,9 @@ const Main = ({ activation, onNextStep }: props) => {
         <Pay activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader} />,        // Оплата 2
         <div></div>,                                                                                          // Новости 3
         <div></div>,                                                                                          // Меню 4
-        <div></div>,                                                                                          // Счетчики водоснабжения 5
+        <WaterMeter activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader} />,                                                                                          // Счетчики водоснабжения 5
         <div></div>,                                                                                          // Счетчики электроснабжения 6
-        <NewRequest activation={activation} onNextStep={onNextStep} />,                                        // Новая заявка 7
+        <NewRequest activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader} />, // Новая заявка 7
 
     ];
 

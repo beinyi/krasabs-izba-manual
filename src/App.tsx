@@ -9,10 +9,12 @@ import transactionMap from "@guide-maps//transactionMap";
 import accrualsMap from "@guide-maps/accrualsMap";
 import callMap, { callCredits } from "@guide-maps/callMap";
 import checkOrderMap from "@guide-maps/checkOrderMap";
-import NewRequest from "@components/Main/Sliders/NewRequest";
 import { navButtons } from "@components/Main/buttons";
 import requestMap from "@guide-maps/requestMap";
-import WaterMeter from "@components/Main/Sliders/WaterMeter";
+import WaterMeter from "@components/Main/Sliders/Meter/WaterMeter";
+import { MeterHistory } from "@components/Main/Sliders/Meter/MeterHistory";
+import sendMeterMap from "@guide-maps/sendMeterMap";
+
 
 
 function App() {
@@ -27,8 +29,10 @@ function App() {
         <Route path={"/call_to_mc"} element={<Guide guideMap={callMap} credits={callCredits} />} />
         <Route path={"/check_order"} element={<Guide guideMap={checkOrderMap} />} />
         <Route path={"/make_request"} element={<Guide guideMap={requestMap} />} />
+        <Route path={"/send_meter"} element={<Guide guideMap={sendMeterMap} />} />
 
-        <Route path="/dev" element={<WaterMeter activation={navButtons[0]} onNextStep={() => {}} />} />
+
+        <Route path="/dev" element={<WaterMeter />} />
 
       </Routes>
     </div>
