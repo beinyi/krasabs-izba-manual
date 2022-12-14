@@ -6,7 +6,7 @@ import "@styles/Request.css"
 type RequestProps = props
 
 
-const NewRequest = ({ activation, onNextStep }: RequestProps) => {
+const NewRequest = ({ activation, onNextStep, setIsViewMainHeader }: RequestProps) => {
     const [nameInput, setNameInput] = useState<string>("Имя...");
     const [numberInput, setNumberInput] = useState<string>("Телефон...");
     const [commentInput, setCommentInput] = useState<string>("Опишите проблему");
@@ -34,6 +34,9 @@ const NewRequest = ({ activation, onNextStep }: RequestProps) => {
         }
     }, [nameInput, numberInput])
 
+    useEffect(() => {
+        setIsViewMainHeader && setIsViewMainHeader(false);
+    }, [])
 
 
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement> |
