@@ -20,6 +20,6 @@ module.exports = merge(common, {
     output: {
         filename: '[name].[contenthash].js',
         path: path.join(__dirname, 'dist'),
-        publicPath: "/infohelpmobile/",
+        publicPath: "/infohelpmobile",
     },
 });
