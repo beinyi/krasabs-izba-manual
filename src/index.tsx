@@ -13,9 +13,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename={
-      process.env.NODE_ENV == 'production' ? "/infohelpmobile" : ""
-    }>
+    <BrowserRouter basename="/infohelpmobile">
       <App />
     </BrowserRouter>
   </React.StrictMode>

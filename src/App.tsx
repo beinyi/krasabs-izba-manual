@@ -28,10 +28,6 @@ function App() {
         <Route path={"/check_order"} element={<Guide guideMap={checkOrderMap} />} />
         <Route path={"/make_request"} element={<Guide guideMap={requestMap} />} />
         <Route path={"/send_meter"} element={<Guide guideMap={sendMeterMap} />} />
-
-
-        <Route path="/dev" element={<WaterMeter />} />
-
       </Routes>
     </div>
   );
