@@ -1,5 +1,4 @@
 import { descriptionPositions } from "@components/Guide";
-import React, { ComponentElement } from "react";
 
 export type buttonTypes =
     'infoMenu' | 'slideAct' | 'slideMeter' |
@@ -309,7 +308,6 @@ export const ordersButton: Array<TButton> = [
 
 
 ]
-
 
 export const requestButton: Array<TButton> = [
     {

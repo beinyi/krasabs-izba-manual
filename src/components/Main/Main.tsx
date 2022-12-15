@@ -42,7 +42,7 @@ const Main = ({ activation, onNextStep }: props) => {
         <Pay activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader} />,        // Оплата 2
         <div></div>,                                                                                          // Новости 3
         <div></div>,                                                                                          // Меню 4
-        <WaterMeter activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader} />,                                                                                          // Счетчики водоснабжения 5
+        <WaterMeter activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader} />, // Счетчики электроснабжения 5                                                                                      // Счетчики водоснабжения 5
         <div></div>,                                                                                          // Счетчики электроснабжения 6
         <NewRequest activation={activation} onNextStep={onNextStep} setIsViewMainHeader={setIsViewHeader} />, // Новая заявка 7
 

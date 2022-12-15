@@ -1,8 +1,8 @@
 import { props } from "@components/Main/Main";
 import "@styles/WaterMeter.css"
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MeterHistory } from "./MeterHistory";
-import { meterButtons, waterMeterВuttons } from "@components/Main/buttons";
+import { waterMeterВuttons } from "@components/Main/buttons";
 import { goToMe } from "@components/Main/Main";
 
 type WaterMeterProps = props

@@ -8,12 +8,14 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-process.env.NODE_ENV !== 'production' &&
-  console.log('DevMode/NonProduction');
+
+
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/infohelpmobile">
+    <BrowserRouter basename={
+      process.env.NODE_ENV == 'production' ? "/infohelpmobile" : ""
+    }>
       <App />
     </BrowserRouter>
   </React.StrictMode>

@@ -9,10 +9,8 @@ import transactionMap from "@guide-maps//transactionMap";
 import accrualsMap from "@guide-maps/accrualsMap";
 import callMap, { callCredits } from "@guide-maps/callMap";
 import checkOrderMap from "@guide-maps/checkOrderMap";
-import { navButtons } from "@components/Main/buttons";
 import requestMap from "@guide-maps/requestMap";
 import WaterMeter from "@components/Main/Sliders/Meter/WaterMeter";
-import { MeterHistory } from "@components/Main/Sliders/Meter/MeterHistory";
 import sendMeterMap from "@guide-maps/sendMeterMap";
 
 
