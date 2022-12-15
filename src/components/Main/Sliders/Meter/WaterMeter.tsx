@@ -9,10 +9,8 @@ type WaterMeterProps = props
 
 const WaterMeter = ({ activation, onNextStep, setIsViewMainHeader }: WaterMeterProps) => {
     const [currentValueCold, setCurrentValueCold] = useState<number>();
-    const [prevValue, setPrevValue] = useState<number>(
-        parseFloat((Math.random() * (530 - 500) + 500).toFixed(3)));
-    const [diff, setDiff] = useState<number>(
-        parseFloat((Math.random() * (15 - 10) + 10).toFixed(3)))
+    const [prevValue, setPrevValue] = useState<number>((Math.random() * (530 - 500) + 500));
+    const [diff, setDiff] = useState<number>(Math.random() * (15 - 10) + 10);
 
     const [isViewHistory, setisViewHistory] = useState<boolean>(false);
     const [isViewWarning, setIsViewWarning] = useState<boolean>(false);
@@ -44,22 +42,24 @@ const WaterMeter = ({ activation, onNextStep, setIsViewMainHeader }: WaterMeterP
 
             <div className="water-meter_item_body">
                 <span>Предыдущее показание (м3)</span>
-                <span className="water-meter_item_value">{`000${prevValue}`}</span>
+                <span className="water-meter_item_value">{`000${prevValue.toFixed(3)}`}</span>
                 <span>Текущие показания</span>
                 <div className="water-meter_item_input"
                     id={goToMe(activation, waterMeterВuttons[0]) && setCurrentValue ? "buttonGoToMe" : ""}
                     onClick={() => goToMe(activation, waterMeterВuttons[0]) &&
-                        setCurrentValue && setCurrentValue(prevValue + diff)}>
-                    {currentValue ?? "000000.000"}
+                        setCurrentValue && (setCurrentValue(prevValue + diff), onNextStep())}>
+                    {currentValue ? currentValue.toFixed(3) : "000000.000"}
                 </div>
                 <span>Расход</span>
-                <span className="water-meter_item_value">{currentValue ? `0000${diff}` : "000000.000"}</span>
+                <span className="water-meter_item_value">{currentValue ? `0000${diff.toFixed(3)}` : "000000.000"}</span>
                 <span className="water-meter_item_history"
-                    onClick={() => setisViewHistory(true)}>История</span>
+                    id={goToMe(waterMeterВuttons[3], activation) && setCurrentValue ? "textGoToMe" : ""}
+                    onClick={() => goToMe(waterMeterВuttons[3], activation) && setCurrentValue &&
+                        (setisViewHistory(true), onNextStep())}>История</span>
                 <div className="water-meter_item_send-button"
                     id={goToMe(activation, waterMeterВuttons[1]) && setCurrentValue ? "greenButtonGoToMe" : ""}
                     onClick={() => goToMe(activation, waterMeterВuttons[1]) &&
-                        setCurrentValue && setIsViewWarning(true)}>Отправить</div>
+                        setCurrentValue && (setIsViewWarning(true), onNextStep())}>Отправить</div>
             </div>
             <div style={{
                 paddingTop: "5%",
@@ -96,11 +96,13 @@ const WaterMeter = ({ activation, onNextStep, setIsViewMainHeader }: WaterMeterP
                                         ОТМЕНА
                                     </div>
                                     <div className="water-meter_warning_button"
-                                        onClick={() => {
-                                            setPrevValue(prevValue + diff);
-                                            setCurrentValueCold(undefined);
-                                            setIsViewWarning(false)
-                                        }}>
+                                    id={goToMe(waterMeterВuttons[2], activation) ? "textGoToMe" : ""}
+                                        onClick={() => goToMe(waterMeterВuttons[2], activation) && (
+                                            setPrevValue(prevValue + diff),
+                                            setCurrentValueCold(undefined),
+                                            setIsViewWarning(false),
+                                            onNextStep()
+                                        )}>
                                         ОТПРАВИТЬ
                                     </div>
                                 </div>

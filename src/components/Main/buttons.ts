@@ -57,7 +57,8 @@ export const meterButtons: Array<TButton> = [
         id: 0,
         type: 'slideMeter',
         title: "Водоснабжение",
-        icon: "ic_water.svg"
+        icon: "ic_water.svg",
+        description: "В данном разделе можно выбрать необходимую категорию счётчиков. Для примера рассмотрим счётчики водоснабжения"
     },
     {
         id: 1,
@@ -354,18 +355,24 @@ export const waterMeterВuttons: Array<TButton> =
             id: 0,
             type: 'weterMeter',
             title: "Текущие показания",
-            description: "Для передачи показаний счетчика укажите текущее значение"
+            description: "Для передачи показаний счетчика укажите текущие показания"
         },
         {
             id: 1,
             type: 'weterMeter',
             title: "Отправить",
-            description: "Нажмите кнопку"
+            description: "Отправьте показания для данного счётчика"
         },
         {
             id: 2,
             type: 'weterMeter',
             title: "Проверте данные",
-            description: "Проверте введённые данные и оптравте показания"
+            description: "Подтвердите корректность введённых показаний. Если нужно изменить данные нажмите кнопку \"Отмена\""
+        },
+        {
+            id: 3,
+            type: 'weterMeter',
+            title: "История",
+            description: "Историю показаний по счётчику можно посмотреть, пройдя в соответствующий раздел"
         },
     ]

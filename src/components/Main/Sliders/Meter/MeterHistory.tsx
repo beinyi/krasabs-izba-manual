@@ -12,14 +12,14 @@ export const MeterHistory = ({ testimony, diff }: MeterHistoryProps) => {
     const monthsAndYears: Array<string> = getMonthsAndYears();
 
     const HistoryItem = (monthAndYear: string, i: number) => {
+        testimony -= diff;
         i != 0 &&
-        (diff = parseFloat((Math.random() * (15 - 7) + 7).toFixed(3)));
-        testimony = parseFloat((testimony - diff).toFixed(3));
+        (diff = (Math.random() * (15 - 7) + 7));
 
         return (<div className="meter-history_history-item" key={i}>
             <span>{monthAndYear}</span>
-            <span className="meter-history_history-item_value">{testimony}</span>
-            <span className="meter-history_history-item_value">разн. {diff}</span>
+            <span className="meter-history_history-item_value">{testimony.toFixed(3)}</span>
+            <span className="meter-history_history-item_value">разн. {diff.toFixed(3)}</span>
         </div>)
         
     }

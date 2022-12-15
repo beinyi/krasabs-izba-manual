@@ -4,6 +4,8 @@ const sendMeterMap: Array<TButton> = [   //Шаги для выделения и
     meterButtons[0],
     waterMeterВuttons[0],
     waterMeterВuttons[1],
+    waterMeterВuttons[2],
+    waterMeterВuttons[3],
 ]
 
 
