@@ -3,22 +3,22 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 
     entry: './src/index.tsx',
-    output: {
-        filename: "[name].js",
-        path: path.join(__dirname, 'dist'),
-        publicPath: "/infohelpmobile/",                             
-    },
+
 
     plugins: [
         new HTMLWebpackPlugin({
             template: "./public/index.html",
             favicon: "./public/favicon.ico"
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css'
+        })
     ],
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -46,7 +46,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    { loader: 'style-loader' },
+                    MiniCssExtractPlugin.loader,
                     { loader: 'css-loader' }
                 ],
             },

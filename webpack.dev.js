@@ -15,5 +15,11 @@ module.exports = merge(common, {
         historyApiFallback: {
                 index: '/infohelpmobile/index.html',
         }
-    }
+    },
+
+    output: {
+        filename: "[name].js",
+        path: path.join(__dirname, 'dist'),
+        publicPath: "/infohelpmobile/",                             
+    },
 });
