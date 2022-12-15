@@ -9,7 +9,12 @@ module.exports = {
 
     entry: './src/index.tsx',
 
-
+    output: {
+        filename: '[name].[contenthash].js',
+        path: path.join(__dirname, 'dist'),
+        publicPath: "/infohelpmobile",
+    },
+    
     plugins: [
         new HTMLWebpackPlugin({
             template: "./public/index.html",
@@ -62,14 +67,14 @@ module.exports = {
                 test: /\.(jpg|jpeg|png|svg|ico)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'assets/img/[name][ext]'
+                    filename: './assets/img/[name][ext]'
                 }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'assets/fonts/[name][ext]'
+                    filename: './assets/fonts/[name][ext]'
                 }
             },
 

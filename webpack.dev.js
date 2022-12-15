@@ -10,13 +10,10 @@ module.exports = merge(common, {
             directory: path.join(__dirname, 'dist'),
         },
         port: 3000,
-        open: true,
+        open: ['http://localhost:3000/infohelpmobile'],
         hot: true,
-        historyApiFallback: true,
-    },
-
-    output: {
-        filename: "[name].js",
-        path: path.join(__dirname, 'dist'),                         
+        historyApiFallback: {
+                index: '/infohelpmobile/index.html',
+        }
     },
 });

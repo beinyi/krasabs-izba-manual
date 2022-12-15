@@ -16,10 +16,5 @@ module.exports = merge(common, {
         },
         minimize: true,
         minimizer: [new TerserPlugin()],
-    },
-    output: {
-        filename: '[name].[contenthash].js',
-        path: path.join(__dirname, 'dist'),
-        publicPath: "/infohelpmobile",
-    },
+    }
 });

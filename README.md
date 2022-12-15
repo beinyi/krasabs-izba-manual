@@ -10,7 +10,7 @@
 
 Будет запущен webpack-dev-server с конфигурацией webpack.dev.js
 
-http://localhost:3000/
+http://localhost:3000/infohelpmobile
 
 ### 3. Запуск сервера:
 
@@ -19,7 +19,7 @@ http://localhost:3000/
 Будет запущен webpack server с конфигурацией webpack.dev.js
 
 Доступ на
-http://localhost:8080/
+http://localhost:8080/infohelpmobile
 
 ### `npm run test-prod`
 
@@ -49,7 +49,7 @@ http://localhost:8080/infohelpmobile
 
 ### 5. Смена адреса для prod:
 
-В **webpack.prod.js** изменить:
+В **webpack.common.js** изменить:
 ```
 output: {
 	...
@@ -60,7 +60,10 @@ output: {
 
 В **index.tsx** изменить:
 ```
-<BrowserRouter  basename={
-    process.env.NODE_ENV ==  'production'  ?  "/new_path"  :  ""
-}>
+<BrowserRouter  basename="/new_path">
+```
+
+В **/public/index.html** изменить:
+```
+<base href="/new_path">
 ```
