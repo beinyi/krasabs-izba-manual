@@ -5,20 +5,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
-    mode: "development",
-
-    devtool: 'source-map',
-    devServer: {
-        static: {
-            directory: path.join(__dirname, 'dist'),
-        },
-        port: 3000,
-        open: ['http://localhost:3000/infohelpmobile'],
-        hot: true,
-        historyApiFallback: {
-                index: '/infohelpmobile/index.html',
-        }
-    },
 
     entry: './src/index.tsx',
     output: {
@@ -40,8 +26,6 @@ module.exports = {
             new TsconfigPathsPlugin(),
         ]
     },
-
-
 
     module: {
         rules: [
