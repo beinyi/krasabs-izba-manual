@@ -39,6 +39,7 @@ http://localhost:8080/infohelpmobile
 Билд с конфигурацией webpack.prod.js
 
 Доступ на /infohelpmobile
+
 Билд в папке **dist**
 
 ### 5. Смена адреса для prod:
