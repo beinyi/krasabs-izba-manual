@@ -34,18 +34,12 @@ http://localhost:8080/infohelpmobile
 
 Билд с конфигурацией webpack.dev.js
 
-Доступ из корня сервера
-
-
 ### `npm run build-prod`
 
 Билд с конфигурацией webpack.prod.js
 
 Доступ на /infohelpmobile
-
-
 Билд в папке **dist**
-
 
 ### 5. Смена адреса для prod:
 
