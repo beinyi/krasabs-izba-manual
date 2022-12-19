@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "@styles/Menu.css";
 
 declare global {
@@ -11,7 +10,12 @@ declare global {
   }
 }
 export const FullScreenButton = () => {
-  const [fullScreen, setFullScreen] = useState(false);
+  const [fullScreen, setFullScreen] = useState<boolean>
+  ((sessionStorage.getItem('fullScreen') === 'true') ?? false);
+
+  useEffect(() => {
+    sessionStorage.setItem('fullScreen', fullScreen.toString())
+  }, [fullScreen])
 
   function openFullscreen() {
     var docElm = document.documentElement;
