@@ -46,6 +46,10 @@ body {
         max-width: 450px;
         min-width: 400px;
     }
+
+    .menu_fullscreen-button {
+        visibility: hidden;
+    }
 }
 
 @media only screen and (max-width: 810px) {

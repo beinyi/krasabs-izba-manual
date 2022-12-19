@@ -1,14 +1,18 @@
 import { NavLink } from "react-router-dom";
 import { menuGroup, menuGroups, menuItem, menuItems } from "./menuItems";
 import "@styles/Menu.css"
-import ic_logo from "../../img/ic_logo.svg"
+import { FullScreenButton } from "./FullScreenButton";
 
 
 
 const Menu = () => {
     return (
         <div className="menu">
-            <h1>Помощь</h1>
+            <div className="menu_header">
+                <h1>Помощь</h1>
+                <FullScreenButton />
+            </div>
+
             {
                 menuGroups.map((group: menuGroup) => {  // Рендер заголовка группы
                     return (
@@ -25,7 +29,7 @@ const Menu = () => {
                     )
                 })
             }
-            <img className="menu_logo" src={ic_logo} alt="Лого" />
+            <img className="menu_logo" src={require("@img/ic_logo.svg")} alt="Лого" />
         </div>
     )
 }
