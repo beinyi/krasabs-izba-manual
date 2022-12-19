@@ -16,7 +16,7 @@ const Pay = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
 
     return (
         isViewTransaction ?
-            <Transaction activation={activation} onNextStep={onNextStep} onClose={onTransaction} />
+            <Transaction activation={activation} onNextStep={onNextStep} />
             :
             <div className="pay-slide">
                 <div className="pay-slide_header">

@@ -10,7 +10,6 @@ import accrualsMap from "@guide-maps/accrualsMap";
 import callMap, { callCredits } from "@guide-maps/callMap";
 import checkOrderMap from "@guide-maps/checkOrderMap";
 import requestMap from "@guide-maps/requestMap";
-import WaterMeter from "@components/Main/Sliders/Meter/WaterMeter";
 import sendMeterMap from "@guide-maps/sendMeterMap";
 
 

@@ -6,15 +6,14 @@ import OrdersItem from "./OrdersItem";
 import { plumbingServices } from "./ServicesList";
 
 
-const Orders = ({ activation, onClose, onNextStep }: props) => {
+const Orders = ({ activation, onNextStep }: props) => {
     const [selectedButton, setSelectedButton] = useState<'ordered' | 'archive'>('ordered')
 
     return (
         <div>
             <div className="orders_header">
                 <div className="orders_header_title">
-                    <img src={require(`../../../../img/ic_arrow_l.svg`)}
-                        onClick={() => onClose ? onClose() : {}} />
+                    <img src={require(`../../../../img/ic_arrow_l.svg`)} />
                     <span>Мои заказы</span>
                 </div>
                 <div className="orders_header_button-wrapper">

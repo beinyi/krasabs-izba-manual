@@ -17,7 +17,7 @@ export function getMonthsAndYears() {   // возвращает массив с�
     return arr;
 }
 
-const Transaction = ({ activation, onNextStep, onClose }: props) => {
+const Transaction = ({ activation, onNextStep }: props) => {
 
     const [isViewPayment, setIsViewPayment] = useState<boolean>(true);
     const [isViewAccrual, setIsViewAccrual] = useState<boolean>(true);
@@ -49,15 +49,13 @@ const Transaction = ({ activation, onNextStep, onClose }: props) => {
 
     return (
         accrualCarousel.isView ?
-            <Accrual activation={activation} onNextStep={onNextStep} monthId={accrualCarousel.monthId}
-                onClose={() => setAccrualCarousel({ isView: false, monthId: 0 })} />
+            <Accrual activation={activation} onNextStep={onNextStep} monthId={accrualCarousel.monthId} />
             :
 
             <div>
                 <div className="transaction_header">
                     <div className="transaction_header_title">
-                        <img src={require(`../../../../img/ic_arrow_l.svg`)}
-                            onClick={() => onClose ? onClose() : {}} />
+                        <img src={require(`../../../../img/ic_arrow_l.svg`)} />
                         <span>История операций</span>
                     </div>
                     <div id={goToMe(transactionButtons[0], activation) ? "buttonGoToMe" : ""}

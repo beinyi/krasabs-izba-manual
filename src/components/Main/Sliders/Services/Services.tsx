@@ -50,19 +50,17 @@ const Services = ({ activation, onNextStep, setIsViewMainHeader }: props) => {
     return (
         isViewBasket ?
             <Basket activation={activation}
-                contents={basketContents} setContents={setBasketContents}
-                onClose={onBasket} onNextStep={onNextStep} />
+                contents={basketContents} setContents={setBasketContents} onNextStep={onNextStep} />
             :
             isViewOrders ?
                 <Orders activation={activation}
-                    onClose={onOrders} onNextStep={onNextStep} />
+                     onNextStep={onNextStep} />
                 :
                 <div>
                     {viewServicesList.isView ?                                              // Заголовок -- либо главный, либо заголовок листа услуг
                         <div className="service_list-header">
                             <div className="service_list-header_button">
-                                <img src={require(`../../../../img/ic_arrow_l.svg`)}
-                                    onClick={() => onServices(null)} />
+                                <img src={require(`../../../../img/ic_arrow_l.svg`)} />
                                 <span>{viewServicesList.title}</span>
                             </div>
                         </div>

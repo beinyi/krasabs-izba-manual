@@ -58,8 +58,7 @@ const NewRequest = ({ activation, onNextStep, setIsViewMainHeader }: RequestProp
 
     return (<div>
         <div className="request_header_title">
-            <img src={require('@img/ic_arrow_l.svg')}
-                onClick={() => { }} />
+            <img src={require('@img/ic_arrow_l.svg')} />
             <span>Новая заявка</span>
         </div>
 

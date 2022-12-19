@@ -9,7 +9,7 @@ type basketProps = props & {
     setContents(contents: Array<TService>): void,
 }
 
-const Basket = ({ activation, contents, setContents, onClose, onNextStep }: basketProps) => {
+const Basket = ({ activation, contents, setContents, onNextStep }: basketProps) => {
 
     const [nameInput, setNameInput] = useState<string>("Имя...");
     const [numberInput, setNumberInput] = useState<string>("Телефон...");
@@ -66,7 +66,7 @@ const Basket = ({ activation, contents, setContents, onClose, onNextStep }: bask
         <div className="basket-slide">
             <div className="basket-slide_header">
                 <span>В корзине {contents.length} услуги на {amount()} руб.</span>
-                <img onClick={() => { onClose ? onClose() : {}; onNextStep(false); }} src={require('@img/ic_close.svg')} />
+                <img src={require('@img/ic_close.svg')} />
             </div>
 
             <div className="basket-slide_data-wrapper">

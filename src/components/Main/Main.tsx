@@ -10,7 +10,6 @@ import WaterMeter from "./Sliders/Meter/WaterMeter";
 export type props = {               // Тип и номер для активации кнопки, функция для перехода на следующий шаг
     activation: TButton,
     onNextStep(forward?: boolean, timeout?: boolean): void,
-    onClose?(): void,
     setIsViewMainHeader?(view: boolean): void
 }
 

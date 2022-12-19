@@ -7,10 +7,9 @@ import { getMonthsAndYears } from './Transaction';
 
 type AccrualProps = props & {
     monthId: number,
-    onClose(): void,
 }
 
-const Accrual = ({ activation, onNextStep, monthId, onClose }: AccrualProps) => {
+const Accrual = ({ activation, onNextStep, monthId }: AccrualProps) => {
     const [selectedMonth, setSelectedMonth] = useState<number>(monthId);
     const [touchStartX, setTouchStartX] = useState<number>(0);
 
@@ -80,8 +79,7 @@ const Accrual = ({ activation, onNextStep, monthId, onClose }: AccrualProps) => 
                     <img src={require('@img/ic_share.svg')} />
                 </div>
                 <h2>Начисления</h2>
-                <img src={require('@img/ic_close_pd.svg')}
-                    onClick={() => onClose()} />
+                <img src={require('@img/ic_close_pd.svg')} />
             </div>
 
             <div className="accrual-slide_carousel"
