@@ -4,7 +4,7 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
     mode: 'development',
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     devServer: {
         static: {
             directory: path.join(__dirname, 'dist'),
@@ -15,5 +15,17 @@ module.exports = merge(common, {
         historyApiFallback: {
                 index: '/infohelpmobile/index.html',
         }
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: 'style-loader'},
+                    { loader: 'css-loader' }
+                ],
+            },
+        ]
     },
 });

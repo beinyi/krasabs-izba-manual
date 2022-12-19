@@ -3,7 +3,6 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 
@@ -21,9 +20,6 @@ module.exports = {
             favicon: "./public/favicon.ico"
         }),
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css'
-        })
     ],
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -47,21 +43,6 @@ module.exports = {
                         ],
                     }
                 }
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    { loader: 'css-loader' }
-                ],
-            },
-            {
-                test: /\.less$/,
-                use: [
-                    "style-loader",
-                    "css-loader",
-                    "less-loader",
-                ]
             },
             {
                 test: /\.(jpg|jpeg|png|svg|ico)$/,
