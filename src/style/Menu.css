@@ -25,20 +25,36 @@
     font-size: 1.25em;
 }
 
-h1, h2 {
+.menu h1, h2 {
     font-weight: normal;
     padding: 2%;
 }
 
-h1 {
+.menu_header h1 {
     font-family: dindisplay_thin, sans-serif;
     font-size: 2.5em;
 }
 
-h2 {
+.menu_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu_fullscreen-button {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+
+.menu_fullscreen-button img {
+height: 30px;
+}
+
+.menu h2 {
     font-size: 1.75em;
 }
 
 .menu_logo {
     height: 50%;
 }
+
